@@ -97,3 +97,33 @@
 // }
 //
 // console.log(getPerfect(1, 100000))
+
+//задача 3
+
+//Сделайте функцию  которая будет принимать параметром целое число и находить все делители этого числа, являющиеся простыми числами.
+
+// function getDivisor(num) {
+// 	let res = [];
+// 	for (let i = 1; i <= num; i++){
+// 		if (num % i == 0){
+// 			res.push(i)
+// 		}
+// 	}
+// 	return res
+// }
+
+// console.log(getDivisor(100))
+
+// function getSimpleDivisors(num) {
+// 	let result = [];
+// 	let res = getDivisor(num);
+// 	for (let elem of res){
+// 		if (elem % 2 !== 0 ){
+// 			result.push(elem)
+// 		}
+// 	}
+// 	return result;
+// }
+//
+// console.log(getSimpleDivisors(1000))
+
