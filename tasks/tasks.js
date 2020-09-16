@@ -13,119 +13,115 @@
 
 
 //Реализуем  функцию getOwnDivisors - массив делителей
-// function getOwnDivisors(num) {
-//     let res = [];
-//     for (let i = 1; i < num; i++) {
-//         if (num % i == 0) {
-//             res.push(i)
-//         }
-//     }
-//     return res
-// }
+function getOwnDivisors(num) {
+    let res = [];
+    for (let i = 1; i < num; i++) {
+        if (num % i == 0) {
+            res.push(i)
+        }
+    }
+    return res
+}
 
 //Реализуем функцию getSum. Которая вернет сумму делителей
 
-// function getSum(arr) {
-//     let res = 0;
-//     for (let elem of arr) {
-//         res += elem
-//     }
-//     return res;
-// }
+function getSum(arr) {
+    let res = 0;
+    for (let elem of arr) {
+        res += elem
+    }
+    return res;
+}
 
 //Реализуем функцию сравнения чисел
-// function isFreindly(num1, num2) {
-//     let sum1 = (getSum(getOwnDivisors(num1))),
-//         sum2 = (getSum(getOwnDivisors(num2)));
-//
-//     return sum1 === num2 && sum2 === num1
-// }
+function isFreindly(num1, num2) {
+    let sum1 = (getSum(getOwnDivisors(num1))),
+        sum2 = (getSum(getOwnDivisors(num2)));
 
-// Реализуем поиск чисел дружественных делителей в нужном диапазоне(при запуске функции на больших числах - более 2000,
-// значительная нагрузка на процессор - длительное ожидание результата)
-// function getFreindly(min, max) {
-//     let res = [];
-//     for (let i = min; i <= max; i++) {
-//         for (let j = i + 1; j <= max; j++) {
-//             if (isFreindly(i, j)) {
-//                 console.log(i, j)
-//                 res.push([i, j])
-//             }
-//         }
-//     }
-//     return res;
-// }
-//
-//
-// console.log(getFreindly(1, 1000))
+    return sum1 === num2 && sum2 === num1
+}
+
+//Реализуем поиск чисел дружественных делителей в нужном диапазоне
+function getFreindly(min, max) {
+    let res = [];
+    for (let i = min; i <= max; i++) {
+        for (let j = i + 1; j <= max; j++) {
+            if (isFreindly(i, j)) {
+                console.log(i, j)
+                res.push([i, j])
+            }
+        }
+    }
+    return res;
+}
 
 
-// console.log(isFreindly(220, 284))
+console.log(getFreindly(1, 1000))
+console.log(isFreindly(220, 284))
 
 
 //задача 2
 
 //Совершенное число - целое число, равное сумме всех своих собственных делителей (то есть всех положительных делителей, отличных от самого числа). Сделайте функцию которая будет находить совершенные числа в заданном диапазоне. Проверьте работу функции в промежутке от 1 до 1000.
 
-// function getOwnDivisor(num) {
-// 	let res = [];
-// 	for (let i = 1; i < num; i++){
-// 		if (num % i == 0){
-// 			res.push(i)
-// 		}
-// 	}
-// 	return res;
-// }
+function getOwnDivisor(num) {
+	let res = [];
+	for (let i = 1; i < num; i++){
+		if (num % i == 0){
+			res.push(i)
+		}
+	}
+	return res;
+}
 
-// function getSum(arr) {
-// 	let res = 0;
-// 	for (let elem of arr){
-// 		res += elem;
-// 	}
-// 	return res
-// }
+function getSum(arr) {
+	let res = 0;
+	for (let elem of arr){
+		res += elem;
+	}
+	return res
+}
 
-// function getPerfect(min, max) {
-// 	let resPerfectNumber = []
-// 	for (let i = min; i < max; i++){
-// 		let findNum = getSum(getOwnDivisor(i))
-// 		if (findNum === i){
-// 			resPerfectNumber.push(i)
-// 		}
-// 	}
-// 	return resPerfectNumber;
-// }
-//
-// console.log(getPerfect(1, 100000))
+function getPerfect(min, max) {
+	let resPerfectNumber = []
+	for (let i = min; i < max; i++){
+		let findNum = getSum(getOwnDivisor(i))
+		if (findNum === i){
+			resPerfectNumber.push(i)
+		}
+	}
+	return resPerfectNumber;
+}
+
+console.log(getPerfect(1, 100000))
 
 //задача 3
 
 //Сделайте функцию  которая будет принимать параметром целое число и находить все делители этого числа, являющиеся простыми числами.
 
-// function getDivisor(num) {
-// 	let res = [];
-// 	for (let i = 1; i <= num; i++){
-// 		if (num % i == 0){
-// 			res.push(i)
-// 		}
-// 	}
-// 	return res
-// }
+function getDivisor(num) {
+	let res = [];
+	for (let i = 1; i <= num; i++){
+		if (num % i == 0){
+			res.push(i)
+		}
+	}
+	return res
+}
 
-// console.log(getDivisor(100))
 
-// function getSimpleDivisors(num) {
-// 	let result = [];
-// 	let res = getDivisor(num);
-// 	for (let elem of res){
-// 		if (elem % 2 !== 0 ){
-// 			result.push(elem)
-// 		}
-// 	}
-// 	return result;
-// }
-//
-// console.log(getSimpleDivisors(1000))
+function getSimpleDivisors(num) {
+	let result = [];
+	let res = getDivisor(num);
+	for (let elem of res){
+		if (elem % 2 !== 0 ){
+			result.push(elem)
+		}
+	}
+	return result;
+}
+
+console.log(getSimpleDivisors(1000))
 
 //задача 4
 
@@ -133,57 +129,57 @@
 //
 // Пусть пересечение возвращается в виде массива, состоящего из общих элементов.
 
-// function getInt(arr1, arr2) {
-// 	let res = [];
-// 	for (let el of arr1){
-// 		if(inArray(el, arr2)){
-// 			res.push(el)
-// 		}
-// 	}
-// 	return res
-// }
-//
-// function inArray(elem, arr) {
-// 	return arr.indexOf(elem) !== -1
-// }
-//
-// let arr1 = [1, 2, 3];
-// let arr2 = [2, 3, 4, 5];
-//
-// console.log(getInt(arr1, arr2))
+function getInt(arr1, arr2) {
+	let res = [];
+	for (let el of arr1){
+		if(inArray(el, arr2)){
+			res.push(el)
+		}
+	}
+	return res
+}
+
+function inArray(elem, arr) {
+	return arr.indexOf(elem) !== -1
+}
+
+let arr1 = [1, 2, 3];
+let arr2 = [2, 3, 4, 5];
+
+console.log(getInt(arr1, arr2))
 
 //задача 5
 
 //Разность массивов на JavaScript
 
-// let a1 = [1, 2, 3];
-// let a2 = [2, 3, 4, 5];
-//
-// function getElem(arr1, arr2) {
-// 	let res = [];
-// 	for (let elem of arr1){
-// 		if (!inArray(elem, arr2)){
-// 			res.push(elem)
-// 		}
-// 	}
-// 	return res;
-// }
+let a1 = [1, 2, 3];
+let a2 = [2, 3, 4, 5];
 
-// function getDiff(arr1, arr2) {
-// 	let result = [];
-//
-// 	let diff1 = (getElem(arr1, arr2))
-// 	let diff2 = (getElem(arr2, arr1))
-//
-// 	return result.concat(diff1, diff2)
-//
-// }
-//
-// function inArray(elem, arr) {
-// 	return arr.indexOf(elem) !== -1
-// }
-//
-// console.log(getDiff(a1, a2))
+function getElem(arr1, arr2) {
+	let res = [];
+	for (let elem of arr1){
+		if (!inArray(elem, arr2)){
+			res.push(elem)
+		}
+	}
+	return res;
+}
+
+function getDiff(arr1, arr2) {
+	let result = [];
+
+	let diff1 = (getElem(arr1, arr2))
+	let diff2 = (getElem(arr2, arr1))
+
+	return result.concat(diff1, diff2)
+
+}
+
+function inArray(elem, arr) {
+	return arr.indexOf(elem) !== -1
+}
+
+console.log(getDiff(a1, a2))
 
 //задача 6
 
@@ -195,43 +191,93 @@
 //3  сравниваем массивы делителей
 //4  находим наибольший делитель
 
-// function getDivisor(num) {
-//     let res = [];
-//
-//     for (let i = 1; i <= num; i++){
-//         if (num % i == 0){
-//             res.push(i)
-//         }
-//     }
-//     return res
-// }
-//
-// function getElemArr(arr1, arr2) {
-//     let res = [];
-//
-//     for (let elem of arr1){
-//         if (inArray(elem, arr2)){
-//             res.push(elem)
-//         }
-//     }
-//     return res
-// }
-//
-// function maxDivisor(arr) {
-//     return Math.max.apply(null, arr)
-// }
-//
-//
-// function inArray(elem, arr) {
-//     return arr.indexOf(elem) !== -1
-// }
-//
-// function getGreatTestCommonDivisor(num1, num2) {
-//     let resNum1 = getDivisor(num1),
-//         resNum2 = getDivisor(num2),
-//         result = maxDivisor(getElemArr(resNum1, resNum2));
-//
-//     return result
-// }
-//
-// console.log(getGreatTestCommonDivisor(12, 18))
+function getDivisor(num) {
+    let res = [];
+
+    for (let i = 1; i <= num; i++){
+        if (num % i == 0){
+            res.push(i)
+        }
+    }
+    return res
+}
+
+function getElemArr(arr1, arr2) {
+    let res = [];
+
+    for (let elem of arr1){
+        if (inArray(elem, arr2)){
+            res.push(elem)
+        }
+    }
+    return res
+}
+
+function maxDivisor(arr) {
+    return Math.max(...arr)
+}
+
+
+function inArray(elem, arr) {
+    return arr.indexOf(elem) !== -1
+}
+
+function getGreatTestCommonDivisor(num1, num2) {
+    let resNum1 = getDivisor(num1),
+        resNum2 = getDivisor(num2),
+        result = maxDivisor(getElemArr(resNum1, resNum2));
+
+    return result
+}
+
+console.log(getGreatTestCommonDivisor(12, 18))
+
+//задача 7
+
+//Положительные целые числа, не имеющие общих делителей, кроме тривиальной единицы, называются взаимно простыми.
+// Говоря другими словами, два числа можно назвать взаимно простыми, если их НОД равен единице.
+// Напишите функцию, которая параметрами будет принимать два числа и проверять - взаимно простые они или нет.
+
+
+function getDivisor(num) {
+    let res = [];
+
+    for (let i = 1; i <= num; i++){
+        if (num % i == 0){
+            res.push(i)
+        }
+    }
+    return res
+}
+
+
+function getElemArr(arr1, arr2) {
+    let res = [];
+
+    for (let elem of arr1){
+        if (inArray(elem, arr2)){
+            res.push(elem)
+        }
+    }
+    return res
+}
+
+
+function mutuallySimple(arr) {
+    return arr.length == 1 && arr[0] == 1
+}
+
+
+function inArray(elem, arr) {
+    return arr.indexOf(elem) !== -1
+}
+
+function getGreatestCommonDivisor(num1, num2) {
+    let resNum1 = getDivisor(num1),
+        resNum2 = getDivisor(num2),
+        result = mutuallySimple(getElemArr(resNum1, resNum2));
+
+    return result
+}
+
+console.log(getGreatestCommonDivisor(38, 45))
