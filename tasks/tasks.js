@@ -185,3 +185,53 @@
 //
 // console.log(getDiff(a1, a2))
 
+//задача 6
+
+//Реализуйте функцию  которая параметрами будет принимать два числа и возвращать НОД этих двух чисел.
+// При решении задачи старайтесь использовать вспомогательные функции, в том числе полученные нами ранее в теоретической части.
+
+//1 функция принимает два числа
+//2 вычисляем делители
+//3  сравниваем массивы делителей
+//4  находим наибольший делитель
+
+// function getDivisor(num) {
+//     let res = [];
+//
+//     for (let i = 1; i <= num; i++){
+//         if (num % i == 0){
+//             res.push(i)
+//         }
+//     }
+//     return res
+// }
+//
+// function getElemArr(arr1, arr2) {
+//     let res = [];
+//
+//     for (let elem of arr1){
+//         if (inArray(elem, arr2)){
+//             res.push(elem)
+//         }
+//     }
+//     return res
+// }
+//
+// function maxDivisor(arr) {
+//     return Math.max.apply(null, arr)
+// }
+//
+//
+// function inArray(elem, arr) {
+//     return arr.indexOf(elem) !== -1
+// }
+//
+// function getGreatTestCommonDivisor(num1, num2) {
+//     let resNum1 = getDivisor(num1),
+//         resNum2 = getDivisor(num2),
+//         result = maxDivisor(getElemArr(resNum1, resNum2));
+//
+//     return result
+// }
+//
+// console.log(getGreatTestCommonDivisor(12, 18))
