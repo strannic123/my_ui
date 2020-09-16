@@ -33,6 +33,16 @@
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RunManager">
+    <configuration name="tasks.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/tasks/tasks.js" working-dir="$PROJECT_DIR$/tasks">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.tasks.js" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -47,7 +57,7 @@
       <workItem from="1599899669462" duration="661000" />
       <workItem from="1599933698572" duration="183000" />
       <workItem from="1600015561162" duration="3000" />
-      <workItem from="1600192973351" duration="213000" />
+      <workItem from="1600192973351" duration="926000" />
     </task>
     <servers />
   </component>
@@ -55,6 +65,22 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state width="1396" height="189" key="GridCell.Tab.0.bottom" timestamp="1600193900042">
+      <screen x="0" y="0" width="1418" height="759" />
+    </state>
+    <state width="1396" height="189" key="GridCell.Tab.0.bottom/0.0.1418.759@0.0.1418.759" timestamp="1600193900042" />
+    <state width="1396" height="189" key="GridCell.Tab.0.center" timestamp="1600193900042">
+      <screen x="0" y="0" width="1418" height="759" />
+    </state>
+    <state width="1396" height="189" key="GridCell.Tab.0.center/0.0.1418.759@0.0.1418.759" timestamp="1600193900042" />
+    <state width="1396" height="189" key="GridCell.Tab.0.left" timestamp="1600193900042">
+      <screen x="0" y="0" width="1418" height="759" />
+    </state>
+    <state width="1396" height="189" key="GridCell.Tab.0.left/0.0.1418.759@0.0.1418.759" timestamp="1600193900042" />
+    <state width="1396" height="189" key="GridCell.Tab.0.right" timestamp="1600193900042">
+      <screen x="0" y="0" width="1418" height="759" />
+    </state>
+    <state width="1396" height="189" key="GridCell.Tab.0.right/0.0.1418.759@0.0.1418.759" timestamp="1600193900042" />
     <state x="218" y="24" key="SettingsEditor" timestamp="1600193185701">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
