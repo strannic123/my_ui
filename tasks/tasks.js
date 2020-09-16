@@ -152,3 +152,36 @@
 //
 // console.log(getInt(arr1, arr2))
 
+//задача 5
+
+//Разность массивов на JavaScript
+
+// let a1 = [1, 2, 3];
+// let a2 = [2, 3, 4, 5];
+//
+// function getElem(arr1, arr2) {
+// 	let res = [];
+// 	for (let elem of arr1){
+// 		if (!inArray(elem, arr2)){
+// 			res.push(elem)
+// 		}
+// 	}
+// 	return res;
+// }
+
+// function getDiff(arr1, arr2) {
+// 	let result = [];
+//
+// 	let diff1 = (getElem(arr1, arr2))
+// 	let diff2 = (getElem(arr2, arr1))
+//
+// 	return result.concat(diff1, diff2)
+//
+// }
+//
+// function inArray(elem, arr) {
+// 	return arr.indexOf(elem) !== -1
+// }
+//
+// console.log(getDiff(a1, a2))
+
