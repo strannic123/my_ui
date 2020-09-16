@@ -127,3 +127,28 @@
 //
 // console.log(getSimpleDivisors(1000))
 
+//задача 4
+
+//Давайте напишем функцию  которая будет находить пересечение массивов и возвращать пересечение этих массивов.
+//
+// Пусть пересечение возвращается в виде массива, состоящего из общих элементов.
+
+// function getInt(arr1, arr2) {
+// 	let res = [];
+// 	for (let el of arr1){
+// 		if(inArray(el, arr2)){
+// 			res.push(el)
+// 		}
+// 	}
+// 	return res
+// }
+//
+// function inArray(elem, arr) {
+// 	return arr.indexOf(elem) !== -1
+// }
+//
+// let arr1 = [1, 2, 3];
+// let arr2 = [2, 3, 4, 5];
+//
+// console.log(getInt(arr1, arr2))
+
