@@ -297,3 +297,30 @@ function random(arr) {
 }
 
 console.log(random(arr))
+
+//задача 9
+
+//Используя созданную функцию, найдите сумму трех случайных элементов из массива.
+
+function getRandomInt(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+let arr = [1, 2, 3, 4, 5];
+
+function random(arr) {
+	return arr[getRandomInt(0, arr.length -1)]
+}
+
+function sumElem() {
+	let elem1 = random(arr),
+		elem2 = random(arr),
+		elem3 = random(arr),
+		res = 0;
+	res = elem1 + elem2 + elem3
+	return res
+
+}
+
+
+console.log(sumElem())
