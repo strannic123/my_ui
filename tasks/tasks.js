@@ -281,3 +281,19 @@ function getGreatestCommonDivisor(num1, num2) {
 }
 
 console.log(getGreatestCommonDivisor(38, 45))
+
+//задача 8
+
+//Реализуем функцию, возвращающую случайный элемент из массива
+
+function getRandomInt(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+let arr = [1, 2, 3, 4, 5];
+
+function random(arr) {
+	return arr[getRandomInt(0, arr.length -1)]
+}
+
+console.log(random(arr))
