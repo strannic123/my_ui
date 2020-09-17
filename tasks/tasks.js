@@ -415,4 +415,46 @@ function firstRandom(arr, length) {
 console.log(random([1, 2, 3, 4, 5, 6, 7, 8, 9, 0], 3));
 
 
+//задача 13
+
+//Пусть нам нужно вывести на экран все возможные счастливые автобусные билеты. Билет называется счастливым, если сумма первых трех цифр билета равна сумме вторых трех цифр (будем рассматривать только билеты, в номере которых 6 цифр).
+
+console.log(getTicket());
+
+function getTicket() {
+    let result = []
+    for (let i = 1001; i <= 999999; i++){
+        if (isLucky(i)){
+            result.push(i)
+        }
+    }
+    return result
+
+}
+
+function isLucky(num) {
+    let str = normalizeNum(num)
+
+    let sum1 = Number(str[0]) + Number(str[1]) + Number(str[2]);
+    let sum2 = Number(str[3]) + Number(str[4]) + Number(str[5]);
+
+
+    return sum1 === sum2;
+}
+
+function normalizeNum(num) {
+    let str = String(num)
+    if (str.length == 5){
+        return '0' + str;
+    }
+
+    if (str.length == 4){
+        return '00' + str;
+    }
+
+    return str
+}
+
+
+
 
