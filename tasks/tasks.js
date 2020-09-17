@@ -322,5 +322,28 @@ function sumElem() {
 
 }
 
-
 console.log(sumElem())
+
+
+//задача 10
+
+//Реализуем функцию shuffle, параметром принимающую массив и перемешивающую его элементы в случайном порядке.
+
+function getRandomInt(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function shuffle(arr) {
+	let result = [];
+
+	while (arr.length > 0){
+		let random = getRandomInt(0, arr.length -1);
+		let elem = arr.splice(random, 1)[0];
+		result.push(elem)
+	}
+	return result;
+}
+
+let arr = [1, 2, 3, 4, 5]
+console.log(shuffle(arr))
+
