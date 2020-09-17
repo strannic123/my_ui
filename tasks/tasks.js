@@ -347,3 +347,38 @@ function shuffle(arr) {
 let arr = [1, 2, 3, 4, 5]
 console.log(shuffle(arr))
 
+//задача 11
+
+//Сделайте функцию range принимающую параметрами 2 целых числа - начало и конец диапазона, и возвращающую массив,
+// заполненный целыми числами из этого диапазона.
+
+function getRandomInt(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function arr(num1, num2) {
+	let arrForRandom = [];
+	for (let i = num1; i <= num2; i++){
+		arrForRandom.push(i)
+	}
+	return arrForRandom
+}
+
+function shuffle(arr) {
+	let res = [];
+
+	while (arr.length > 0){
+		let random = getRandomInt(0, arr.length -1);
+		let elem = arr.splice(random, 1)[0]
+		res.push(elem)
+	}
+	return res;
+}
+
+function range(numMin, numMax) {
+	return shuffle(arr(numMin, numMax));
+}
+
+console.log(range(11, 18))
+
+
