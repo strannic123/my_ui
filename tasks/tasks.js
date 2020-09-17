@@ -382,3 +382,37 @@ function range(numMin, numMax) {
 console.log(range(11, 18))
 
 
+//задача 12
+
+//Давайте теперь реализуем функцию randoms, возвращающую заданное количество случайных элементов из массива.
+
+function getRandomInt(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function shuffle(arr) {
+	let res = [];
+
+	while (arr.length > 0){
+		let random = getRandomInt(0, arr.length-1);
+		let elem = arr.splice(random, 1)[0]
+		res.push(elem)
+	}
+	console.log('shuffle '+ res)
+	return res
+}
+
+function random(arr, length) {
+	return firstRandom(shuffle(arr), length)
+}
+
+function firstRandom(arr, length) {
+	console.log('firstRandom ' + arr.splice(0, length))
+	return arr.splice(0, length)
+
+}
+
+console.log(random([1, 2, 3, 4, 5, 6, 7, 8, 9, 0], 3));
+
+
+
