@@ -455,6 +455,82 @@ function normalizeNum(num) {
     return str
 }
 
+//задача 14
+
+//Счастливые билеты любой длины
+//теперь сделаем так что бы в билете было любое колличество цифр(четное) и так же находились счастливые билеты
+
+function formStr(data, length) {
+	let str = String(data)
+	let strZero = '';
+	if (str.length < length){
+		for (let i = 1; i <= (length - str.length); i++){
+			strZero += '0';
+		}
+	}
+	return strZero + str;
+}
+
+function normalizeNum(num, length) {
+	let str = String(num);
+	return formStr(str, length)
+}
+
+function isLucky(num) {
+	let str = String(num);
+	let sum1 = 0;
+	let sum2 = 0;
+
+	for (let i = 0; i <= str.length/2 - 1; i++){
+		sum1 += Number(str[i])
+	}
+
+	for (let i = str.length/2 ; i <= str.length - 1; i++){
+		sum2 += Number(str[i])
+	}
+
+	return sum1 == sum2;
+}
+
+
+function getLast(num) {
+	let res = '';
+	for (let i = 1; i <= num; i++){
+		res += '9'
+	}
+	return res
+}
+
+
+function getFirst(num) {
+	let res = '';
+	let number = (num /2) - 1
+	for (let i = 1; i <= number; i++){
+		res += '0'
+	}
+	let finalRes = '1' + res + '1'
+	return finalRes
+}
+
+
+function getLuckyTickets(digitsAmount) {
+	let result = [],
+	    first = getFirst(digitsAmount),
+		last = getLast(digitsAmount);
+
+	for (let i = first; i <= last; i++){
+		let ticket = normalizeNum(i, digitsAmount)
+		if(isLucky(ticket)){
+			result.push(ticket)
+		}
+	}
+	return result
+}
+
+
+console.log(getLuckyTickets(8))
+
+
 
 
 
