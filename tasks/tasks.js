@@ -530,6 +530,31 @@ function getLuckyTickets(digitsAmount) {
 
 console.log(getLuckyTickets(8))
 
+//задача 15
+
+//Дан массив со строками. Переверните символы каждой строки в обратном порядке.
+
+
+function reverse(elem) {
+	let res = elem.split("").reverse().join('')
+	return res
+}
+
+function each(arr, callback) {
+	let result = [];
+
+	for (let elem of arr) {
+		result.push( callback(elem) ); // вызываем функцию-коллбэк
+	}
+
+	return result;
+}
+
+let arr = ['one', 'two', 'five']
+
+let newRes = each(arr, reverse)
+console.log(newRes)
+
 
 
 
