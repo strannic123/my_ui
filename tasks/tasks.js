@@ -622,6 +622,28 @@ let result = filter([1, 2, 3, 4, 5], function (elem){
 
 console.log(result)
 
+//задача 19
+
+//Дан массив с числами. С помощью созданной нами функции filter оставьте в этом массиве только положительные числа.
+
+function filter(arr, callback) {
+	let res = [];
+
+
+	for (let elem of arr){
+		if(callback(elem)){
+			res.push(elem)
+		}
+	}
+	return res;
+}
+
+let result = filter([-12, 5, 6, 7, -4, 0, 8], function (elem) {
+	return elem > 0 ? true : false;
+})
+
+console.log(result)
+
 
 
 
