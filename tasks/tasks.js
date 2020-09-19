@@ -555,6 +555,27 @@ let arr = ['one', 'two', 'five']
 let newRes = each(arr, reverse)
 console.log(newRes)
 
+//задача 16
+
+//Дан массив со строками. Сделайте заглавным первый символ каждой строки.
+
+function each(arr, callback) {
+	let result = [];
+
+	for (let elem of arr) {
+		result.push( callback(elem) ); // вызываем функцию-коллбэк
+	}
+
+	return result;
+}
+
+let arr = ['one', 'two', 'five']
+let result = each(arr, function (elem){
+	return elem[0].toUpperCase() + elem.slice(1);
+})
+
+console.log(result)
+
 
 
 
