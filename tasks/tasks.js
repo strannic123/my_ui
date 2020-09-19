@@ -598,6 +598,29 @@ let result = each([1, 2 , 3, 4, 5], function (elem, index) {
 
 console.log(result)
 
+//задача 18
+
+//Реализуйте функцию filter, которая будет осуществлять фильтрацию массива. Пусть первым параметром функция принимает массив, а вторым - функцию-коллбэк, и возвращает массив элементов, для которых функция-коллбэк вернет true.
+
+
+function filter(arr, callback) {
+	let res = [];
+
+	for (let elem of arr){
+		res.push(callback(elem))
+	}
+	return res;
+}
+
+let result = filter([1, 2, 3, 4, 5], function (elem){
+	if (elem % 2 === 0 ){
+		return true;
+	}else {
+		return false;
+	}
+})
+
+console.log(result)
 
 
 
