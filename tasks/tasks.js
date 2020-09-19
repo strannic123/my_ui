@@ -576,6 +576,28 @@ let result = each(arr, function (elem){
 
 console.log(result)
 
+//задача 17
+
+//Дан массив с числами. Найдите произведение каждого элемента массива на его порядковый номер.
+
+function each(arr, callback) {
+	let result = [];
+	let i = 0
+
+	for (let elem of arr) {
+		result.push( callback(elem, i++)); // вызываем функцию-коллбэк
+	}
+
+
+	return result;
+}
+
+let result = each([1, 2 , 3, 4, 5], function (elem, index) {
+	return elem * index
+})
+
+console.log(result)
+
 
 
 
