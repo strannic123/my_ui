@@ -670,5 +670,22 @@ function func(prevPrevNum, prevNum){
 func(1, 2);
 
 
+//задача 21
 
+//Дан многомерный объект произвольного уровня вложенности, например, такой:
+let obj = {a: 1, b: {c: 2, d: 3, e: 4}, f: {g: 5, j: 6, k: {l: 7, m: {n: 8, o: 9}}}}
+// С помощью рекурсии выведите все примитивные элементы этого объекта на экран.
+
+
+function funcObj(ob) {
+	for (let key in ob){
+		if (typeof ob[key] == 'object'){
+			funcObj(ob[key])
+		}else {
+			console.log(ob[key])
+		}
+	}
+}
+
+funcObj(obj)
 
