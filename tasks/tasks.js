@@ -803,3 +803,28 @@ function primitiveArr(arr) {
 
 primitiveArr(arr)
 console.log(res)
+
+//задача 27
+
+//Дан многомерный массив произвольного уровня вложенности. Подсчитайте с помощью рекурсии самый максимальный уровень вложенности этого массива.
+
+let arr = [1, [2, 7, 8], [3, 4], [5, [6, 7]]],
+	counter = 0;
+
+function primitiveArr(arr) {
+	for (let elem of arr){
+		if (typeof elem == 'object'){
+			let result = elem.every(function (el) {
+				return typeof el != 'object';
+			})
+			if (result){
+				counter++
+			}else {
+				primitiveArr(elem)
+			}
+		}
+	}
+}
+
+primitiveArr(arr)
+console.log(counter)
