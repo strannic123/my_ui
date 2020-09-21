@@ -644,6 +644,31 @@ let result = filter([-12, 5, 6, 7, -4, 0, 8], function (elem) {
 
 console.log(result)
 
+//задача 20
+
+//Сделайте функцию, которая с помощью рекурсии выведет первые 10 чисел Фибоначчи. Числа Фибоначчи строятся следующим образом: каждое новое число равно сумме двух предыдущих. Первые два числа Фибоначчи - это 1 и 2. Следующее число будет равно 1 + 2 = 3, следующее число будет равно 2 + 3 = 5 и так далее.
+
+
+let counter = 1;
+
+function func(prevPrevNum, prevNum){
+	let res = 0;
+
+	res = prevPrevNum + prevNum;
+	console.log(res)
+	prevPrevNum = prevNum;
+	prevNum = res;
+	counter++;
+
+	if (counter <= 10){
+		func(prevPrevNum, prevNum);
+
+	}
+
+}
+
+func(1, 2);
+
 
 
 
