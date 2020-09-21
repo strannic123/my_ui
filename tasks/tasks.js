@@ -689,3 +689,24 @@ function funcObj(ob) {
 
 funcObj(obj)
 
+//задача 22
+
+//Дан многомерный объект произвольного уровня вложенности, например, такой:
+let obj = {a: 1, b: {c: 2, d: 3, e: 4}, f: {g: 5, j: 6, k: {l: 7, m: {n: 8, o: 9}}}}
+// С помощью рекурсии найдите сумму элементов этого объекта.
+
+
+function sumElem(obj) {
+	let res = 0;
+
+	for (let key in obj){
+		if (typeof obj[key] == 'object'){
+			res += sumElem(obj[key])
+		}else {
+			res += obj[key]
+		}
+	}
+	return res
+}
+
+console.log(sumElem(obj))
