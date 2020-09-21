@@ -777,3 +777,29 @@ function newArr(arr) {
 
 console.log(newArr(arr))
 console.log(res)
+
+//задача 26
+
+//Дан многомерный массив произвольного уровня вложенности, например, такой:
+let arr = [1, [2, 7, 8], [3, 4], [5, [6, 7]]]
+//Выведите на экран все элементы-массивы, содержащие внутри себя только примитивы.
+
+let res = []
+
+function primitiveArr(arr) {
+	for (let elem of arr){
+		if (typeof elem == 'object'){
+			let result = elem.every(function (el) {
+				return typeof el != 'object';
+			})
+			if (result){
+				res.push(elem)
+			}else {
+				primitiveArr(elem)
+			}
+		}
+	}
+}
+
+primitiveArr(arr)
+console.log(res)
