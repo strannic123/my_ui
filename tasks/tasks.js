@@ -733,3 +733,23 @@ function newArr(arr) {
 }
 
 console.log(newArr(arr))
+
+//задача 24
+
+//Дан многомерный массив произвольного уровня вложенности, например, такой:
+
+let arr = [1, [2, 7, 8], [3, 4], [5, [6, 7]]]
+// Возведите все элементы-числа этого массива в квадрат.
+
+function square(arr) {
+	for (let i = 0; i < arr.length; i++){
+		if(typeof arr[i] == 'object'){
+			arr[i] = square(arr[i])
+		}else {
+			arr[i] = arr[i] * arr[i]
+		}
+	}
+	return arr
+}
+
+console.log(square(arr))
