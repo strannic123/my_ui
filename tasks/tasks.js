@@ -710,3 +710,26 @@ function sumElem(obj) {
 }
 
 console.log(sumElem(obj))
+
+
+//задача 23
+
+//Дан многомерный массив произвольного уровня вложенности, содержащий внутри себя строки, например, такой:
+//
+let arr = ['a', ['b', 'c', 'd'], ['e', 'f', ['g', ['j', 'k']]]]
+// С помощью рекурсии слейте элементы этого массива в одну строку:'abcdefgjk'
+
+function newArr(arr) {
+	let res = '';
+
+	for (let elem of arr){
+		if (typeof elem == 'object'){
+			res += newArr(elem)
+		}else {
+			res += elem
+		}
+	}
+	return res;
+}
+
+console.log(newArr(arr))
