@@ -753,3 +753,27 @@ function square(arr) {
 }
 
 console.log(square(arr))
+
+//задача 25
+
+//Дан многомерный массив произвольного уровня вложенности, например, такой:
+
+let arr = [1, [2, 7, 8], [3, 4, [5, [6, 7]]]]
+// Напишите код, который развернет наш многомерный массив в одномерный. Для приведенного выше массива это будет выглядеть вот так:
+// [1, 2, 7, 8, 3, 4, 5, 6, 7]
+
+let res = []
+function newArr(arr) {
+
+	for (let elem of arr){
+		if (typeof elem == 'object'){
+			newArr(elem)
+		}else {
+			res.push(elem)
+		}
+	}
+
+}
+
+console.log(newArr(arr))
+console.log(res)
