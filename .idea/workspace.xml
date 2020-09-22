@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fc7ce925-d399-4a7d-86dd-549165996780" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/tasks.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +28,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tasks" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -64,7 +63,8 @@
       <workItem from="1600362915471" duration="659000" />
       <workItem from="1600448804922" duration="278000" />
       <workItem from="1600536143731" duration="1662000" />
-      <workItem from="1600712381347" duration="693000" />
+      <workItem from="1600712381347" duration="1741000" />
+      <workItem from="1600763425098" duration="14000" />
     </task>
     <servers />
   </component>
@@ -72,22 +72,26 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1396" height="160" key="GridCell.Tab.0.bottom" timestamp="1600712700302">
+    <state x="489" y="134" key="FileChooserDialogImpl" timestamp="1600763436339">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
-    <state width="1396" height="160" key="GridCell.Tab.0.bottom/0.0.1418.759@0.0.1418.759" timestamp="1600712700302" />
-    <state width="1396" height="160" key="GridCell.Tab.0.center" timestamp="1600712700302">
+    <state x="489" y="134" key="FileChooserDialogImpl/0.0.1418.759@0.0.1418.759" timestamp="1600763436339" />
+    <state width="1396" height="160" key="GridCell.Tab.0.bottom" timestamp="1600714143545">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
-    <state width="1396" height="160" key="GridCell.Tab.0.center/0.0.1418.759@0.0.1418.759" timestamp="1600712700302" />
-    <state width="1396" height="160" key="GridCell.Tab.0.left" timestamp="1600712700302">
+    <state width="1396" height="160" key="GridCell.Tab.0.bottom/0.0.1418.759@0.0.1418.759" timestamp="1600714143545" />
+    <state width="1396" height="160" key="GridCell.Tab.0.center" timestamp="1600714143545">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
-    <state width="1396" height="160" key="GridCell.Tab.0.left/0.0.1418.759@0.0.1418.759" timestamp="1600712700302" />
-    <state width="1396" height="160" key="GridCell.Tab.0.right" timestamp="1600712700302">
+    <state width="1396" height="160" key="GridCell.Tab.0.center/0.0.1418.759@0.0.1418.759" timestamp="1600714143545" />
+    <state width="1396" height="160" key="GridCell.Tab.0.left" timestamp="1600714143545">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
-    <state width="1396" height="160" key="GridCell.Tab.0.right/0.0.1418.759@0.0.1418.759" timestamp="1600712700302" />
+    <state width="1396" height="160" key="GridCell.Tab.0.left/0.0.1418.759@0.0.1418.759" timestamp="1600714143545" />
+    <state width="1396" height="160" key="GridCell.Tab.0.right" timestamp="1600714143545">
+      <screen x="0" y="0" width="1418" height="759" />
+    </state>
+    <state width="1396" height="160" key="GridCell.Tab.0.right/0.0.1418.759@0.0.1418.759" timestamp="1600714143545" />
     <state x="218" y="24" key="SettingsEditor" timestamp="1600193185701">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
