@@ -862,3 +862,22 @@ function inArray(elem, arr){
 
 let result = getInt([1, 2, 3], [2, 3, 4], [4, 3, 2]);
 console.log(result);
+
+//задача 29
+
+//Напишем функцию которая принимает два параметра год и месяц. Выводим количество дней в месяце. Реализована проверка на
+//високосный год
+
+function getLastDay(year, month) {
+	let lastDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+	if (month === 1){
+		if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0){
+			return lastDays[month]+1
+		}
+	}else {
+		return lastDays[month]
+	}
+}
+
+console.log( getLastDay(2020, 1))
