@@ -881,3 +881,82 @@ function getLastDay(year, month) {
 }
 
 console.log( getLastDay(2020, 1))
+
+//задача 30
+
+//Пусть ваш День Рождения - первое марта. Определите, сколько дней осталось до вашего ближайшего дня рождения.
+
+let now  = new Date();
+let date = new Date(now.getFullYear(), 2, 1);
+
+let diff = Math.floor((date - now)/(1000 *60 * 60 *24))
+console.log(diff)
+
+if (diff > 0) {
+	console.log('Осталось  ' + diff + ' дней')
+} else if (diff == 0) {
+	console.log('Праздник сегодня')
+} else {
+	let date = new Date(now.getFullYear()+1, 2, 1);
+	let diff = Math.floor((date - now)/(1000 *60 * 60 *24))
+	console.log(`Будет в новом году, через: ${diff} дня`)
+}
+
+//задача 31
+
+//Получите объект с датой, содержащий текущий момент времени. Получите объект с датой, содержащий 15 число текущего месяца. Сравните два этих объекта и определите, прошла ли уже половина месяца или нет.
+
+let now = new Date();
+let date = new Date(now.getFullYear(), now.getMonth(), 15)
+let res = Math.round((date - now)/(1000 *60 * 60 *24))
+
+
+if (res <= 0) {
+	console.log('больше половины месяца')
+}else {
+	console.log('половина месяца не прошла')
+}
+
+//задача 32
+
+//Получите объект с датой, содержащий текущий момент времени. Получите объект с датой, содержащий полдень текущего дня. Сравните два этих объекта и определите, был ли уже полдень или нет.
+
+let now = new Date();
+let date = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12)
+if (now > date){
+	console.log('Полдень уже был')
+}else {
+	console.log('Полдень еще не наступил')
+}
+
+//задача 33
+
+//Напишите код, который будет находить следующий високосный год.
+
+function prevLeapYear(year) {
+	let leap = true;
+	let counter = year;
+	while (leap){
+		if (counter % 4 == 0 && counter % 100 !== 0 || counter % 400 == 0){
+			leap = false;
+			console.log(counter)
+			return counter
+		}else {
+			counter += 1;
+
+		}
+	}
+}
+
+prevLeapYear(2021)
+
+//задача 34
+
+//Определите, сколько дней осталось до конца месяца года.
+
+let now = new Date();
+let date = new Date(now.getFullYear(), now.getMonth()+1, 1);
+let res = Math.round((date.getTime() - now.getTime()) / (1000*60*60*24));
+console.log(res)
+
+
