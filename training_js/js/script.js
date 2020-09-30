@@ -1074,32 +1074,262 @@
 //     elem.style.border = '2px solid aqua';
 // })
 
+//Свойства с дефисом
 
+//задача 2
+//Дан див с текстом и кнопка. По клику на кнопку установите диву размер шрифта в 20px, а также верхнюю границу и фон.
 
+// let elem = document.querySelector('.name'),
+//     button = document.querySelector('#button');
+//
+// button.addEventListener('click', function () {
+//     elem.style.fontSize = '20px';
+//     elem.style.borderTop = '2px solid aqua';
+//     elem.style.background = 'yellow';
+// })
 
+//задача 3
+// Дан список ul и кнопка. По клику на кнопку добавьте тегам li свойство float в значении left.
 
+// let list = document.querySelector('#list'),
+//     button = document.querySelector('#button');
+//
+// button.addEventListener('click', function () {
+//     list.style.cssFloat = 'left'
+// })
 
+//Стилизация с помощью CSS классов на JavaScript
 
+//задача 1
+//Объясните, почему я выбрал для названия класса слово colored, а не слово green, явно указывающее на желаемый нами цвет.
 
+//задача 2
+//Дан абзац. Даны кнопки 'перечеркнуть', 'сделать жирным', 'сделать красным'. Пусть по нажатию на каждую кнопку заданное действие происходит с абзацем (становится красным, например).
 
+// let elem = document.querySelector('p'),
+//     button1 = document.querySelector('#button1'),
+//     button2 = document.querySelector('#button2'),
+//     button3 = document.querySelector('#button3');
+//
+// button1.addEventListener('click', function () {
+//     elem.classList.add('cross_out')
+// })
+//
+// button2.addEventListener('click', function () {
+//     elem.classList.add('do_bold')
+// })
+//
+// button3.addEventListener('click', function () {
+//     elem.classList.add('colored')
+// })
 
+//Дополнительное преимущество
 
+//задача 3
+//Модифицируйте предыдущую задачу так, чтобы повторное нажатие на кнопку отменяло действие этой кнопки.
 
+// let elem = document.querySelector('p'),
+//     button1 = document.querySelector('#button1'),
+//     button2 = document.querySelector('#button2'),
+//     button3 = document.querySelector('#button3');
+//
+// button1.addEventListener('click', function () {
+//     elem.classList.toggle('cross_out')
+// })
+//
+// button2.addEventListener('click', function () {
+//     elem.classList.toggle('do_bold')
+// })
+//
+// button3.addEventListener('click', function () {
+//     elem.classList.toggle('colored')
+// })
 
+//Отработка изученного материала на работу с DOM
 
+//задача 1
+//Дан инпут и абзац. По потери фокуса в инпуте запишите значение инпута в конец текста абзаца.
 
+// let elem = document.querySelector('#elem'),
+//     text = document.querySelector('p')
+//
+// elem.addEventListener('blur', function () {
+//     text.innerHTML += elem.value
+// })
 
+//задача 2
+//Дано несколько инпутов, абзац и кнопка. По нажатию на кнопку получите числа, стоящие в этих инпутах и запишите их сумму в абзац.
 
+// let elem1 = document.querySelector('#elem1'),
+//     elem2 = document.querySelector('#elem2'),
+//     elem3 = document.querySelector('#elem3'),
+//     res = document.querySelector('p'),
+//     button = document.querySelector('#button');
+//
+// button.addEventListener('click', func)
+//
+// function func() {
+//     res.innerHTML = Number(elem1.value) + Number(elem2.value) + Number(elem3.value);
+// }
 
+//задача 3
+//Дан инпут. В него вводится число. По потери фокуса найдите сумму цифр этого числа.
 
+// let elem = document.querySelector('#elem');
+//
+// elem.addEventListener('blur', func);
+// function func() {
+//     let res = 0;
+//     let spl = elem.value.split('');
+//     for (let elem of spl){
+//         res += Number(elem)
+//     }
+//     elem.value = res;
+// }
 
+//задача 4
+//Дан инпут. В него вводятся числа через запятую. По потери фокуса найдите среднее арифметическое этих чисел (сумма делить на количество).
 
+// let elem = document.querySelector('#elem');
+// elem.addEventListener('blur', func);
+//
+// function func() {
+//     let res = 0;
+//     let spl = elem.value.split(',');
+//     for (let elem of spl){
+//         res += Number(elem)
+//     }
+//     elem.value = res/spl.length
+// }
 
+//задача 5
+//Даны 4 инпута. В первый инпут вводится ФИО через пробел. По потери фокуса запишите фамилию, имя и отчество в остальные 3 инпута.
 
+// let elem1 = document.querySelector('#elem1'),
+//     elem2 = document.querySelector('#elem2'),
+//     elem3 = document.querySelector('#elem3'),
+//     elem4 = document.querySelector('#elem4');
+//
+// elem1.addEventListener('blur', func);
+// function func() {
+//     let res = elem1.value.split(' ');
+//     elem2.value = res[0];
+//     elem3.value = res[1];
+//     elem4.value = res[2];
+// }
 
+//задача 6
+//Дан инпут. В него вводится ФИО через пробел. ФИО вводится с маленькой буквы. Сделайте так, чтобы по потери фокуса инпутом, введенные фамилия, имя и отчество автоматически стали записанными с большой буквы (в этом же инпуте).
 
+// let elem = document.querySelector('#elem');
+//
+// elem.addEventListener('blur', func);
+// function func() {
+//     let res = ''
+//     let spl = elem.value.split(' ');
+//     for (let elem of spl){
+//         res += elem[0].toUpperCase() + elem.slice(1) + ' '
+//     }
+//     elem.value = res;
+// }
 
+//задача 7
+//Дан инпут. В него вводится текст. По потери фокуса узнайте количество слов в этом тексте.
+// let elem = document.querySelector('#elem'),
+//     text = document.querySelector('p');
+//
+// elem.addEventListener('blur', func);
+// function func() {
+//     let res = elem.value.split(' ');
+//     text.innerHTML += res.length;
+// }
 
+//задача 8
+//Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса в этом же инпуте поставьте эту дату в формате 2016-12-31.
+
+// let elem = document.querySelector('#elem');
+//
+// elem.addEventListener('blur', func);
+//
+// function func() {
+//     let res = elem.value.split('.').reverse().join('-')
+//     elem.value = res;
+// }
+
+//задача 9
+//Дан инпут. В него вводится слово. По нажатию на кнопку проверьте то, что это слово читается с начала и с конца одинаково (например, мадам).
+
+// let elem = document.querySelector('#elem'),
+//     str = document.querySelector('p'),
+//     button = document.querySelector('#button');
+//
+// button.addEventListener('click', func)
+//
+// function func() {
+//     let reversing = elem.value.split('').reverse().join('')
+//     if(elem.value === reversing){
+//         str.innerHTML += ' Да это палиндром'
+//     }else {
+//         str.innerHTML += ' Нет это не палиндром'
+//     }
+// }
+
+//задача 10
+//Дан инпут. В него вводится число. Проверьте по потери фокуса, что это число содержит внутри себя цифру 3.
+
+// let elem = document.querySelector('#elem'),
+//     str = document.querySelector('p');
+//
+//
+// elem.addEventListener('blur', func)
+//
+// function func() {
+//     let num = false;
+//     let res = elem.value.split('')
+//     for (let elem of res){
+//         if(Number(elem) === 3){
+//             num = true;
+//         }
+//     }
+//     if (num){
+//         str.innerHTML += ' Цифра 3 есть'
+//     }else {
+//         str.innerHTML += ' Цифры 3 нет'
+//     }
+// }
+
+//задача 11
+//Даны несколько абзацев и кнопка. По нажатию на кнопку запишите в конец каждого абзаца его порядковый номер.
+
+// let elems = document.querySelectorAll('p'),
+//     button = document.querySelector('#button');
+//
+// button.addEventListener('click', func);
+//
+// function func() {
+//     let counter = 0;
+//     for (let elem of elems){
+//         counter += 1;
+//         elem.innerHTML += ' ' + counter;
+//     }
+// }
+
+//задача 12
+//Даны ссылки. Добавьте в конец каждой ссылки ее href в круглых скобках.
+
+// let links = document.querySelectorAll('a');
+//
+// for (let link of links){
+//     link.addEventListener('click', func);
+// }
+//
+// function func(e) {
+//     e.preventDefault();
+//     this.innerHTML += '(' + this.href + ')'
+// }
+
+//задача 13
+//Даны ссылки. Если ссылка начинается с http://, то добавьте ей в конец стрелку → (делается так: &rarr;).
 
 
 

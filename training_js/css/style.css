@@ -1,0 +1,9 @@
+.cross_out {
+    text-decoration: line-through;
+}
+.do_bold {
+    font-weight: bold;
+}
+.colored{
+    color: red
+}
