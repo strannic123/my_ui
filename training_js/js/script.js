@@ -1331,6 +1331,179 @@
 //задача 13
 //Даны ссылки. Если ссылка начинается с http://, то добавьте ей в конец стрелку → (делается так: &rarr;).
 
+//задача 14
+//Даны несколько абзацев с числами. По нажатию на любой абзац запишите в него квадрат числа, которое в нем находится.
+
+// let elems = document.querySelectorAll('p');
+//
+// for (let elem of elems){
+//     elem.addEventListener('click', func)
+// }
+//
+// function func() {
+//     let res = 0;
+//     res =  Number(this.innerHTML) * Number(this.innerHTML);
+//     this.innerHTML = res;
+// }
+
+//задача 15
+//Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса узнайте день недели (словом), который приходится на эту дату.
+
+// let num_days = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
+// let inp = document.querySelector('#date_num');
+//
+// inp.addEventListener('blur', func);
+//
+// function func() {
+//    let str_date = inp.value.split('.');
+//    let [day, month, year] = str_date;
+//    let date = new Date(Number(year), Number(month)-1, Number(day))
+//    let res = date.getDay();
+//    inp.value = num_days[res];
+// }
+
+//задача 16
+//Дан инпут. Реализуйте кнопочки +1, -1, которые будут увеличивать или уменьшать на 1 значение инпута. Сделайте так, чтобы это значение не могло стать меньше нуля.
+
+// let input = document.querySelector('#num'),
+//     inc = document.querySelector('#incr'),
+//     dec = document.querySelector('#decr'),
+//     res = 5;
+//
+// inc.addEventListener('click', func_inc);
+// dec.addEventListener('click', func_dec);
+//
+//
+// function func_inc() {
+//     if(input.value >= 0){
+//         ++input.value
+//     }
+// }
+//
+// function func_dec() {
+//     if(input.value > 0){
+//         --input.value
+//     }
+// }
+
+//задача 17
+//Дан инпут. Даны абзацы. Пусть в этот инпут записывается суммарное количество нажатий по этим абзацам.
+
+// let elems = document.querySelectorAll('p'),
+//     inp = document.querySelector('#num');
+//     res = 0;
+//
+// for (let elem of elems){
+//     elem.addEventListener('click', func)
+// }
+//
+// function func() {
+//     res += 1;
+//     inp.value = res;
+// }
+
+//задача 18
+//В инпут через запятую вводятся страны. По нажатию на кнопку сделайте так, чтобы эти страны записались в ul под инпутом (каждая страна отдельный li).
+
+// let elem = document.querySelector('#country'),
+//     button = document.querySelector('#button');
+//
+// button.addEventListener('click', function () {
+//     let res = elem.value.split(',')
+//
+//     let uls = document.createElement('ul');
+//     document.body.appendChild(uls);
+//     for (let el of res){
+//         let li = document.createElement('li');
+//         li.innerHTML = el;
+//         uls.appendChild(li);
+//     }
+// })
+
+//задача 19
+//В инпут вводится страна и нажимается Enter. По нажатию на Enter сделайте так, чтобы введенные страны записывались в абзац под инпутом через запятую. То есть по каждому нажатию Enter в абзац будут добавляться все новые и новые страны.
+
+// let elem = document.querySelector('#country'),
+//     paragraf = document.querySelector('#text'),
+//     dist = [];
+//
+// elem.addEventListener('keydown', function (e) {
+//     if(e.keyCode === 13){
+//         dist += elem.value + ', ';
+//         paragraf.innerHTML = dist;
+//     }
+// })
+
+
+//задача 20
+//На странице есть дивы. В них есть текст. Обойдите все дивы и обрежьте тот текст, который в них стоит так, чтобы он стал длиной 10 символов. И добавьте троеточие в конец обрезанного текста
+
+// let elems = document.querySelectorAll('.text');
+//
+// for (let elem of elems){
+//     if (elem.innerHTML.length > 10){
+//         let res = elem.innerHTML.slice(0, 11) + '...';
+//         elem.innerHTML = res;
+//     }
+// }
+
+//задача 21
+//Дан массив с числами. Выведите каждый элемент этого массива в своем инпуте. Сделайте так, чтобы под всеми инпутами вывелась сумма элементов нашего массива.
+
+// let arr = [1, 2, 3, 4, 5],
+//     res = 0,
+//     paragraf = document.createElement('p');
+//
+// for (let elem of arr){
+//     let inp = document.createElement('input');
+//     document.body.appendChild(inp);
+//     inp.value = elem;
+//     res += Number(elem)
+// }
+//
+// paragraf.innerHTML = res;
+// document.body.appendChild(paragraf);
+
+//задача 22
+//Дан инпут. В него вводится число. По потери фокуса проверьте, что в нем лежит число от 1 до 100. Если это так - покрасьте инпут в зеленый цвет, а если не так - в красный.
+
+// let elem = document.querySelector('#num');
+//
+// elem.addEventListener('blur', func);
+//
+// function func() {
+//     if(Number(elem.value) >= 1 && Number(elem.value) <= 100){
+//         elem.style.background = 'green';
+//     }else{
+//         elem.style.background = 'red';
+//     }
+// }
+
+//задача 23
+//Дан инпут и кнопка. По нажатию на кнопку сгенерируйте случайную строку из 8-ми символов и запишите в инпут.
+
+// let elem = document.querySelector('#text'),
+//     button = document.querySelector('#button');
+//
+// button.addEventListener('click', generateWord);
+//
+// function generateWord() {
+//     let str = '';
+//     let randomStr = Math.random().toString(36).substring(2, 10);
+//     str += randomStr;
+//     elem.value = str;
+// }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
