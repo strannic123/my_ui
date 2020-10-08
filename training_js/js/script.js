@@ -1494,6 +1494,24 @@
 //     elem.value = str;
 // }
 
+//задача 24
+//Дан инпут и кнопка. Пользователь вводит в инпут какую-то строку. По нажатию на кнопку перемешайте введенные символы случайным образом и запишите ее обратно в инпут.
+
+// let elem = document.querySelector('#text'),
+//     button = document.querySelector('#button');
+//
+// button.addEventListener('click', function randomLetter(){
+//     let arr = elem.value.split('');
+//     let j, temp;
+//     for(let i = arr.length - 1; i > 0; i--){
+//         j = Math.floor(Math.random()*(i + 1));
+//         temp = arr[j];
+//         arr[j] = arr[i];
+//         arr[i] = temp;
+//     }
+//     elem.value = arr.join('');
+// });
+
 
 
 

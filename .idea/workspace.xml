@@ -40,12 +40,16 @@
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Node.js.script.js">
+    <configuration name="script.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/training_js/js/script.js" working-dir="$PROJECT_DIR$/training_js/js">
+      <method v="2" />
+    </configuration>
     <configuration name="tasks.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/tasks/tasks.js" working-dir="$PROJECT_DIR$/tasks">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.script.js" />
         <item itemvalue="Node.js.tasks.js" />
       </list>
     </recent_temporary>
@@ -80,7 +84,8 @@
       <workItem from="1601282044100" duration="20518000" />
       <workItem from="1601456125610" duration="18561000" />
       <workItem from="1602060831175" duration="22000" />
-      <workItem from="1602060894362" duration="20499000" />
+      <workItem from="1602060894362" duration="21714000" />
+      <workItem from="1602148499200" duration="5779000" />
     </task>
     <servers />
   </component>
@@ -92,22 +97,22 @@
       <screen x="0" y="0" width="1418" height="759" />
     </state>
     <state x="489" y="134" key="FileChooserDialogImpl/0.0.1418.759@0.0.1418.759" timestamp="1601148138889" />
-    <state width="1396" height="160" key="GridCell.Tab.0.bottom" timestamp="1600714143545">
+    <state width="1396" height="160" key="GridCell.Tab.0.bottom" timestamp="1602153578346">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
-    <state width="1396" height="160" key="GridCell.Tab.0.bottom/0.0.1418.759@0.0.1418.759" timestamp="1600714143545" />
-    <state width="1396" height="160" key="GridCell.Tab.0.center" timestamp="1600714143545">
+    <state width="1396" height="160" key="GridCell.Tab.0.bottom/0.0.1418.759@0.0.1418.759" timestamp="1602153578346" />
+    <state width="1396" height="160" key="GridCell.Tab.0.center" timestamp="1602153578346">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
-    <state width="1396" height="160" key="GridCell.Tab.0.center/0.0.1418.759@0.0.1418.759" timestamp="1600714143545" />
-    <state width="1396" height="160" key="GridCell.Tab.0.left" timestamp="1600714143545">
+    <state width="1396" height="160" key="GridCell.Tab.0.center/0.0.1418.759@0.0.1418.759" timestamp="1602153578346" />
+    <state width="1396" height="160" key="GridCell.Tab.0.left" timestamp="1602153578346">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
-    <state width="1396" height="160" key="GridCell.Tab.0.left/0.0.1418.759@0.0.1418.759" timestamp="1600714143545" />
-    <state width="1396" height="160" key="GridCell.Tab.0.right" timestamp="1600714143545">
+    <state width="1396" height="160" key="GridCell.Tab.0.left/0.0.1418.759@0.0.1418.759" timestamp="1602153578346" />
+    <state width="1396" height="160" key="GridCell.Tab.0.right" timestamp="1602153578346">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
-    <state width="1396" height="160" key="GridCell.Tab.0.right/0.0.1418.759@0.0.1418.759" timestamp="1600714143545" />
+    <state width="1396" height="160" key="GridCell.Tab.0.right/0.0.1418.759@0.0.1418.759" timestamp="1602153578346" />
     <state x="218" y="24" key="SettingsEditor" timestamp="1600193185701">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
