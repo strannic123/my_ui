@@ -1512,7 +1512,80 @@
 //     elem.value = arr.join('');
 // });
 
+//задача 25
+//Дана ссылка. Дан чекбокс. По нажатию на ссылку меняйте состояние чекбокса с отмеченного на неотмеченное и наоборот.
 
+// let link = document.querySelector('a'),
+//     box = document.querySelector('#box');
+//
+// link.addEventListener('click', function () {
+//     if(box.checked){
+//         box.checked = false
+//     }else{
+//         box.checked = true
+//     }
+// })
+
+//задача 26
+//Дан инпут. В него вводится температура в градусах Фарингейта. Сделайте так, чтобы автоматически по мере ввода в абзац под инпутом эта температура выводилась в градусах Цельсия.
+
+// let inp = document.querySelector('#text'),
+//     text = document.querySelector('#elem');
+//
+// inp.oninput = function () {
+//     text.innerHTML = 'В градусах цельсия: ' + Math.floor((inp.value - 32) * (5/9));
+// }
+
+//задача 27
+//Дан инпут, кнопка и абзац. В инпут вводится число. По нажатию на кнопку выведите в абзац факториал этого числа.
+
+// let inp = document.querySelector('#text'),
+//     button = document.querySelector('#button'),
+//     text = document.querySelector('#elem');
+//
+// button.addEventListener('click', factorial);
+//
+// function factorial() {
+//     let res = 1;
+//     let num = Number(inp.value);
+//     for (let i = 1; i <= num; i++){
+//         res *= i;
+//     }
+//     text.innerHTML = 'Факториал числа: ' + res;
+// }
+
+//задача 28
+//Даны 3 инпута, кнопка и абзац. В инпуты вводятся коэффициенты квадратного уравнения. По нажатию на кнопку найдите корни этого уравнения и выведите их в абзац.
+
+// let inp_a = document.querySelector('#text1'),
+//     inp_b = document.querySelector('#text2'),
+//     inp_c = document.querySelector('#text3'),
+//     button = document.querySelector('#button'),
+//     elem_p = document.querySelector('#elem');
+//
+//
+// button.addEventListener('click', func);
+// //D = b2 − 4ac
+// function func() {
+//     let a = Number(inp_a.value),
+//         b = Number(inp_b.value),
+//         c = Number(inp_c.value);
+//     console.log(a, b, c)
+//     let discr = (b**2) - (4*a*c);
+//     console.log(discr)
+//     if(discr < 0 && a != 0){
+//         elem_p.innerHTML = 'Нет корней'
+//     }else if (discr == 0 && a != 0){
+//         let res = (-b + Math.sqrt(discr)) / (2*a)
+//         elem_p.innerHTML = res;
+//     }else if(discr > 0 && a != 0) {
+//         let res = (-b + Math.sqrt(discr)) / (2*a)
+//         let res_2 = (-b - Math.sqrt(discr)) / (2*a)
+//         elem_p.innerHTML = res + ', ' + res_2;
+//     }else {
+//         elem_p.innerHTML = '"а" не должно быть нулем'
+//     }
+// }
 
 
 
