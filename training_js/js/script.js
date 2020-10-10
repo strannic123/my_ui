@@ -1587,8 +1587,734 @@
 //     }
 // }
 
+//Нахождение элементов по родственным связям
+// Потомки элементов
+
+//задача 1
+//Дан элемент #elem:
+//
+//<ul id="elem">
+// 	<li>text</li>
+// 	<li>text</li>
+// 	<li>text</li>
+// 	<li>text</li>
+// 	<li>text</li>
+// </ul>
+// Найдите первого потомка этого элемента и сделайте его текст красного цвета.
+
+// let elem = document.querySelector('#elem');
+// let text = elem.firstElementChild;
+// console.log(text)
+// text.style.color = 'red';
+
+//задача 2
+//Дан элемент #elem:
+//
+// <ul id="elem">
+// 	<li>text</li>
+// 	<li>text</li>
+// 	<li>text</li>
+// 	<li>text</li>
+// 	<li>text</li>
+// </ul>
+// Найдите последнего потомка этого элемента и сделайте его текст красного цвета.
+
+// let elem = document.querySelector('#elem');
+// let text = elem.lastElementChild;
+// text.style.color = 'red';
+
+//задача 3
+//Дан элемент #elem:
+//
+// <ul id="elem">
+// 	<li>text</li>
+// 	<li>text</li>
+// 	<li>text</li>
+// 	<li>text</li>
+// 	<li>text</li>
+// </ul>
+// Найдите всех потомков этого элемента и добавьте им в конец текст '!'.
+
+// let elems = document.querySelector('#elem');
+// let text = elems.children;
+// for (let elem of text){
+//     elem.innerHTML += '!'
+// }
+
+//Родители элементов
+
+//задача 4
+//Дан элемент #elem:
+//
+// <div>
+// 	<ul>
+// 		<li>text</li>
+// 		<li>text</li>
+// 		<li id="elem">text</li>
+// 		<li>text</li>
+// 		<li>text</li>
+// 	</ul>
+// </div>
+// Найдите его родителя и задайте ему красную границу.
+
+// let elem = document.querySelector('#elem');
+// let el = elem.parentElement;
+// el.style.border = '2px solid red';
+
+//задача 5
+//Дан элемент #elem:
+//
+// <div>
+// 	<ul>
+// 		<li>text</li>
+// 		<li>text</li>
+// 		<li id="elem">text</li>
+// 		<li>text</li>
+// 		<li>text</li>
+// 	</ul>
+// </div>
+// Найдите его родителя его родителя и задайте ему красную границу.
+
+// let elem = document.querySelector('#elem');
+// let parent = elem.parentElement.parentElement;
+// parent.style.border = '2px solid red';
 
 
+//Поиск всех родителей
+
+
+//задача 6
+//Дан элемент:
+//
+// <header>
+// 	<div>
+// 		<p>
+// 			<span id="elem"></span>
+// 		</p>
+// 	</div>
+// </header>
+// Найдите ближайшего родителя этого элемента, являющегося тегом div.
+
+// let elem = document.querySelector('#elem');
+// let parent = elem.closest('div')
+// console.log(parent)
+
+
+//задача 7
+//Дан элемент:
+//
+// <header>
+// 	<div class="www">
+// 		<p class="www">
+// 			<span id="elem"></span>
+// 		</p>
+// 	</div>
+// </header>
+// Найдите ближайшего родителя этого элемента, являющегося элементом с классом www.
+
+// let elem = document.querySelector('#elem'),
+//     parent = elem.closest('.www');
+// console.log(parent)
+
+
+// Поиск соседей
+
+
+//задача 8
+//Дан элемент #elem:
+//
+// <ul>
+// 	<li>text</li>
+// 	<li>text</li>
+// 	<li id="elem">text</li>
+// 	<li>text</li>
+// 	<li>text</li>
+// </ul>
+// Найдите его соседа сверху и добавьте ему в конец текст '!'.
+
+// let elem = document.querySelector('#elem'),
+//     text = elem.previousElementSibling;
+//
+// text.innerHTML += '!';
+
+
+//задача 9
+//Дан элемент #elem:
+//
+// <ul>
+// 	<li>text</li>
+// 	<li>text</li>
+// 	<li id="elem">text</li>
+// 	<li>text</li>
+// 	<li>text</li>
+// </ul>
+// Найдите его соседа снизу и добавьте ему в конец текст '!'.
+
+// let elem = document.querySelector('#elem'),
+//     text = elem.nextElementSibling;
+// text.innerHTML += '!';
+
+
+//задача 10
+//Дан элемент #elem:
+//
+// <ul>
+// 	<li>text</li>
+// 	<li>text</li>
+// 	<li id="elem">text</li>
+// 	<li>text</li>
+// 	<li>text</li>
+// </ul>
+// Найдите его соседа снизу его соседа снизу (следующий элемент за соседним) и добавьте ему в конец текст '!'.
+
+// let elem = document.querySelector('#elem'),
+//     text = elem.nextElementSibling.nextElementSibling;
+// text.innerHTML += '!'
+
+
+//задача 11
+//Дан элемент #elem:
+//
+// <ul>
+// 	<li>text1</li>
+// 	<li>text2</li>
+// 	<li id="elem">text3</li>
+// 	<li>text4</li>
+// 	<li>text5</li>
+// </ul>
+// Поменяйте местами текст его соседа сверху и текст его соседа снизу
+
+// let elem = document.querySelector('#elem'),
+//     text_up = elem.previousElementSibling,
+//     text_down = elem.nextElementSibling,
+//     res = text_up.innerHTML;
+//
+// text_up.innerHTML = text_down.innerHTML;
+// text_down.innerHTML = res;
+
+
+//Другие полезные методы для поиска элементов
+
+
+//задача 1
+//Дан элемент #elem:
+//
+// <div id="elem"></div>
+// Получите этот элемент с помощью метода getElementById и установите ему какой-нибудь текст.
+
+// let elem = document.getElementById('elem');
+// elem.innerHTML = 'Текст'
+
+
+// Получение по имени тега
+
+
+//задача 2
+//Дан список:
+//
+// <ul>
+// 	<li>text</li>
+// 	<li>text</li>
+// 	<li>text</li>
+// 	<li>text</li>
+// 	<li>text</li>
+// </ul>
+// Получите все теги li по имени тега и сделайте их текст красного цвета.
+
+// let elems = document.getElementsByTagName('li');
+//
+// for (let elem of elems){
+//     elem.style.color = 'red';
+// }
+
+
+// Получение по имени класса
+
+//задача 3
+//Даны элементы:
+//
+// <p class="www">elem 1</p>
+// <p class="www">elem 2</p>
+// <p class="www">elem 3</p>
+// Получите эти элементы по имени класса и сделайте их текст красного цвета.
+
+// let elems = document.getElementsByClassName('www');
+// for (let elem of elems){
+//     elem.style.color = 'red';
+// }
+
+
+//Поиск элементов внутри другого элемента
+
+//задача
+//Дан элемент #parent:
+//
+// <div id="parent">
+// 	<p class="www">text</p>
+// 	<p class="www">text</p>
+// 	<p class="www">text</p>
+// 	<p class="ggg">text</p>
+// 	<p class="ggg">text</p>
+// 	<p class="ggg">text</p>
+// </div>
+// let parent = document.querySelector('#parent');
+// Найдите внутри родителя элементы с классом www и запишите их в переменную elems1. Затем найдите внутри родителя элементы с классом ggg и запишите их в переменную elems2.
+
+// let parent = document.querySelector('#parent'),
+//     elems1 = parent.querySelectorAll('.www'),
+//     elems2 = parent.querySelectorAll('.ggg');
+//
+// console.log(elems1);
+// console.log(elems2);
+
+
+// Работа с текстареа в JavaScript
+
+//задача
+//Дан текстареа и абзац. По потери фокуса в текстареа запишите его текст в абзац.
+
+// let elem = document.querySelector('#elem'),
+//     text = document.querySelector('#txt');
+//
+// elem.addEventListener('blur', function () {
+//     text.innerHTML = elem.value;
+// })
+
+
+// Атрибут disabled в JavaScript
+
+//задача 1
+//Дан инпут и кнопка. По нажатию на кнопку заблокируйте инпут.
+
+// let elem = document.querySelector('#elem'),
+//     button = document.querySelector('#btn');
+//
+// button.addEventListener('click', function () {
+//     elem.disabled = true;
+// })
+
+//задача 2
+//Дан инпут и две кнопки. Пусть нажатие на первую кнопку блокирует инпут, а нажатие на вторую - отблокирует.
+
+// let elem = document.querySelector('#elem'),
+//     btn_1 = document.querySelector('#btn_1'),
+//     btn_2 = document.querySelector('#btn_2')
+//
+// btn_1.addEventListener('click', function () {
+//     elem.disabled = true;
+// })
+//
+// btn_2.addEventListener('click', function () {
+//     elem.disabled = false;
+// })
+
+//задача 3
+//Дан инпут и кнопка. По нажатию на кнопку узнайте, заблокирован инпут или нет.
+
+// let elem = document.querySelector('#elem'),
+//     btn = document.querySelector('#btn');
+//
+// btn.addEventListener('click', function () {
+//     alert(elem.disabled ? 'разблокирован':'заблокирован')
+// })
+
+
+//Работа с чекбоксами в JavaScript
+
+//задача 1
+//Дан чекбокс и две кнопки. По нажатию на первую кнопку установите чекбокс в отмеченное состояние, а по нажатию на вторую - в неотмеченное.
+
+// let elem = document.querySelector('#checkbox'),
+//     btn_check = document.querySelector('#btn_check'),
+//     btn_un_check = document.querySelector('#btn_un_check');
+//
+// btn_check.addEventListener('click', function () {
+//     elem.checked = true;
+// })
+//
+// btn_un_check.addEventListener('click', function () {
+//     elem.checked = false;
+// })
+
+//задача 2
+//Дан чекбокс, кнопка и абзац. По нажатию на кнопку, если чекбокс отмечен, выведите в абзац слово 'привет', а если чекбокс не отмечен, то слово 'пока'.
+
+// let ch_box = document.querySelector('#checkbox'),
+//     btn = document.querySelector('#btn_check'),
+//     prg = document.querySelector('#text');
+//
+// btn.addEventListener('click', function () {
+//     if (ch_box.checked){
+//         prg.innerHTML = 'Привет';
+//     }else {
+//         prg.innerHTML = 'Пока';
+//     }
+// })
+
+
+// Чередование атрибутов без значений
+
+//задача 1
+//задача 2
+//Дан чекбокс и кнопка. Сделайте так, чтобы каждый клик по кнопке приводил к смене состояния чекбокса.
+
+// let elem = document.querySelector('#checkbox'),
+//     btn = document.querySelector('#btn_check');
+//
+// btn.addEventListener('click', function () {
+//     elem.checked = !elem.checked
+// })
+
+
+//Работа с радиокнопками в JavaScript
+
+//задача
+//Даны 3 радиокнопки, абзац и кнопка. По клику на кнопку выведите в абзац value отмеченной радиокнопки.
+
+// let radio = document.querySelectorAll('input[type="radio"]'),
+//     btn = document.querySelector('#btn'),
+//     prg = document.querySelector('#elem');
+//
+// btn.addEventListener('click', function () {
+//     for (let elem of radio){
+//         if(elem.checked){
+//             prg.innerHTML = elem.value;
+//         }
+//     }
+// })
+
+
+// Событие change в JavaScript
+
+//задача 1
+//Дан инпут и абзац. По изменению инпута выведите его текст в абзац.
+
+// let inp = document.querySelector('#inp'),
+//     prg = document.querySelector('#text');
+//
+// inp.addEventListener('change', function () {
+//     prg.innerHTML = inp.value;
+// })
+
+//задача 2
+//Дан чекбокс. По изменению чебокса выведите на экран его новое состояние.
+
+// let inp = document.querySelector('#inp'),
+//     text = document.querySelector('#text');
+//
+// inp.addEventListener('change', function () {
+//     text.innerHTML = inp.checked
+// })
+
+//задача 3
+//задача 4
+//Дан инпут. По его изменению проверьте, количество символов в нем меньше 5-ти или нет. Если меньше - покрасьте границу инпута в зеленый цвет, а если больше - в красный.
+
+// let inp = document.querySelector('#inp');
+//
+// inp.addEventListener('change', function () {
+//     if(inp.value.length < 5){
+//         inp.style.border = '2px solid green'
+//     }else {
+//         inp.style.border = '2px solid red'
+//     }
+// })
+
+
+// Событие input в JavaScript
+
+//задача 1
+//Дан инпут. Пусть в него вводится текст. Как только длина текста достигнет 5-ти, выведите на экран сообщение об этом.
+
+// let inp = document.querySelector('#inp');
+//
+// inp.addEventListener('input', function () {
+//     if(inp.value.length == 5){
+//         alert('Строка равна 5 символам')
+//     }
+// })
+
+//задача 2
+//Дан инпут. Пусть в него разрешено ввести 5 символов. Дан также абзац. По мере ввода символов в инпут пишите, сколько еще символов можно ввести. Когда количество символов превысит 5-ти, то в абзац выводите то, на сколько символов превышена длина текста.
+
+// let inp = document.querySelector('#inp'),
+//     text = document.querySelector('#text');
+//
+// inp.addEventListener('input', function () {
+//     if(inp.value.length < 5){
+//         text.innerHTML = `Осталось ввести: ${5 - inp.value.length}`
+//     }else {
+//         text.innerHTML = `Превышена строка на: ${inp.value.length - 5}`
+//     }
+// })
+
+
+//Методы focus и blur в JavaScript
+
+//задача
+//Даны два инпута. Сделайте так, чтобы после ввода двух символов фокус ввода переходил ко второму инпуту, а после ввода двух символов в этот инпут - фокус из него убирался.
+
+// let inp_1 = document.querySelector('#inp_1'),
+//     inp_2 = document.querySelector('#inp_2');
+//
+// inp_1.addEventListener('input', function () {
+//     if(inp_1.value.length == 2){
+//         inp_2.focus()
+//     }
+// })
+//
+// inp_2.addEventListener('input', function () {
+//     if(inp_2.value.length == 2){
+//         inp_2.blur()
+//     }
+// })
+
+
+// Работа с выпадающими списками в JavaScript
+
+//задача 1
+//Дан селект, абзац и кнопка. По клику на кнопку выведите текст выбранного пункта списка в абзац.
+
+// let sel = document.querySelector('#select'),
+//     text = document.querySelector('#text'),
+//     btn = document.querySelector('#btn');
+//
+// btn.addEventListener('click', function () {
+//     text.innerHTML = sel.value
+// })
+
+//задача 2
+//Сделайте выпадающий список годов от 2020 до 2030. При выборе какого-нибудь пункта списка выведите сообщение о том, високосный этот год или нет.
+
+// let sel = document.querySelector('#select'),
+//     prg = document.querySelector('#text');
+//
+// sel.addEventListener('change', leapYear);
+//
+// function leapYear() {
+//     let num = this.value;
+//     if (num % 4 == 0 && num % 100 != 0 || num % 400 == 0) {
+//         prg.innerHTML = 'високосный';
+//     } else {
+//         prg.innerHTML = 'обычный';
+//     }
+// }
+
+
+//Атрибут value
+
+//задача 3
+//Сделайте выпадающий список с названиями дней недели. В качестве атрибутов value пунктов списка добавьте номера дней недели от 1 до 7. По изменению списка выведите на экран сообщение о том, выбран выходной день или рабочий.
+
+// let sel = document.querySelector('#select'),
+//     text = document.querySelector('#text');
+//
+// sel.addEventListener('change', function () {
+//     let val = Number(sel.value);
+//     if(val > 0 && val < 6){
+//         text.innerHTML = 'Рабочий'
+//     }else {
+//         text.innerHTML = 'Выходной'
+//     }
+// })
+
+
+//Изменение выбранного пункта списка на JavaScript
+
+//задача
+//Сделайте выпадающий список с названиями месяцев. Сделайте так, чтобы  JavaScript по умолчанию выбирал в этом списке текущий месяц.
+
+// let sel = document.querySelectorAll('#select option');
+// let date = new Date();
+// let month = date.getMonth();
+//
+// for (let el of sel){
+//     if(el.value == month){
+//         el.selected = true;
+//     }
+// }
+
+
+//Номер выбранного пункта выпадающего списка
+
+//задача 1
+//Дан инпут и селект. В инпут вводится какое-то число. По потери фокуса сделайте выделенным пункт списка, номер которого равен значению из инпута.
+
+// let inp = document.querySelector('#input'),
+//     sel = document.querySelectorAll('#select option');
+//
+// inp.addEventListener('blur', function () {
+//     let num = Number(inp.value);
+//     for (let el of sel){
+//         if (el.value == num){
+//             el.selected = true;
+//         }
+//     }
+// })
+
+
+//Получение пунктов выпадающего списка на JavaScript
+
+//задача
+//Переберите все пункты списка циклом и в конец текста каждого пункта добавьте значение его атрибута value.
+
+// let sel = document.querySelector('#select');
+//
+// for (let option of sel){
+//     option.innerHTML += ' ' + option.value;
+// }
+
+
+//Работа с пунктами выпадающего списка на JavaScript
+
+//задача 1
+//Переберите пункты списка циклом и для выбранного пункта в конец текста добавьте восклицательный знак, а для невыбранных пунктов - вопросительный.
+
+// let sel = document.querySelector('#select');
+//
+// for (let option of sel){
+//     if (option.selected === true){
+//         option.innerHTML += '!'
+//     }else {
+//         option.innerHTML += '?'
+//     }
+// }
+
+
+//Выбор пункта списка
+
+//задача 2
+//Дан выпадающий список и кнопка. По клику на кнопку сделайте отмеченным последний пункт списка.
+
+// let sel = document.querySelector('#select'),
+//     btn = document.querySelector('#btn');
+//
+// btn.addEventListener('click', function () {
+//     let res = sel.lastElementChild;
+//     res.selected = true
+// })
+
+
+// Получение выбранного оптиона
+
+//задача 3
+//Дан селект и кнопка. По нажатию на кнопку выведите на экран текст отмеченного пункта списка.
+
+// let sel = document.querySelector('#select'),
+//     btn = document.querySelector('#btn'),
+//     text = document.querySelector('#text');
+//
+// btn.addEventListener('click', function () {
+//     let res = sel[sel.selectedIndex];
+//     text.innerHTML = res.innerHTML
+// })
+
+//задача 4
+//Дан селект и кнопка. По нажатию на кнопку добавьте в конец текста выбранного пункта восклицательный знак.
+
+// let sel = document.querySelector('#select'),
+//     btn = document.querySelector('#btn');
+//
+// btn.addEventListener('click', function () {
+//     let res = sel[sel.selectedIndex];
+//     res.innerHTML += '!';
+// })
+
+
+// Пользовательские атрибуты в JavaScript
+
+//задача 1
+//Дан следующий код:
+//
+// <div id="elem" data-text="str">text</div>
+// Сделайте так, чтобы по клику на див в конец его текста добавилось содержимое его атрибута data-text.
+
+// let elem = document.querySelector('#elem');
+//
+// elem.addEventListener('click', function () {
+//     elem.innerHTML += elem.dataset.text
+// })
+
+//задача 2
+//Даны дивы, содержащие в атрибуте data-num свой порядковый номер:
+//
+// <div data-num="1">text</div>
+// <div data-num="2">text</div>
+// <div data-num="3">text</div>
+// <div data-num="4">text</div>
+// <div data-num="5">text</div>
+// Сделайте так, чтобы по клику на любой из дивов ему в конец записывался его порядковый номер.
+
+// let divs = document.querySelectorAll('div');
+//
+// for (let el of divs){
+//     el.addEventListener('click', function () {
+//         this.innerHTML += this.dataset.num
+//     })
+// }
+
+//задача 3
+//Дана кнопка. Сделайте так, чтобы эта кнопка считала количество кликов по ней, записывая их в какой-нибудь пользовательский атрибут. Пусть по двойному клику на эту кнопку на экран выводится, сколько кликов по этой кнопке было сделано.
+
+// let click = document.querySelector('#click'),
+//     show = document.querySelector('#show'),
+//     text = document.querySelector('#text'),
+//     counter = 0;
+//
+// click.addEventListener('click', function () {
+//     counter++
+//     click.dataset.count = counter;
+// })
+//
+// show.addEventListener('click', function () {
+//     text.innerHTML = click.dataset.count;
+// })
+
+//задача 4
+//Дан инпут:
+//
+// <input id="elem" data-length="5">
+// В этом инпуте в атрибуте data-length содержится количество символов, которое нужно ввести в инпут. Сделайте так, чтобы по потери фокуса, если количество введенных символов не совпадает с заданным, выводилось сообщение об этом.
+
+// let inp = document.querySelector('#elem'),
+//     text = document.querySelector('#text');
+//
+// inp.addEventListener('blur', function () {
+//     let data_res = inp.dataset.length;
+//     console.log(data_res);
+//     console.log(inp.value.length);
+//
+//     if(inp.value.length > data_res) {
+//         text.innerHTML = `Вы ввели на ${inp.value.length - data_res} знака/ов больше`
+//     }else if (inp.value.length < 5){
+//         text.innerHTML = `Можно ввести еще ${data_res - inp.value.length } знака/ов`
+//     }else {
+//         text.innerHTML = 'Нужное колличество знаков'
+//     }
+// })
+
+
+//задача 5
+//Дан инпут:
+//
+// <input id="elem" data-min="5" data-max="10">
+// В этом инпуте атрибуты data-min и data-max содержат диапазон. Сделайте так, чтобы по потери фокуса, если количество введенных символов не попадает в этот диапазон, выводилось сообщение об этом.
+
+// let inp = document.querySelector('#elem'),
+//     text = document.querySelector('#text');
+//
+// inp.addEventListener('blur', function () {
+//     let max = inp.dataset.max;
+//     let min = inp.dataset.min;
+//     if (inp.value.length >= min && inp.value.length <= max){
+//         text.innerHTML = 'Попадает в диапазон'
+//     }else {
+//         text.innerHTML = 'Не попадает в диапазон'
+//     }
+// })
+
+
+// Пользовательские атрибуты с дефисами в JavaScript
 
 
 
