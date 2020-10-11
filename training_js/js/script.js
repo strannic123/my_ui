@@ -2316,11 +2316,723 @@
 
 // Пользовательские атрибуты с дефисами в JavaScript
 
+//задача
+//Дан следующий код:
+//
+// <div id="elem" data-product-price="1000" data-product-amount="5">
+// 	товар яблоки
+// </div>
+// Сделайте так, чтобы по клику на див в конец его текста добавлялась стоимость покупки, равная цене, умноженной на количество.
+
+// let elem = document.querySelector('#elem');
+//
+// elem.addEventListener('click', function () {
+//     let res = elem.dataset.productPrice * elem.dataset.productAmount
+//     elem.innerHTML += `Общая стоимость: ${res}`
+// })
 
 
+//Обращение через методы к data атрибутам в JavaScript
+
+//задача
+//Даны абзацы. Переберите их циклом и каждому абзацу в атрибут data-num запишите порядковый номер этого абзаца. Используйте метод setAttribute.
+
+// let elems = document.querySelectorAll('.elem');
+//
+// counter = 1;
+// for (let elem of elems){
+//     elem.setAttribute('data-num', counter)
+//     counter++
+// }
 
 
+//Основы работы с объектом Event в JavaScript
 
+//Координаты события в JavaScript
+
+//задача
+//Сделайте так, чтобы при движении мышки по странице, отображались координаты курсора.
+
+// let elem = document.getElementById('elem');
+//
+// document.addEventListener('mousemove', function (event) {
+//     elem.innerHTML = event.clientX + ':' + event.clientY;
+// })
+
+
+//Тип события в объекте Event в JavaScript
+
+//задача
+//В следующем коде в двум событиям привязан один и тот же обработчик:
+//
+// <button id="elem">text</button>
+// let elem = document.querySelector('#elem');
+//
+// elem.addEventListener('click', func);
+// elem.addEventListener('dblclick', func);
+//
+// function func() {
+//
+// }
+// Допишите код функции func так, чтобы при клике на элемент этот элемент красился в зеленый цвет, а при двойном клике - в красный.
+
+// let elem = document.querySelector('#elem');
+//
+// elem.addEventListener('click', func);
+// elem.addEventListener('dblclick', func);
+//
+// function func(e) {
+//     if (e.type === 'click'){
+//         elem.style.background = 'green'
+//     }
+//     if (e.type === 'dblclick'){
+//         elem.style.background = 'red'
+//     }
+// }
+
+
+//Элемент события в объекте Event в JavaScript
+
+//задача
+//Привяжите к тегу ul обработчик клика. В этом обработчике проверяйте с помощью свойства tagName, по какому тегу был клик. Если клик был по тегу li - добавьте в конец текста этого тега восклицательный знак. А если клик был по тегу ul - добавьте ему в конец еще один пункт списка.
+
+// let elem = document.querySelector('#elem');
+//
+// elem.addEventListener('click', function (e) {
+//     if(e.target.tagName.toLowerCase() == 'li'){
+//         e.target.innerHTML += '!'
+//     }
+//     if(e.target.tagName.toLowerCase() == 'ul'){
+//         e.target.innerHTML += '<li>text</li>'
+//     }
+//
+// })
+
+
+//Получение нажатых клавиш в JavaScript
+
+//задача
+//Дан абзац и инпут. В него вводится текст и нажимается клавиша Enter. Сделайте так, чтобы по нажатию Enter введенный текст попадал в абзац под инпутом, а содержимое инпута очищалось.
+
+// let elem = document.querySelector('#elem'),
+//     inp = document.querySelector('#inp');
+//
+// inp.addEventListener('keydown', function (e) {
+//     console.log(e.key)
+//     if(e.key == 'Enter'){
+//         elem.innerHTML = inp.value;
+//         inp.value = '';
+//     }
+// })
+
+
+//Отслеживание клавиш-модификаторов в JavaScript
+
+//задача 1
+//Дан элемент. Сделайте так, чтобы по клику на него он красился в красный цвет, но только если в момент клика нажата клавиша Alt.
+
+// let btn = document.querySelector('input');
+//
+// btn.addEventListener('click', function (e) {
+//     if(e.altKey){
+//         btn.style.background = 'red'
+//     }
+// })
+
+//задача 2
+//Пусть у вас есть список ul с тегами li:
+//
+// <ul id="elem">
+// 	<li>text</li>
+// 	<li>text</li>
+// 	<li>text</li>
+// 	<li>text</li>
+// 	<li>text</li>
+// </ul>
+// Сделайте так, чтобы по клику на любую li, в конец ее текста добавлялось число 1, если нажата клавиша Ctrl, и число 2, если нажата клавиша Shift.
+
+// let elem = document.getElementById('elem');
+//
+// elem.addEventListener('click', function (e) {
+//     if(e.ctrlKey){
+//         e.target.innerHTML += 1;
+//     }
+//     if(e.shiftKey){
+//         e.target.innerHTML += 2;
+//     }
+// })
+
+
+// Отмена действия по умолчанию в JavaScript
+
+//задача 1
+//Даны ссылки. Сделайте так, чтобы по клику на ссылку ей в конец записывался ее href, а перехода по ссылке не происходило.
+
+// let links = document.querySelectorAll('a');
+//
+// for (let link of links){
+//     link.addEventListener('click', function (e) {
+//         e.preventDefault();
+//         link.innerHTML += ' ' + link.href
+//     })
+// }
+
+//задача 2
+//Даны два инпута, абзац и ссылка. Пусть в инпуты вводятся числа. Сделайте так, чтобы по клику на ссылку в абзац записалась сумма введенных чисел.
+
+// let inp1 = document.querySelector('#inp_1'),
+//     inp2 = document.querySelector('#inp_2'),
+//     text = document.querySelector('#text'),
+//     link = document.querySelector('a');
+//
+// link.addEventListener('click', function (e) {
+//     e.preventDefault();
+//     text.innerHTML = Number(inp1.value) + Number(inp2.value)
+// })
+
+
+//Основы работы с контекстом в JavaScript
+
+//Контекст непривязанной функции в JavaScript
+
+//Потеря контекста в JavaScript
+
+//Решение проблемы с контекстом в JavaScript
+
+//задача 1
+//Пусть дан такой код:
+//
+// <input id="elem" value="3">
+// "use strict";
+//
+// let elem = document.querySelector('#elem');
+// elem.addEventListener('blur', func);
+//
+// function func() {
+// 	alert( square() );
+//
+// 	function square() {
+// 		return this.value * this.value;
+// 	}
+// }
+// Автор кода хотел, чтобы по потери фокуса на экран вывелся квадрат числа из value инпута. Однако, почему-то при потери фокуса в консоль выдается ошибка.
+//
+// Исправьте ошибку автора кода. Напишите текст, в котором вы дадите объяснение автору кода, почему возникла его ошибка.
+
+// let elem = document.querySelector('#elem');
+// elem.addEventListener('blur', func);
+//
+// function func() {
+//     let sum = this;
+//     alert(square());
+//
+//     function square() {
+//         return Number(sum.value) * Number(sum.value);
+//     }
+// }
+
+//задача 2
+//Возьмите код из предыдущей задачи и исправьте проблему кода с помощью  второго способа.
+
+// let elem = document.querySelector('#elem');
+// elem.addEventListener('blur', func);
+//
+// function func() {
+//     alert(square(this));
+//
+//     function square(param) {
+//         return Number(param.value) * Number(param.value);
+//     }
+// }
+
+//задача 3
+//Возьмите код из предыдущей задачи и исправьте проблему кода с помощью  третьего способа.
+
+// let elem = document.querySelector('#elem');
+// elem.addEventListener('blur', func);
+//
+// function func() {
+//
+//     let square = () => {
+//         return Number(this.value) * Number(this.value);
+//     }
+//     alert(square());
+// }
+
+
+// Привязывание контекста через метод call в JavaScript
+
+//задача 1
+//Дана функция:
+//
+// function func() {
+// 	console.log(this.value);
+// }
+// Даны три инпута:
+//
+// <input id="elem1" value="text1">
+// <input id="elem2" value="text2">
+// <input id="elem2" value="text3">
+// С помощью метода call и функции func выведите на экран value каждого из инпутов.
+
+// let elem1 = document.querySelector('#elem1'),
+//     elem2 = document.querySelector('#elem2'),
+//     elem3 = document.querySelector('#elem3');
+//
+// function func() {
+// 	console.log(this.value);
+// }
+//
+// func.call(elem1);
+// func.call(elem2);
+// func.call(elem3);
+
+
+// Метод call с параметрами
+
+//задача 2
+//Пусть дан следующий код:
+//
+// <input id="elem" value="привет">
+// let elem = document.querySelector('#elem');
+//
+// function func(surname, name) {
+// 	console.log(this.value + ', ' + surname + ' ' + name);
+// }
+//
+// func(); // тут должно вывести 'привет, Иванов Иван'
+// Добавьте в последнюю строчку метод call так, чтобы на экран вывелось 'привет, Иванов Иван'. Слово 'привет' должно взяться из value инпута, а 'Иванов' и 'Иван' должны быть параметрами функциями.
+
+// let elem = document.querySelector('#elem');
+//
+// function func(surname, name) {
+//     console.log(this.value + ', ' + surname + ' ' + name);
+// }
+//
+// func.call(elem, "Иванов", "Иван");
+
+
+//Привязывание контекста через метод apply в JavaScript
+
+//задача
+//Пусть дан следующий код:
+//
+// <input id="elem" value="привет">
+// let elem = document.querySelector('#elem');
+//
+// function func(surname, name) {
+// 	console.log(this.value + ', ' + surname + ' ' + name);
+// }
+//
+// func(); // тут должно вывести 'привет, Иванов Иван'
+// Добавьте в последнюю строчку метод apply так, чтобы на экран вывелось 'привет, Иванов Иван'. Слово 'привет' должно взяться из value инпута, а 'Иванов' и 'Иван' должны быть параметрами функциями.
+
+// let elem = document.querySelector('#elem');
+//
+// function func(surname, name) {
+//     console.log(this.value + ', ' + surname + ' ' + name);
+// }
+//
+// func.apply(elem, ['Иванов', 'Иван']);
+
+
+// Привязывание контекста через метод bind в JavaScript
+
+
+//задача
+//Пусть дан следующий код:
+//
+// <input id="elem" value="привет">
+// let elem = document.getElementById('elem');
+//
+// function func(surname, name) {
+// 	console.log(this.value + ', ' + surname + ' ' + name);
+// }
+//
+// // Тут напишите конструкцию с bind()
+//
+// func('Иванов', 'Иван'); // тут должно вывести 'привет, Иванов Иван'
+// func('Петров', 'Петр'); // тут должно вывести 'привет, Петров Петр'
+// Напишите в указанном месте конструкцию с методом bind так, чтобы this внутри функции func всегда указывал на инпут из переменной elem.
+
+// let elem = document.getElementById('elem');
+//
+// function func(surname, name) {
+//     console.log(this.value + ', ' + surname + ' ' + name);
+// }
+//
+// let newFunc = func.bind(elem);
+//
+// newFunc('Иванов', 'Иван');
+// newFunc('Петров', 'Петр');
+
+
+//Основы работы с функцией setInterval в JavaScript
+
+
+//задача
+//Запустите таймер, который каждые 3 секунды будет что-нибудь выводить в консоль.
+
+// setInterval(interval, 3000);
+//
+// function interval() {
+//     console.log('Привет')
+// }
+
+
+//Счетчик через функцию setInterval в JavaScript
+
+
+//задача
+//Пусть дана переменная, в которой изначально хранится число 100. Запустите таймер, который каждую секунду будет уменьшать значение этой переменной на 1 и выводить это значение в консоль.
+
+// let i = 100;
+
+// setInterval(function () {
+//     console.log(--i)
+// }, 1000)
+
+//второй вариант
+// setInterval(() => console.log(--i), 1000);
+
+
+//Остановка таймера JavaScript
+
+
+//задача
+//Пусть дана переменная, в которой изначально хранится число 10. Запустите таймер, который каждую секунду будет уменьшать значение этой переменной на 1 и выводить это значение в консоль. Как только значение переменной достигнет нуля - остановите таймер.
+
+// let i = 10;
+//
+// let timerId = setInterval(function () {
+//     console.log(--i);
+//
+//     if (i == 0){
+//         clearInterval(timerId)
+//     }
+// }, 1000);
+
+
+//Кнопка для запуска таймера на JavaScript
+
+
+//задача 1
+//Сделайте кнопку, по нажатию на которую в консоль будет выводится обратный отсчет, начиная с 100.
+
+// let start = document.querySelector('#start'),
+//     i = 100;
+//
+//
+// start.addEventListener('click', function () {
+//     let timerId = setInterval(function () {
+//         console.log(--i);
+//
+//         if (i == 0){
+//             clearInterval(timerId)
+//         }
+//     },1000)
+// })
+
+
+//задача 2
+//Возьмите ваше решение предыдущей задачи. Проверьте, что многократное нажатие на кнопку приводит к ускорению отсчета. Исправьте эту проблему.
+
+// let start = document.querySelector('#start'),
+//     i = 100;
+//
+// start.addEventListener('click', function func() {
+//     let timerId = setInterval(function () {
+//         console.log(--i);
+//
+//         if (i == 0){
+//             clearInterval(timerId)
+//         }
+//     },1000);
+//
+//     this.removeEventListener('click', func)
+// })
+
+
+// Кнопки для запуска и остановки таймера на JavaScript
+
+
+//задача 1
+//Пусть дана переменная, в которой изначально хранится число 100. Даны также две кнопки. По нажатию на первую кнопку запустите таймер, который каждую секунду будет уменьшать значение переменной на 1 и выводить новое значение в консоль. Как только значение переменной достигнет нуля - остановите таймер. По нажатию на вторую кнопку остановите таймер. Также остановите таймер, если вторая кнопка не была нажата, но значение переменной достигло нуля.
+
+// let start = document.querySelector('#start'),
+//     stop = document.querySelector('#stop'),
+//     i = 10,
+//     timerId;
+//
+// start.addEventListener('click', function func() {
+//     timerId = setInterval(function () {
+//         console.log(--i)
+//         if (i == 0){
+//             clearInterval(timerId)
+//         }
+//     }, 1000);
+//     this.removeEventListener('click', func)
+// })
+//
+// stop.addEventListener('click', function () {
+//     clearInterval(timerId);
+// })
+
+
+//задача 2
+//Некоторый программист написал код, который по нажатию на кнопку запускает таймер, выводящий в консоль текущий момент времени:
+//
+// <input type="submit" id="start" value="start">
+// <input type="submit" id="stop"  value="stop">
+// let start = document.querySelector('#start');
+// let stop  = document.querySelector('#stop');
+//
+// start.addEventListener('click', function() {
+// 	let timerId = setInterval(function() {
+// 		let date = new Date;
+// 		console.log(date.getMinutes() + ' ' + date.getSeconds());
+// 	}, 1000);
+// });
+//
+// stop.addEventListener('click', function() {
+// 	clearInterval(timerId);
+// });
+// После запуска кода, однако, оказалось, что кнопка остановки не работает. Исправьте ошибку автора кода.
+
+// let start = document.querySelector('#start');
+// let stop  = document.querySelector('#stop');
+// let timerId;
+//
+// start.addEventListener('click', function func() {
+//     timerId = setInterval(function () {
+//         let date = new Date;
+//         console.log(date.getMinutes() + ' ' + date.getSeconds());
+//     }, 1000);
+//     this.removeEventListener('click', func)
+// });
+//
+// stop.addEventListener('click', function() {
+//     clearInterval(timerId);
+// });
+
+
+//задача 3
+//Еще один программист также написал код для решения предыдущей задачи:
+//
+// <input type="submit" id="start" value="start">
+// <input type="submit" id="stop"  value="stop">
+// let start = document.querySelector('#start');
+// let stop  = document.querySelector('#stop');
+//
+// let timerId;
+//
+// start.addEventListener('click', function() {
+// 	let timerId = setInterval(function() {
+// 		let date = new Date;
+// 		console.log(date.getMinutes() + ' ' + date.getSeconds());
+// 	}, 1000);
+// });
+//
+// stop.addEventListener('click', function() {
+// 	clearInterval(timerId);
+// });
+// После запуска кода, однако, опять оказалось, что кнопка остановки не работает. Исправьте ошибку автора кода.
+
+// let start = document.querySelector('#start');
+// let stop  = document.querySelector('#stop');
+// let timerId;
+//
+// start.addEventListener('click', function func() {
+//     timerId = setInterval(function() {
+//         let date = new Date;
+//         console.log(date.getMinutes() + ' ' + date.getSeconds());
+//     }, 1000);
+//     this.removeEventListener('click', func);
+// });
+//
+// stop.addEventListener('click', function() {
+//     clearInterval(timerId);
+// });
+
+
+//задача 4
+//Еще один программист также написал код для решения предыдущей задачи:
+//
+// <input type="submit" id="start" value="start">
+// <input type="submit" id="stop"  value="stop">
+// let start = document.querySelector('start');
+// let stop  = document.querySelector('stop');
+//
+// let timerId;
+//
+// start.addEventListener('click', function() {
+// 	setInterval(function() {
+// 		let date = new Date;
+// 		console.log(date.getMinutes() + ' ' + date.getSeconds());
+// 	}, 1000);
+// });
+//
+// stop.addEventListener('click', function() {
+// 	clearInterval(timerId);
+// });
+// После запуска кода, однако, опять оказалось, что кнопка остановки не работает. Исправьте ошибку автора кода.
+
+// let start = document.querySelector('#start');
+// let stop  = document.querySelector('#stop');
+// let timerId;
+//
+// start.addEventListener('click', function func() {
+//     timerId = setInterval(function() {
+//         let date = new Date;
+//         console.log(date.getMinutes() + ' ' + date.getSeconds());
+//     }, 1000);
+//     this.removeEventListener('click', func)
+// });
+//
+// stop.addEventListener('click', function() {
+//     clearInterval(timerId);
+// });
+
+
+//задача 5
+//Еще один программист также написал код для решения предыдущей задачи:
+//
+// <input type="submit" id="start" value="start">
+// <input type="submit" id="stop"  value="stop">
+// let start = document.querySelector('start');
+// let stop  = document.querySelector('stop');
+//
+// let timerId;
+//
+// start.addEventListener('click', function() {
+// 	let timerId = setInterval(function() {
+// 		let date = new Date;
+// 		console.log(date.getMinutes() + ' ' + date.getSeconds());
+// 	}, 1000);
+// });
+//
+// stop.addEventListener('click', function() {
+// 	clearInterval();
+// });
+// После запуска кода, однако, опять оказалось, что кнопка остановки не работает. Исправьте ошибку автора кода.
+
+// let start = document.querySelector('#start');
+// let stop  = document.querySelector('#stop');
+// let timerId;
+//
+// start.addEventListener('click', function func() {
+//     timerId = setInterval(function() {
+//         let date = new Date;
+//         console.log(date.getMinutes() + ' ' + date.getSeconds());
+//     }, 1000);
+//     this.removeEventListener('click', func )
+// });
+//
+// stop.addEventListener('click', function() {
+//     clearInterval(timerId);
+// });
+
+
+//задача 6
+//Приведенный мною в теоретической части код не учитывает то, что на кнопку старт можно сделать несколько нажатий. Для исправления этой проблемы можно по нажатию на кнопку старт отвязывать событие от этой кнопки, а по нажатию на кнопку стоп - привязывать обратно. Исправьте проблему.
+
+// let start = document.querySelector('#start');
+// let stop  = document.querySelector('#stop');
+// let timerId;
+//
+// function func (){
+//     timerId = setInterval(function() {
+//         let date = new Date;
+//         console.log(date.getMinutes() + ' ' + date.getSeconds());
+//     }, 1000);
+//     this.removeEventListener('click', func )
+// }
+//
+// start.addEventListener('click', func);
+//
+// stop.addEventListener('click', function() {
+//     clearInterval(timerId);
+//     start.addEventListener('click', func);
+// });
+
+
+// Практика на таймеры и работу с DOM в JavaScript
+
+
+//задача 1
+//let elem = document.querySelector('#elem');
+//
+// setInterval(function() {
+// 	elem.value = Number(elem.value) + 1;
+// }, 1000);
+
+//Объясните, зачем в приведенном выше коде используется функция Number. Что будет, если не написать эту функцию в данном коде?
+//Объяснение - при сложении строки с числом получится конкатенация (но не математическое действие сложение), т.е 11
+
+
+//задача 2
+//Пусть в инпуте в атрибуте value изначально записано число 10. Запустите таймер, который каждую секунду будет уменьшать это число на единицу.
+
+// let elem = document.querySelector('#elem');
+//
+// let timerId = setInterval(() => {
+//     let res = Number(elem.value - 1);
+//     elem.value = res;
+// }, 1000);
+
+
+//задача 3
+//Модифицируйте предыдущую задачу так, чтобы, как только содержимое инпута станет равно нулю, таймер прекратил свою работу.
+
+// let elem = document.querySelector('#elem');
+//
+// let timerId = setInterval(() => {
+//     let res = Number(elem.value - 1);
+//     elem.value = res;
+//     if (res == 0){
+//         this.clearInterval(timerId)
+//     }
+// }, 1000);
+
+
+// Таймеры и потеря контекста в JavaScript
+
+//задача 1
+//Пусть дан такой код:
+//
+// <input type="button" id="elem" value="1">
+// let elem = document.querySelector('#elem');
+//
+// elem.addEventListener('click', function() {
+// 	setInterval(function() {
+// 		this.value = Number(elem.value) + 1;
+// 	}, 1000);
+// });
+// Автор кода хотел, чтобы по нажатию на кнопку, значение этой кнопки каждую секунду увеличивалось на 1. Однако, по нажатию на кнопку вообще ничего не происходит.Исправьте ошибку автора кода.
+
+// let elem = document.querySelector('#elem');
+//
+// elem.addEventListener('click', function() {
+//     let res = this;
+//     setInterval(function() {
+//         res.value = Number(res.value) + 1;
+//     }, 1000);
+// });
+
+
+// Другие способы решить проблему
+
+
+//задача 2
+//Исправьте проблему предыдущей задачи через стрелочную функцию.
+
+let elem = document.querySelector('#elem');
+
+elem.addEventListener('click', function() {
+    setInterval(() => {
+        this.value = Number(this.value) + 1;
+    }, 1000);
+});
 
 
 
