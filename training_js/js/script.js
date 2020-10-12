@@ -3026,13 +3026,233 @@
 //задача 2
 //Исправьте проблему предыдущей задачи через стрелочную функцию.
 
-let elem = document.querySelector('#elem');
+// let elem = document.querySelector('#elem');
+//
+// elem.addEventListener('click', function() {
+//     setInterval(() => {
+//         this.value = Number(this.value) + 1;
+//     }, 1000);
+// });
 
-elem.addEventListener('click', function() {
-    setInterval(() => {
-        this.value = Number(this.value) + 1;
-    }, 1000);
-});
+
+// Решение проблемы через замыкание
+
+// let elem = document.querySelector('#elem');
+//
+// elem.addEventListener('click', function() {
+//     function func(self) {
+//         return function() {
+//             console.log(self.value);
+//         }
+//     }
+//
+//     setInterval(func(this), 1000);
+// });
+
+
+// Передача контекста параметром функции setInterval
+
+
+//задача 2
+//Пусть дан такой код:
+//
+// <input type="button" id="elem" value="10">
+// let elem = document.querySelector('#elem');
+//
+// elem.addEventListener('click', function() {
+// 	setInterval(function() {
+// 		this.value--;
+// 	}, 1000);
+// });
+// Автор кода хотел, чтобы по нажатию на кнопку, значение этой кнопки каждую секунду уменьшалось на 1. Однако, по нажатию на кнопку вообще ничего не происходит.
+//Исправьте ошибку автора кода, используя изученный в данном уроке способ.
+
+// let elem = document.querySelector('#elem');
+//
+// elem.addEventListener('click', function() {
+//     setInterval(function(self) {
+//         self.value--;
+//     }, 1000, this);
+// });
+
+
+// Практика на таймеры и работу с DOM в JavaScript
+
+
+//задача 1
+//Дана кнопка. Дан абзац, текстом которого является число. По нажатию на кнопку запустите таймер, который каждую секунду будет увеличивать текст абзаца на 1.
+
+// let start = document.querySelector('#start'),
+//     text = document.querySelector('#text'),
+//     i = 1;
+//
+// start.addEventListener('click', function () {
+//     setInterval(function (self) {
+//         text.innerHTML = i++
+//     }, 1000, this);
+// })
+
+
+//задача 2
+//Дана кнопка. Дан абзац, текстом которого является число, например, 10. По нажатию на кнопку запустите таймер, который каждую секунду будет уменьшать текст абзаца на 1. Как только значение абзаца станет равно нулю - остановите таймер.
+
+
+// let start = document.querySelector('#start'),
+//     text = document.querySelector('#text'),
+//     i = 10,
+//     timerId;
+//
+// start.addEventListener('click', function () {
+//     timerId = setInterval(function (self) {
+//         if (i == 0){
+//             clearInterval(timerId);
+//         }
+//
+//         text.innerHTML = i--;
+//
+//     }, 1000, this);
+// })
+
+
+//задача 3
+//Дан инпут с числом. Сделайте так, чтобы каждую секунду в нем появлялся квадрат того числа, которое в нем записано.
+
+// let inp = document.querySelector('#start');
+//
+// setInterval(function () {
+//     inp.value = Number(inp.value) * Number(inp.value);
+// }, 1000);
+
+
+//задача 4
+//Дан инпут. В него вводится число. По потери фокуса сделайте так, чтобы в абзаце ниже начал тикать обратный отсчет, начиная с введенного числа. Когда отсчет дойдет до нуля - он должен закончится.
+
+// let elem = document.querySelector('#elem'),
+//     text = document.querySelector('#text'),
+//     timerId;
+//
+//
+// elem.addEventListener('blur', function () {
+//     timer = Number(elem.value);
+//     timerId = setInterval(()=> {
+//         if (timer == 0){
+//             clearInterval(timerId);
+//         }
+//         text.innerHTML = timer--;
+//
+//     }, 1000);
+// })
+
+
+
+//задача 5
+//Дан инпут, кнопка и абзац. В инпут вводится какое-то число. По нажатию на кнопку запишите введенное число в текст абзаца и запустите обратный отсчет в абзаце: пусть каждую секунду число в абзаце уменьшается на единицу, пока не дойдет до нуля.
+
+// let inp = document.querySelector('#elem'),
+//     btn = document.querySelector('#btn'),
+//     text = document.querySelector('#text'),
+//     timerId;
+//
+// btn.addEventListener('click', function () {
+//     text.innerHTML = inp.value;
+//     let i = Number(inp.value);
+//
+//     timerId = setInterval(() => {
+//         if (i == 0){
+//             clearInterval(timerId)
+//         }
+//         text.innerHTML = i--;
+//     }, 1000)
+// })
+
+
+//задача 6
+//Дан абзац и две кнопки. Сделайте так, чтобы по нажатию на первую кнопку в абзаце начал тикать таймер от 1 до бесконечности, а по нажатию на вторую таймер останавливался.
+
+// let text = document.querySelector('#text'),
+//     start = document.querySelector('#start'),
+//     stop = document.querySelector('#stop'),
+//     timerId,
+//     i = Number(text.innerHTML);
+//
+// start.addEventListener('click', function () {
+//     timerId = setInterval(() => {
+//         text.innerHTML = i++;
+//     }, 1000);
+// })
+//
+// stop.addEventListener('click', function () {
+//     clearInterval(timerId);
+// });
+
+
+//задача 7
+//Дан абзац. Сделайте так, чтобы каждую секунду он менял свой цвет с красного на зеленый и наоборот.
+
+// let text = document.querySelector('#text');
+//
+// setInterval(function () {
+//     if(text.style.background == 'red'){
+//         text.style.background = 'green'
+//     }else {
+//         text.style.background = 'red'
+//     }
+// }, 1000);
+
+
+//задача 8
+//Если выводить на экран каждую секунду текущий момент времени, то можно сделать тикающие часы. Реализуйте такие же часики, как показано ниже в образце: 16:55:11
+
+// let time = document.querySelector('#time');
+//
+// function addZero(num){
+//     if(num <= 9){
+//         return '0'+num;
+//     }else {
+//         return num
+//     }
+// }
+//
+// setInterval(() => {
+//     let date = new Date();
+//     let hours = date.getHours();
+//     let minutes = date.getMinutes();
+//     let seconds = date.getSeconds();
+//     time.innerHTML = addZero(hours) + ':' + addZero(minutes) + ':' + addZero(seconds);
+// }, 1000);
+
+
+// Функция setTimeout в JavaScript
+
+
+//задача 1
+//Дан абзац. Напишите код, который выведет сообщение в этот абзац через 10 секунд после загрузки страницы.
+
+// let text = document.querySelector('#text');
+//
+// setTimeout(() => {
+//     text.innerHTML = 'Текст вывелся через 10 секунд'
+// }, 10000);
+
+
+// Запуск таймера
+
+
+//задача 2
+//Выведите в консоль число 0. Через секунду выведите число 1, через две секунды выведите число 2, через 3 секунды выведите число 3. И так далее до бесконечности.
+
+let i = 0;
+func()
+
+function func() {
+    console.log(++i);
+    setTimeout(func, 1000*i)
+}
+
+
+
+
+
 
 
 
