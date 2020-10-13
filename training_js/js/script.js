@@ -3241,13 +3241,587 @@
 //задача 2
 //Выведите в консоль число 0. Через секунду выведите число 1, через две секунды выведите число 2, через 3 секунды выведите число 3. И так далее до бесконечности.
 
-let i = 0;
-func()
+// let i = 0;
+// func()
+//
+// function func() {
+//     console.log(++i);
+//     setTimeout(func, 1000*i)
+// }
 
-function func() {
-    console.log(++i);
-    setTimeout(func, 1000*i)
-}
+
+//Создание и вставка элементов на JavaScript
+
+
+//задача 1
+//Дан ol:
+// <ol id="elem"></ol>
+// Вставьте ему в конец li с текстом 'пункт'.
+
+// let elem = document.querySelector('#elem'),
+//     p = document.createElement('li');
+//
+// p.innerHTML = 'пункт';
+// elem.appendChild(p);
+
+
+//задача 2
+//Дан ol и кнопка:
+// <ol id="elem"></ol>
+// <button id="button">click me</button>
+// Сделайте так, чтобы по клику на кнопку в конец списка добавлялся li с текстом 'пункт'.
+
+// let elem = document.querySelector('#elem'),
+//     btn = document.querySelector('#button');
+//
+// btn.addEventListener('click', function () {
+//     tag_li = document.createElement('li');
+//     tag_li.innerHTML = 'пункт';
+//     elem.appendChild(tag_li);
+// })
+
+
+//Привязывание событий при вставке элементов
+
+
+//задача
+//Дан ol и кнопка. Сделайте так, чтобы по клику на кнопку в конец ol добавлялся тег li. Сделайте так, чтобы по клику на любой из добавленных li в конец его текста записывался восклицательный знак.
+
+// let elem = document.querySelector('#elem'),
+//     btn = document.querySelector('#button');
+//
+//
+// btn.addEventListener('click', function () {
+//     let tag_li = document.createElement('li');
+//     tag_li.innerHTML = 'пункт';
+//     elem.appendChild(tag_li);
+//     tag_li.addEventListener('click', () =>{
+//         tag_li.innerHTML += '!';
+//     })
+// })
+
+
+//Создание элементов в цикле на JavaScript
+
+
+//задача
+//Дан пустой ul. Запустите цикл, который вставит в него 10 тегов li. Сделайте так, чтобы текстом каждой li был ее порядковый номер.
+
+// let parent = document.querySelector('#parent');
+//
+// for (let i = 1; i <= 10; i++){
+//     let tag_li = document.createElement('li');
+//     tag_li.innerHTML = i;
+//
+//     parent.appendChild(tag_li);
+// }
+
+
+// Навешивание обработчиков в цикле на JavaScript
+
+
+// задача
+//Дан див. Запустите цикл, который добавит в наш див 5 инпутов. Пусть дан также абзац. Сделайте так, чтобы каждый из новых инпутов по потери фокуса записывал свой текст в абзац.
+
+// let parent = document.querySelector('#parent'),
+//     text = document.querySelector('#elem');
+//
+// for (let i = 1; i <= 5; i++){
+//     let inp = document.createElement('input');
+//     parent.appendChild(inp);
+//
+//     inp.addEventListener('blur', () =>{
+//         text.innerHTML = inp.value;
+//     })
+// }
+
+
+// Создание элементов из массива на JavaScript
+
+
+// задача
+//let parent = document.querySelector('#parent');
+//
+// let arr = [1, 2, 3, 4, 5];
+//
+// for (let elem of arr) {
+// 	let p = document.createElement('p');
+// 	p.innerHTML = elem;
+//
+// 	parent.appendChild(p);
+// }
+//Модифицируйте код так, чтобы по клику на абзац к его содержимому прибавлялась единица.
+
+// let parent = document.querySelector('#parent');
+//
+// let arr = [1, 2, 3, 4, 5];
+//
+// for (let elem of arr) {
+// 	let p = document.createElement('p');
+// 	p.innerHTML = elem;
+//
+// 	parent.appendChild(p);
+//
+// 	p.addEventListener('click', function () {
+//         p.innerHTML += '!';
+//     })
+// }
+
+
+//Практика на создание списков ul на JavaScript
+
+
+//задача 1
+//Дан массив. Выведите его элементы в виде списка ul так, чтобы каждый элемент попал в свою li.
+
+// let arr = [1, 2, 3, 4, 5],
+//     parent = document.querySelector('#parent');
+//
+// for (let elem of arr){
+//     let tag_li = document.createElement('li');
+//     tag_li.innerHTML = elem;
+//
+//     parent.appendChild(tag_li);
+// }
+
+
+//задача 2
+//Модифицируйте предыдущую задачу так, чтобы по клику на li ей в конец добавлялся '!'.
+
+// let arr = [1, 2, 3, 4, 5],
+//     parent = document.querySelector('#parent');
+//
+// for (let elem of arr){
+//     let tag_li = document.createElement('li');
+//     tag_li.innerHTML = elem;
+//
+//     parent.appendChild(tag_li);
+//
+//     tag_li.addEventListener('click', function () {
+//         tag_li.innerHTML += '!';
+//     })
+// }
+
+
+//задача 3
+//Модифицируйте предыдущую задачу так, чтобы по повторное нажатие на li не приводило к добавлению второго '!'.
+
+// let arr = [1, 2, 3, 4, 5],
+//     parent = document.querySelector('#parent');
+//
+// for (let elem of arr){
+//     let tag_li = document.createElement('li');
+//     tag_li.innerHTML = elem;
+//
+//     parent.appendChild(tag_li);
+//
+//     tag_li.addEventListener('click', function func() {
+//         tag_li.innerHTML += '!';
+//         tag_li.removeEventListener('click', func);
+//     })
+//
+// }
+
+
+//задача 4
+//Дан ul:
+// <ul id="elem"></ul>
+// Дан массив. Вставьте элементы этого массива в конец ul так, чтобы каждый элемент стоял в своем li.
+
+// let tag_ul = document.querySelector('#elem');
+// let arr = [1, 2, 3, 4, 5];
+//
+// for (let elem of arr){
+//     let tag_li = document.createElement('li');
+//     tag_li.innerHTML = elem;
+//     tag_ul.appendChild(tag_li);
+// }
+
+
+//задача 5
+//Модифицируйте предыдущую задачу так, чтобы по клику на любой из вставленных элементов на экран выводился текст этого элемента.
+
+// let tag_ul = document.querySelector('#elem'),
+//     text = document.querySelector('#text');
+// let arr = [1, 2, 3, 4, 5];
+//
+// for (let elem of arr){
+//     let tag_li = document.createElement('li');
+//     tag_li.innerHTML = elem;
+//     tag_ul.appendChild(tag_li);
+//
+//     tag_li.addEventListener('click', function () {
+//         text.innerHTML = tag_li.innerHTML
+//     })
+// }
+
+
+//задача 6
+//Модифицируйте предыдущую задачу так, чтобы по клику на li ей в конец добавлялся '!'.
+
+// let tag_ul = document.querySelector('#elem'),
+//     text = document.querySelector('#text');
+// let arr = [1, 2, 3, 4, 5];
+//
+// for (let elem of arr){
+//     let tag_li = document.createElement('li');
+//     tag_li.innerHTML = elem;
+//     tag_ul.appendChild(tag_li);
+//
+//     tag_li.addEventListener('click', function () {
+//         tag_li.innerHTML += '!'
+//     })
+// }
+
+
+//задача 7
+//Модифицируйте предыдущую задачу так, чтобы по повторное нажатие на li не приводило к добавлению второго '!'.
+
+// let tag_ul = document.querySelector('#elem'),
+//     text = document.querySelector('#text');
+// let arr = [1, 2, 3, 4, 5];
+//
+// for (let elem of arr){
+//     let tag_li = document.createElement('li');
+//     tag_li.innerHTML = elem;
+//     tag_ul.appendChild(tag_li);
+//
+//     tag_li.addEventListener('click', function func() {
+//         tag_li.innerHTML += '!'
+//
+//         tag_li.removeEventListener('click', func);
+//     })
+// }
+
+
+//Создание HTML таблиц на JavaScript
+
+
+//задача 1
+//Дана пустая HTML таблица. С помощью двух вложенных циклов for заполните эту таблицу 5-ю рядами с 5-ю колонками.
+
+// let table = document.querySelector('#table');
+//
+// for (let i = 1; i <= 5; i++){
+//     let tr = document.createElement('tr');
+//
+//     for (let i = 1; i <=5; i++){
+//         let td = document.createElement('td');
+//         tr.appendChild(td)
+//     }
+//     table.appendChild(tr)
+// }
+
+
+//задача 2
+//Модифицируйте предыдущую задачу так, чтобы таблица создавалась размером 10 рядов на 5 колонок.
+
+// let table = document.querySelector('#table');
+//
+// for (let i = 1; i <= 5; i++){
+//     let tr = document.createElement('tr');
+//
+//     for (let i = 1; i <=10; i++){
+//         let td = document.createElement('td');
+//         tr.appendChild(td)
+//     }
+//     table.appendChild(tr)
+// }
+
+
+//задача 3
+//Модифицируйте предыдущую задачу так, чтобы в каждую td добавлялся текст 'x'.
+
+// let table = document.querySelector('#table');
+//
+// for (let i = 1; i <= 5; i++){
+//     let tr = document.createElement('tr');
+//
+//     for (let i = 1; i <=10; i++){
+//         let td = document.createElement('td');
+//         td.innerHTML = 'x';
+//         tr.appendChild(td)
+//     }
+//     table.appendChild(tr)
+// }
+
+
+//задача 4
+//Реализуйте генератор таблиц, ширина и высота таблиц задается в двух инпутах (например, таблица 5 на 10 ячеек).
+
+// let table = document.querySelector('#table'),
+//     inp_h = document.querySelector('#height'),
+//     inp_w = document.querySelector('#width'),
+//     btn = document.querySelector('#btn');
+//
+// btn.addEventListener('click', func);
+//
+// function func() {
+//     for (let i = 1; i <= Number(inp_h.value); i++){
+//         let tr = document.createElement('tr');
+//         for (let i = 1; i <= Number(inp_w.value); i++){
+//             let td = document.createElement('td');
+//             tr.appendChild(td);
+//         }
+//         table.appendChild(tr);
+//     }
+// }
+
+
+// Последовательное заполнение HTML таблиц
+
+
+//задача 1
+//Выведите на экран таблицу table размером 5 рядов на 5 колонок так, чтобы в ее ячейках последовательно стояли числа от 1 до 25.
+
+// let table = document.querySelector('#table'),
+//     k = 1;
+//
+// for (let i = 1; i <= 5; i++){
+//     let tr = document.createElement('tr');
+//
+//     for (let i = 1; i <= 5; i++){
+//         let td = document.createElement('td');
+//         td.innerHTML = k;
+//         k++
+//         tr.appendChild(td)
+//     }
+//     table.appendChild(tr)
+// }
+
+
+//задача 2
+//Модифицируйте предыдущую задачу так, чтобы в ячейках таблицы были записаны четные числа в промежутке от 2 до 50.
+
+// let table = document.querySelector('#table'),
+//     k = 2;
+//
+// for (let i = 1; i <= 5; i++){
+//     let tr = document.createElement('tr');
+//
+//     for (let i = 1; i <= 5; i++){
+//             let td = document.createElement('td');
+//             td.innerHTML = k;
+//             k += 2;
+//         tr.appendChild(td)
+//     }
+//     table.appendChild(tr)
+// }
+
+
+//Создание HTML таблицы из массива на JavaScript
+
+
+//задача 1
+//let arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]];
+// Выведите элементы приведенного массива в виде HTML таблицы table.
+
+// let arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]];
+//
+// let table = document.querySelector('#table');
+//
+// for (let subArr of arr){
+//     let td = document.createElement('tr');
+//     for (let elem of subArr){
+//         let tr = document.createElement('td');
+//         tr.innerHTML = elem;
+//         td.appendChild(tr)
+//     }
+//     table.appendChild(td);
+// }
+
+
+//задача 2
+//Модифицируйте предыдущую задачу так, чтобы в таблицу записывались не элементы, а квадраты этих элементов.
+
+// let arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]];
+//
+// let table = document.querySelector('#table');
+//
+// for (let subArr of arr){
+//     let td = document.createElement('tr');
+//     for (let elem of subArr){
+//         let tr = document.createElement('td');
+//         tr.innerHTML = elem * elem;
+//         td.appendChild(tr)
+//     }
+//     table.appendChild(td);
+// }
+
+
+// Создание HTML таблицы из массива объектов
+
+
+//задача 1
+//Дан следующий массив с работниками:
+// let employees = [
+// 	{name: 'employee1', age: 30, salary: 400},
+// 	{name: 'employee2', age: 31, salary: 500},
+// 	{name: 'employee3', age: 32, salary: 600},
+// ];
+// Выведите элементы этого массива в виде HTML таблицы.
+
+// let table = document.querySelector('#table');
+// let employees = [
+// 	{name: 'employee1', age: 30, salary: 400},
+// 	{name: 'employee2', age: 31, salary: 500},
+// 	{name: 'employee3', age: 32, salary: 600},
+// ];
+//
+// for (let empl of employees){
+//     let tr = document.createElement('tr');
+//
+//     let td1 = document.createElement('td');
+//     td1.innerHTML = empl.name;
+//     tr.appendChild(td1);
+//
+//     let td2 = document.createElement('td');
+//     td2.innerHTML = empl.age;
+//     tr.appendChild(td2);
+//
+//     let td3 = document.createElement('td');
+//     td3.innerHTML = empl.salary;
+//     tr.appendChild(td3);
+//
+//     table.appendChild(tr)
+// }
+
+
+//задача 2
+//Модифицируйте предыдущую задачу так, чтобы по клику на любую ячейку с возрастом ее содержимое увеличивалось на 1.
+
+// let table = document.querySelector('#table');
+// let employees = [
+// 	{name: 'employee1', age: 30, salary: 400},
+// 	{name: 'employee2', age: 31, salary: 500},
+// 	{name: 'employee3', age: 32, salary: 600},
+// ];
+//
+// for (let empl of employees){
+//     let tr = document.createElement('tr');
+//
+//     let td1 = document.createElement('td');
+//     td1.innerHTML = empl.name;
+//     tr.appendChild(td1);
+//
+//     let td2 = document.createElement('td');
+//     td2.innerHTML = empl.age;
+//     tr.addEventListener('click', () => {
+//         td2.innerHTML = Number(td2.innerHTML) + 1;
+//     })
+//     tr.appendChild(td2);
+//
+//     let td3 = document.createElement('td');
+//     td3.innerHTML = empl.salary;
+//     tr.appendChild(td3);
+//
+//     table.appendChild(tr)
+// }
+
+
+//задача 3
+//Модифицируйте предыдущую задачу так, чтобы по клику на любую ячейку с зарплатой ее содержимое увеличивалось на 10%.
+
+// let table = document.querySelector('#table');
+// let employees = [
+// 	{name: 'employee1', age: 30, salary: 400},
+// 	{name: 'employee2', age: 31, salary: 500},
+// 	{name: 'employee3', age: 32, salary: 600},
+// ];
+//
+// for (let empl of employees){
+//     let tr = document.createElement('tr');
+//
+//     let td1 = document.createElement('td');
+//     td1.innerHTML = empl.name;
+//     tr.appendChild(td1);
+//
+//     let td2 = document.createElement('td');
+//     td2.innerHTML = empl.age;
+//     tr.addEventListener('click', () => {
+//         td2.innerHTML = Number(td2.innerHTML) + 1;
+//     })
+//     tr.appendChild(td2);
+//
+//     let td3 = document.createElement('td');
+//     td3.innerHTML = empl.salary;
+//     td3.addEventListener('click', () => {
+//         td3.innerHTML = Math.round(Number(td3.innerHTML) * 1.1)
+//     })
+//     tr.appendChild(td3);
+//
+//     table.appendChild(tr)
+// }
+
+
+// Добавление рядов и колонок в HTML таблицу
+
+
+//задача 1
+//Сделайте кнопку, по нажатию на которую в таблицу будет добавляться новый ряд.
+
+// let table = document.querySelector('#table'),
+//     btn = document.querySelector('#btn');
+//
+// btn.addEventListener('click', () => {
+//     let tr = document.createElement('tr');
+//     for (let i = 1; i <= 5; i++){
+//         let td = document.createElement('td');
+//         td.innerHTML = i;
+//         tr.appendChild(td);
+//     }
+//     table.appendChild(tr);
+// })
+
+
+//задача 2
+//Дана таблица размером 2 на 2:
+//
+// <table id="table">
+// 	<tr>
+// 		<td></td>
+// 		<td></td>
+// 	</tr>
+// 	<tr>
+// 		<td></td>
+// 		<td></td>
+// 	</tr>
+// </table>
+
+// Дана также кнопка. Сделайте так, чтобы по нажатию на кнопку таблица увеличивалась на один ряд и на одну колонку.
+
+// let table = document.querySelector('#table'),
+//     btn = document.querySelector('#btn'),
+//     k = 2;
+//
+// btn.addEventListener('click', () => {
+//     let trs = document.querySelectorAll('#table tr');
+//     for (let elem of trs){
+//         let td = document.createElement('td');
+//         elem.appendChild(td);
+//     }
+//
+//     k++;
+//     let tr = document.createElement('tr');
+//     for (let i = 1; i <= k; i++){
+//         let td = document.createElement('td')
+//         tr.appendChild(td);
+//     }
+//     table.appendChild(tr)
+// })
+
+
+// Изменение ячеек HTML таблицы на JavaScript
+
+
+//задача 1
+//Пусть дана некоторая HTML таблица с числами и кнопка. По нажатию на кнопку увеличьте число в каждой ячейки таблицы в два раза.
+
+
+
+
+
+
 
 
 
