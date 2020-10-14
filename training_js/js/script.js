@@ -3814,14 +3814,305 @@
 // Изменение ячеек HTML таблицы на JavaScript
 
 
-//задача 1
+//задача
 //Пусть дана некоторая HTML таблица с числами и кнопка. По нажатию на кнопку увеличьте число в каждой ячейки таблицы в два раза.
 
+// let tds = document.querySelectorAll('#table td'),
+//     btn = document.querySelector('#btn');
+//
+// btn.addEventListener('click', function () {
+//     for (let elem of tds){
+//         console.log(elem);
+//         let a = Number(elem.innerHTML);
+//         elem.innerHTML = a + a;
+//     }
+// })
 
 
+// Порядковый номер ячейки таблицы на JavaScript
 
 
+//задача
+//Дана HTML таблица. Запишите в каждую ячейку ее порядковый номер с конца. То есть последней ячейке запишите 1, предпоследней - 2, и так далее.
 
+// let tds = document.querySelectorAll("#table td"),
+//     k = tds.length;
+//
+// for (let i = 0; i < tds.length; i++){
+//     tds[i].innerHTML = k--
+// }
+
+
+// Номер колонки и ряда таблицы на JavaScript
+
+
+//задача
+//Дана HTML таблица. Запишите в каждую ячейку ее порядковый номер в ряду.
+
+// let trs = document.querySelectorAll('#table tr');
+//
+// for (let i = 0; i < trs.length; i++){
+//     let tr = trs[i];
+//     let tds = tr.querySelectorAll('td');
+//
+//     for (let j = 0; j < tds.length; j++){
+//         let td = tds[j];
+//         td.innerHTML = i + ':' + j
+//     }
+// }
+
+
+// Порядковый номер ячейки по клику на JavaScript
+
+
+//задача
+//Дана HTML таблица. Сделайте так, чтобы по клику на любую ячейку в эту ячейку записывался порядковый номер этой ячейки с конца таблицы.
+
+// let tds = document.querySelectorAll('#table td'),
+//     k = 0;
+//
+// for (let i = tds.length; i > 0; i--){
+//     tds[k++].addEventListener('click', function () {
+//         this.innerHTML = i;
+//     })
+// }
+
+
+// Порядковый номер клика в ячейке HTML таблицы
+
+
+//задача 1
+//let tds = document.querySelectorAll('#table td');
+//
+// let i = 1;
+// for (let td of tds) {
+// 	td.addEventListener('click', function() {
+// 		this.innerHTML = i;
+// 		i++;
+// 	});
+// }
+
+//Модифицируйте код  так, чтобы повторное нажатие по ячейке не приводило к увеличению счетчика.
+// let tds = document.querySelectorAll('#table td');
+//
+// let i = 1;
+// for (let td of tds) {
+// 	td.addEventListener('click', function func() {
+// 		this.innerHTML = i;
+// 		i++;
+// 		td.removeEventListener('click', func);
+// 	});
+// }
+
+
+//Чередование
+
+
+//задача 2
+//let tds = document.querySelectorAll('#table td');
+//
+// let i = 1;
+// for (let td of tds) {
+// 	td.addEventListener('click', function() {
+// 		this.innerHTML = i;
+//
+// 		if (i == 1) {
+// 			i = 2;
+// 		} else {
+// 			i = 1;
+// 		}
+// 	});
+// }
+//Модифицируйте код так, чтобы при кликах на ячейки чередовались числа 1, 2 и 3.
+
+// let tds = document.querySelectorAll('#table td');
+//
+// let i = 1;
+// for (let td of tds) {
+// 	td.addEventListener('click', function() {
+// 		this.innerHTML = i;
+//
+// 		if (i == 1) {
+// 			i = 2;
+// 		} else if (i == 2) {
+// 			i = 3;
+// 		}else if (i == 3){
+// 		    i = 1;
+//         }
+// 	});
+// }
+
+
+// Удаление элементов на JavaScript
+
+
+//задача 1
+//Дан следующий код:
+//
+// <ul id="parent">
+// 	<li>1</li>
+// 	<li id="elem">2</li>
+// 	<li>3</li>
+// </ul>
+//
+// <input type="submit" id="button">
+// Сделайте так, чтобы по нажатию на кнопку удалялся элемент #elem.
+
+// let parent = document.querySelector('#parent'),
+//     elem = document.querySelector('#elem'),
+//     btn = document.querySelector('#button');
+//
+// btn.addEventListener('click', function () {
+//     parent.removeChild(elem)
+// })
+
+
+//задача 2
+//Дан следующий код:
+//
+// <ul id="parent">
+// 	<li>1</li>
+// 	<li>2</li>
+// 	<li>3</li>
+// </ul>
+//
+// <input type="submit" id="button">
+// Сделайте так, чтобы по каждому клику на кнопку удалялся последний элемент из #parent.
+
+// let parent = document.querySelector('#parent'),
+//     btn = document.querySelector('#button');
+//
+// btn.addEventListener('click', function () {
+//     let elem = parent.lastElementChild;
+//     parent.removeChild(elem);
+// })
+
+
+// Без родителя
+
+
+//задача 3
+//Дан следующий код:
+//
+// <ul>
+// 	<li>1</li>
+// 	<li id="elem">2</li>
+// 	<li>3</li>
+// </ul>
+// Сделайте так, чтобы по нажатию на #elem этот элемент удалился.
+
+// let elem = document.querySelector('#elem');
+//
+// elem.addEventListener('click', function () {
+//     elem.parentElement.removeChild(elem)
+// })
+
+
+//Самоудаление элементов на JavaScript
+
+
+//задача
+//Дан следующий код:
+//
+// <ul id="parent">
+// 	<li>1</li>
+// 	<li>2</li>
+// 	<li>3</li>
+// </ul>
+// Сделайте так, чтобы любая li удалялась по клику на нее.
+
+// let parent = document.querySelector('#parent'),
+//     elems = document.querySelectorAll('#parent li');
+//
+// for (let elem of elems){
+//     elem.addEventListener('click', function () {
+//         parent.removeChild(this);
+//     })
+//
+// }
+
+
+//Самоудаление новых элементов на JavaScript
+
+
+//задача
+//Дан следующий код:
+//
+// <ul id="parent">
+// 	<li>1</li>
+// 	<li>2</li>
+// 	<li>3</li>
+// </ul>
+//
+// <input type="submit" id="button">
+// Сделайте так, чтобы по клику на кнопку в список добавлялся новый элемент. Сделайте так, чтобы любая li удалялась по клику на нее. Речь идет как о тех li, которые уже есть в списке, так о новых, созданных после нажатия на кнопку.
+
+// let parent = document.querySelector('#parent'),
+//     btn = document.querySelector('#button'),
+//     elems = document.querySelectorAll('#parent li'),
+//     len = elems.length;
+//
+// function removeCh(el) {
+//     el.addEventListener('click', function () {
+//         parent.removeChild(this)
+//     })
+//
+// }
+//
+// for (let elem of elems) {
+//     removeCh(elem);
+// }
+//
+// btn.addEventListener('click',  () => {
+//     let li = document.createElement('li');
+//     li.innerHTML = ++len;
+//     parent.appendChild(li);
+//     removeCh(li);
+// })
+
+
+//Ссылка на удаление элемента на JavaScript
+
+
+//задача
+//<div id="parent">
+//     <p id="elem">text</p>
+//     <a href="#" id="remove">remove</a>
+// </div>
+//Пусть у нас абзац. Давайте рядом с ним сделаем ссылку, с помощью которой этот абзац можно будет удалить.
+
+// let elem = document.querySelector('#elem'),
+//     remove = document.querySelector('#remove');
+//
+// remove.addEventListener('click', function (e) {
+//     elem.parentElement.removeChild(elem);
+//     e.preventDefault();
+// })
+
+
+//Создание ссылок для удаление элементов на JavaScript
+
+
+//задача 1
+//Дан тег ul. Добавьте в конец каждого тега li ссылку на удаления этого li из списка.
+
+// let elems = document.querySelectorAll('#parent li');
+//
+// for (let elem of elems){
+//     let remove = document.createElement('a');
+//     remove.href = '';
+//     remove.innerHTML = 'remove';
+//     elem.appendChild(remove);
+//
+//     remove.addEventListener('click', function (e) {
+//         elem.parentElement.removeChild(elem);
+//         e.preventDefault();
+//     })
+// }
+
+
+//задача 2
+//Дана HTML таблица. Добавьте в нее еще одну колонку, в которой для каждого ряда таблицы будет стоять ссылка на удаление этого ряда.
 
 
 
