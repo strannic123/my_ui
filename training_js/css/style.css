@@ -26,3 +26,11 @@ td {
     height: 50px;
     border: 1px solid black;
 }
+
+.green {
+    background: green;
+}
+
+.hidden {
+    display: none;
+}

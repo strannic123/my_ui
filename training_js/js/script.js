@@ -4114,6 +4114,360 @@
 //задача 2
 //Дана HTML таблица. Добавьте в нее еще одну колонку, в которой для каждого ряда таблицы будет стоять ссылка на удаление этого ряда.
 
+// let table = document.querySelector('#table'),
+//     trs = document.querySelectorAll('#table tr');
+//
+// for (let tr of trs){
+//     let td = document.createElement('td');
+//     let link = document.createElement('a');
+//     link.href = '';
+//     link.innerHTML = 'remove';
+//     td.appendChild(link)
+//     tr.appendChild(td);
+//
+//     link.addEventListener('click', function (e) {
+//         tr.parentElement.removeChild(tr);
+//         e.preventDefault();
+//     })
+// }
+
+
+//Редактирование отдельного элемента на JavaScript
+
+
+//задача 1
+// let elem = document.querySelector('#elem');
+// let input = document.querySelector('#input');
+//
+// input.value = elem.innerHTML; // записываем в инпут текст абзаца
+//
+// input.addEventListener('blur', function() {
+//     elem.innerHTML = this.value;
+// });
+//Модифицируйте приведенный выше код так, чтобы текст абзаца менялся не по потери фокуса, а по мере ввода текста в инпут.
+// let elem = document.querySelector('#elem');
+// let input = document.querySelector('#input');
+//
+// input.value = elem.innerHTML; // записываем в инпут текст абзаца
+//
+// input.addEventListener('input', function() {
+//     elem.innerHTML = this.value;
+// });
+
+
+//задача 2
+//Давайте сделаем так, чтобы инпута изначально не было на странице, а он появлялся по клику на абзац, чтобы по потери фокуса в инпуте менялся текст абзаца, при
+//повторном нажатии не появлялись новые инпуты
+
+// let elem = document.querySelector('#elem');
+//
+// elem.addEventListener('click', function () {
+//     let input = document.createElement('input');
+//     input.value = elem.innerHTML;
+//
+//     input.addEventListener('blur', function () {
+//         elem.innerHTML = this.value;
+//         this.parentElement.removeChild(this)
+//     })
+//
+//     elem.parentElement.appendChild(input);
+// })
+
+
+//Прячем текст при редактировании элемента на JavaScript
+
+
+//задача
+//Дан обзац - при нажатии текст абзаца появляется в инпуте для редактирования. Инпут появляется в абзаце. При потере фокуса инпута - текст инпута появляется в абзаце.
+
+// let elem = document.querySelector('#elem');
+//
+// elem.addEventListener('click', function func() {
+//     let input = document.createElement('input');
+//     input.value = this.innerHTML;
+//     elem.innerHTML = '';
+//     elem.appendChild(input);
+//
+//     input.addEventListener('blur', function () {
+//         elem.innerHTML = this.value;
+//         elem.addEventListener('click', func);
+//
+//     })
+//
+//     elem.removeEventListener('click', func);
+// })
+
+
+// Редактирование в группе элементов на JavaScript
+
+
+//задача 1
+// Дан тег ul. Сделайте так, чтобы по клику на любую li в ней появлялся инпут, с помощью которого можно будет поредатировать текст этой li.
+
+// let elems = document.querySelectorAll('#parent li');
+//
+// for (let elem of elems){
+//     elem.addEventListener('click', function func() {
+//         let input = document.createElement('input');
+//         input.value = elem.innerHTML;
+//         elem.innerHTML = '';
+//         elem.appendChild(input);
+//
+//         input.addEventListener('blur', function () {
+//             elem.innerHTML = input.value;
+//             elem.addEventListener('click', func);
+//         })
+//         elem.removeEventListener('click', func);
+//     })
+// }
+
+
+//задача 2
+//Дана HTML таблица. Сделайте так, чтобы по клику на любую ячейку в ней появлялся инпут для редактирования текста этой ячейки.
+
+// let tds = document.querySelectorAll('#parent tr td');
+//
+// for (let elem of tds){
+//     elem.addEventListener('click', function func() {
+//         let input = document.createElement('input');
+//         input.value = elem.innerHTML;
+//         elem.innerHTML = '';
+//         elem.appendChild(input);
+//
+//         input.addEventListener('blur', function () {
+//             elem.innerHTML = input.value;
+//             elem.addEventListener('click', func);
+//         })
+//
+//         elem.removeEventListener('click', func);
+//     })
+// }
+
+
+// Одновременное редактирование и удаление элементов
+
+
+//задача 1
+//Дан следующий HTML код:
+//
+// <div id="parent">
+// 	<p><span>text1</span></p>
+// 	<p><span>text2</span></p>
+// 	<p><span>text3</span></p>
+// </div>
+// Добавьте ссылку на удаление в конец каждого абзаца.
+// Сделайте так, чтобы по клику на span в нем появлялся инпут для редактирования.
+
+let spans = document.querySelectorAll('#parent span'),
+    ps = document.querySelectorAll('#parent p')
+
+// for (let span of spans){
+//     let remove = document.createElement('a');
+//     remove.href = '';
+//     remove.innerHTML = 'remove';
+//     span.parentElement.appendChild(remove);
+//
+//
+//     remove.addEventListener('click', function (e) {
+//         span.parentElement.removeChild(span);
+//         remove.parentElement.removeChild(remove);
+//         e.preventDefault();
+//     })
+//
+//     span.addEventListener('click', function func() {
+//         let input = document.createElement('input');
+//         input.value = span.innerHTML;
+//         span.innerHTML = '';
+//
+//         span.parentElement.appendChild(input)
+//
+//         input.addEventListener('blur', function () {
+//             span.innerHTML = input.value;
+//             input.parentElement.removeChild(input);
+//             span.addEventListener('click', func)
+//         })
+//
+//         span.removeEventListener('click', func)
+//     })
+// }
+
+
+//задача 2
+//Пусть теперь изначально тегов span нет:
+//
+// <div id="parent">
+// 	<p>text1</p>
+// 	<p>text2</p>
+// 	<p>text3</p>
+// </div>
+// Оберните сначала текст абзаца в теги span, добавьте к этим тегам возможность редактирования, а затем добавьте в конец каждого абзаца ссылку на удаление.
+
+// let parag = document.querySelectorAll('#parent p');
+//
+// for (let p of parag){
+//     let span = document.createElement('span');
+//     span.innerHTML = p.innerHTML;
+//     p.innerHTML = '';
+//     p.appendChild(span);
+//
+//     let remove = document.createElement('a');
+//     remove.href = '';
+//     remove.innerHTML = 'remove';
+//     p.appendChild(remove);
+//
+//     remove.addEventListener('click', function (e) {
+//         p.parentElement.removeChild(p);
+//         e.preventDefault();
+//     })
+//
+//     span.addEventListener('click', function func() {
+//         let input = document.createElement('input');
+//         input.value = span.innerHTML;
+//         span.innerHTML = '';
+//         span.appendChild(input);
+//
+//         input.addEventListener('blur', function () {
+//             span.innerHTML = input.value;
+//             // input.parentElement.removeChild(input);
+//             span.addEventListener('click', func);
+//         })
+//
+//         span.removeEventListener('click', func)
+//     })
+// }
+
+
+// Стилизация элементов на JavaScript
+
+//задача 1
+//Дан следующий HTML код:
+//
+// <p>text1</p>
+// <p>text2</p>
+// <p>text3</p>
+// Добавьте в конец каждого абзаца ссылку, по клику на которую текст абзаца будет перечеркиваться (а ссылка - нет).
+
+// let parag = document.querySelectorAll('p');
+//
+// for (let p of parag){
+//     let span = document.createElement('span');
+//     span.innerHTML = p.innerHTML;
+//     p.innerHTML = '';
+//     p.appendChild(span)
+//
+//     let link = document.createElement('a');
+//     link.href = '';
+//     link.innerHTML = ' перечеркнуть';
+//     p.appendChild(link);
+//
+//     link.addEventListener('click', function (e) {
+//         span.classList.toggle('cross_out');
+//         e.preventDefault();
+//     })
+// }
+
+
+//задача 2
+//Модифицируйте предыдущую задачу так, чтобы после нажатия на ссылку эта ссылка удалялась из абзаца (а текст абзаца становился перечеркнутым).
+// let parag = document.querySelectorAll('p');
+//
+// for (let p of parag){
+//     let span = document.createElement('span');
+//     span.innerHTML = p.innerHTML;
+//     p.innerHTML = '';
+//     p.appendChild(span)
+//
+//     let link = document.createElement('a');
+//     link.href = '';
+//     link.innerHTML = ' перечеркнуть';
+//     p.appendChild(link);
+//
+//     link.addEventListener('click', function (e) {
+//         span.classList.add('cross_out');
+//         link.parentElement.removeChild(link);
+//         e.preventDefault();
+//     })
+// }
+
+
+//задача 3
+//Дана некоторая HTML таблица. Добавьте в эту таблицу еще одну колонку со ссылкой. По нажатию на эту ссылку ряд с этой ссылкой должен стать зеленого фона.
+
+// let trs = document.querySelectorAll('#parent tr');
+//
+// for (let tr of trs){
+//     let new_td = document.createElement('td');
+//     tr.appendChild(new_td);
+//
+//     let link = document.createElement('a');
+//     link.href = '';
+//     link.innerHTML = 'Зеленый ряд';
+//     new_td.appendChild(link);
+//
+//     link.addEventListener('click', function (e) {
+//         tr.classList.add('green');
+//         e.preventDefault();
+//     })
+// }
+
+
+//задача 4
+//Модифицируйте предыдущую задачу так, чтобы первое нажатие по ссылке красило ряд в зеленый фон, а второе нажатие отменяло это действие.
+// let trs = document.querySelectorAll('#parent tr');
+//
+// for (let tr of trs){
+//     let new_td = document.createElement('td');
+//     tr.appendChild(new_td);
+//
+//     let link = document.createElement('a');
+//     link.href = '';
+//     link.innerHTML = 'Зеленый ряд';
+//     new_td.appendChild(link);
+//
+//     link.addEventListener('click', function (e) {
+//         tr.classList.toggle('green');
+//         e.preventDefault();
+//     })
+// }
+
+
+// Кнопки для скрытия и показа элемента на JavaScript
+
+
+//задача
+//Пусть по первому клику на эту кнопку элемент показывается, а по второму - скрывается.
+
+// let elem = document.querySelector('#elem'),
+//     show_hide = document.querySelector('#show-hide');
+//
+// show_hide.addEventListener('click', function () {
+//     elem.classList.toggle('hidden');
+// })
+
+
+// Много элементов с кнопками показа на JavaScript
+
+
+//задача 1
+//Сделаем так, чтобы по клику на кнопку скрывался или показывался соответствующий ей абзац
+
+// let buttons = document.querySelectorAll('button');
+//
+// for (let button of buttons){
+//     button.addEventListener('click', function () {
+//         let elem = document.querySelector('#' + this.dataset.elem);
+//         elem.classList.toggle('hidden');
+//     })
+// }
+
+
+
+
+
+
+
+
+
 
 
 
