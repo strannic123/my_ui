@@ -94,7 +94,8 @@
       <workItem from="1602578875788" duration="5705000" />
       <workItem from="1602594420887" duration="9525000" />
       <workItem from="1602664313950" duration="16966000" />
-      <workItem from="1602748678365" duration="14514000" />
+      <workItem from="1602748678365" duration="15471000" />
+      <workItem from="1602835421221" duration="9978000" />
     </task>
     <servers />
   </component>
@@ -102,6 +103,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="93" y="93" width="1231" height="572" key="DiffContextDialog" timestamp="1602870895965">
+      <screen x="0" y="0" width="1418" height="759" />
+    </state>
+    <state x="93" y="93" width="1231" height="572" key="DiffContextDialog/0.0.1418.759@0.0.1418.759" timestamp="1602870895965" />
     <state x="489" y="134" key="FileChooserDialogImpl" timestamp="1601148138889">
       <screen x="0" y="0" width="1418" height="759" />
     </state>

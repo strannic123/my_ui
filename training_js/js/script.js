@@ -4461,14 +4461,174 @@ let spans = document.querySelectorAll('#parent span'),
 // }
 
 
+//задача 2
+//Cделать так, чтобы связь была по порядковому номеру: пусть первая кнопка скрывает первый абзац, вторая кнопка - второй и так далее.
+
+// let buttons = document.querySelectorAll('button'),
+//     elems = document.querySelectorAll('p');
+//
+// for (let i = 0; i < buttons.length; i++){
+//     buttons[i].addEventListener('click', function () {
+//         elems[i].classList.toggle('hidden');
+//     })
+// }
 
 
+//задача 3
+//Aбзац, связанный с кнопкой, является ее соседом слева. Можно это использовать в качестве связи.
+
+// let buttons = document.querySelectorAll('button');
+//
+// for (let button of buttons){
+//     button.addEventListener('click', function () {
+//         this.previousElementSibling.classList.toggle('hidden');
+//     })
+// }
 
 
+// Активация элементов на JavaScript
 
 
+//задача 1
+//Дана HTML список ul. Сделайте так, чтобы по нажатию на любой пункт списка он активировался красным фоном.
+
+// let elems = document.querySelectorAll('li');
+//
+// for (let li of elems){
+//     li.addEventListener('click', function () {
+//         this.classList.add('active');
+//     })
+// }
 
 
+//задача 2
+//Модифицируйте предыдущую задачу так, чтобы по нажатию на активированный пункт списка активация с него снималась.
+
+// let elems = document.querySelectorAll('li');
+//
+// for (let li of elems){
+//     li.addEventListener('click', function () {
+//         this.classList.toggle('active');
+//     })
+// }
+
+
+// Чередование стилей активации на JavaScript
+
+
+//задача 1
+//Сделайте так, чтобы происходило чередование цветов: пусть первая ячейка красится в красный, вторая - в зеленый, третья - опять в красный и так далее.
+
+// let tds = document.querySelectorAll('#table td'),
+//     color = 'color1';
+//
+// for (let td of tds){
+//     td.addEventListener('click', function () {
+//         if (color == 'color1'){
+//             color = 'color2'
+//         }else {
+//             color = 'color1'
+//         }
+//
+//         this.classList.add(color)
+//     })
+// }
+
+
+// Чередование многих цветов из массива
+
+
+//задача 2
+//Пусть теперь мы хотим чередовать не два цвета, а произвольное количество
+
+// let tds = document.querySelectorAll('#table td'),
+//     i = 0,
+//     colors = ['color1', 'color2', 'color3'];
+//
+// for (let td of tds){
+//     td.addEventListener('click', function () {
+//         this.classList.add(colors[i]);
+//
+//         i++;
+//         if (i == colors.length){
+//             i = 0;
+//         }
+//     })
+// }
+
+
+// Активация ограниченного количества элементов
+
+
+//задача 1
+//Сделайте так, чтобы можно было активировать ограниченное количество элементов.
+
+// let tds = document.querySelectorAll('#table td');
+//
+// for (let td of tds){
+//     td.addEventListener('click', function () {
+//         let activeTds = document.querySelectorAll('#table td.active');
+//
+//         if (activeTds && activeTds.length < 3){
+//             this.classList.add('active');
+//         }
+//     })
+// }
+
+
+//задача 2
+//Сделайте так, чтобы в одном ряду таблице можно было активировать не более 5-ти ячеек.
+
+// let trs = document.querySelectorAll('#table tr'),
+//     tds = document.querySelectorAll('#table td');
+//
+// for (let td of tds){
+//     td.addEventListener('click', function () {
+//         let i = td.parentElement.rowIndex;
+//         let activeTds = trs[i].querySelectorAll('#table td.active');
+//         if (activeTds && activeTds.length < 5){
+//             this.classList.add('active');
+//         }
+//     })
+// }
+
+
+//задача 3
+//Сделайте так, чтобы  для активированной ячейки нельзя было активировать ее соседей слева и справа.
+
+// let tds = document.querySelectorAll('#table td');
+//
+// for(let td of tds) {
+//     td.addEventListener('click', function (){
+//         let next = this.nextElementSibling;
+//         let prev = this.previousElementSibling;
+//         if( ((next == null) && (!prev.classList.contains('active'))) ||
+//             ((prev == null) && (!next.classList.contains('active'))) ||
+//             (next != null) && (prev != null) &&
+//             (!prev.classList.contains('active')) && (!next.classList.contains('active')))
+//             this.classList.toggle('active');
+//     });
+// }
+
+
+//задача 4
+//Сделайте так, чтобы в для активированной ячейки нельзя было активировать ее соседей сверху и снизу.
+
+
+let trs = document.querySelectorAll('#table tr');
+for (let i = 0; i <= trs.length; i++) {
+    let tds = document.querySelectorAll('#table tr:nth-child('+i+') td');
+    for (let j = 0; j < tds.length; j++) {
+        tds[j].addEventListener('click', function() {
+            let topTd = document.querySelector('#table tr:nth-child('+Number(i-1)+') td:nth-child('+Number(j+1)+')');
+            let bottomTd = document.querySelector('#table tr:nth-child('+Number(i+1)+') td:nth-child('+Number(j+1)+')');
+            if ((topTd != null) && (bottomTd != null) && !topTd.classList.contains('active') && !bottomTd.classList.contains('active')
+                || (topTd == null) && !bottomTd.classList.contains('active')
+                || (bottomTd == null) && !topTd.classList.contains('active'))
+                this.classList.toggle('active');
+        });
+    }
+}
 
 
 
