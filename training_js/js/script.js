@@ -4258,8 +4258,8 @@
 // Добавьте ссылку на удаление в конец каждого абзаца.
 // Сделайте так, чтобы по клику на span в нем появлялся инпут для редактирования.
 
-let spans = document.querySelectorAll('#parent span'),
-    ps = document.querySelectorAll('#parent p')
+// let spans = document.querySelectorAll('#parent span'),
+//     ps = document.querySelectorAll('#parent p')
 
 // for (let span of spans){
 //     let remove = document.createElement('a');
@@ -4615,20 +4615,529 @@ let spans = document.querySelectorAll('#parent span'),
 //Сделайте так, чтобы в для активированной ячейки нельзя было активировать ее соседей сверху и снизу.
 
 
-let trs = document.querySelectorAll('#table tr');
-for (let i = 0; i <= trs.length; i++) {
-    let tds = document.querySelectorAll('#table tr:nth-child('+i+') td');
-    for (let j = 0; j < tds.length; j++) {
-        tds[j].addEventListener('click', function() {
-            let topTd = document.querySelector('#table tr:nth-child('+Number(i-1)+') td:nth-child('+Number(j+1)+')');
-            let bottomTd = document.querySelector('#table tr:nth-child('+Number(i+1)+') td:nth-child('+Number(j+1)+')');
-            if ((topTd != null) && (bottomTd != null) && !topTd.classList.contains('active') && !bottomTd.classList.contains('active')
-                || (topTd == null) && !bottomTd.classList.contains('active')
-                || (bottomTd == null) && !topTd.classList.contains('active'))
-                this.classList.toggle('active');
-        });
+// let trs = document.querySelectorAll('#table tr');
+// for (let i = 0; i <= trs.length; i++) {
+//     let tds = document.querySelectorAll('#table tr:nth-child('+i+') td');
+//     for (let j = 0; j < tds.length; j++) {
+//         tds[j].addEventListener('click', function() {
+//             let topTd = document.querySelector('#table tr:nth-child('+Number(i-1)+') td:nth-child('+Number(j+1)+')');
+//             let bottomTd = document.querySelector('#table tr:nth-child('+Number(i+1)+') td:nth-child('+Number(j+1)+')');
+//             if ((topTd != null) && (bottomTd != null) && !topTd.classList.contains('active') && !bottomTd.classList.contains('active')
+//                 || (topTd == null) && !bottomTd.classList.contains('active')
+//                 || (bottomTd == null) && !topTd.classList.contains('active'))
+//                 this.classList.toggle('active');
+//         });
+//     }
+// }
+
+
+// Практика на изменение элементов на JavaScript
+
+
+//задача 1
+//Дан массив. Выведите его элементы в виде списка ul.
+// let arr = [1, 2, 3, 4, 5],
+//     parent = document.querySelector('#parent'),
+//     ul = document.createElement('ul');
+//
+// parent.appendChild(ul);
+//
+// for (let elem of arr){
+//     let li = document.createElement('li');
+//     li.innerHTML = elem;
+//     ul.appendChild(li)
+// }
+
+
+//задача 2
+//Модифицируйте предыдущую задачу так, чтобы по клику на любую li в ней появлялся инпут, с помощью которого ее можно будет поредактировать.
+// let arr = [1, 2, 3, 4, 5],
+//     parent = document.querySelector('#parent'),
+//     ul = document.createElement('ul');
+//
+// parent.appendChild(ul);
+//
+// for (let elem of arr){
+//     let li = document.createElement('li');
+//     li.innerHTML = elem;
+//     ul.appendChild(li)
+//
+//     li.addEventListener('click', function func() {
+//         let input = document.createElement('input');
+//         input.value = li.innerHTML;
+//         li.innerHTML = '';
+//         li.appendChild(input);
+//         li.removeEventListener('click', func)
+//
+//         input.addEventListener('blur', function () {
+//             li.innerHTML = input.value;
+//             li.addEventListener('click', func);
+//         })
+//     })
+// }
+
+
+//задача 3
+//Модифицируйте предыдущую задачу так, чтобы под списком был инпут, с помощью которого можно будет добавить новый элемент в конец списка ul. Сделайте так, чтобы новые li также можно было редактировать.
+
+// let arr = [1, 2, 3, 4, 5],
+//     parent = document.querySelector('#parent'),
+//     ul = document.createElement('ul'),
+//     inp = document.createElement('input');
+//
+//
+// parent.appendChild(ul);
+// parent.appendChild(inp);
+//
+// inp.addEventListener('blur', function () {
+//     let el_li = document.createElement('li');
+//     el_li.innerHTML = inp.value;
+//     ul.appendChild(el_li);
+//     inp.value = '';
+// })
+//
+// for (let elem of arr){
+//     let li = document.createElement('li');
+//     li.innerHTML = elem;
+//     ul.appendChild(li)
+//
+//     li.addEventListener('click', function func() {
+//         let input = document.createElement('input');
+//         input.value = li.innerHTML;
+//         li.innerHTML = '';
+//         li.appendChild(input);
+//         li.removeEventListener('click', func)
+//
+//         input.addEventListener('blur', function () {
+//             li.innerHTML = input.value;
+//             li.addEventListener('click', func);
+//         })
+//     })
+// }
+
+
+//задача 4
+//Модифицируйте предыдущую задачу так, чтобы в конце каждой li стояла ссылка 'удалить', с помощью которой можно будет удалить эту li из ul.
+// let arr = [1, 2, 3, 4, 5],
+//     parent = document.querySelector('#parent'),
+//     ul = document.createElement('ul'),
+//     inp = document.createElement('input');
+//
+//
+// parent.appendChild(ul);
+// parent.appendChild(inp);
+//
+// function inputLiAdd(){
+//     inp.addEventListener('blur', function () {
+//         createLi(inp.value);
+//         inp.value = '';
+//     })
+// }
+//
+// inputLiAdd();
+//
+// for (let elem of arr){
+//     createLi(elem);
+// }
+//
+// function removeLi(li)  {
+//     let remove = document.createElement('a');
+//     remove.href = '';
+//     remove.innerHTML = 'удалить';
+//     li.appendChild(remove);
+//
+//     remove.addEventListener('click', function (e) {
+//         li.parentElement.removeChild(li);
+//         e.preventDefault();
+//     })
+// }
+//
+// function createLi(elem) {
+//     let li = document.createElement('li');
+//     let span = document.createElement('span');
+//     li.innerHTML = elem;
+//     span.innerHTML = li.innerHTML;
+//     li.innerHTML='';
+//     li.appendChild(span);
+//     removeLi(li);
+//
+//     ul.appendChild(li)
+//
+//     span.addEventListener('click', function func() {
+//         let input = document.createElement('input');
+//
+//         input.value = span.innerHTML;
+//         span.innerHTML = '';
+//         span.appendChild(input);
+//         span.removeEventListener('click', func)
+//
+//         input.addEventListener('blur', function () {
+//             span.innerHTML = input.value;
+//             span.addEventListener('click', func);
+//         })
+//     })
+// }
+
+
+//задача 5
+//Модифицируйте предыдущую задачу так, чтобы в конце каждой li также стояла ссылка 'перечеркнуть', с помощью которой можно будет перечеркнуть текст данного тега li.
+
+// let arr = ['Text1', 'Text2', 'Text3', 'Text4', 'Text5'],
+//     parent = document.querySelector('#parent'),
+//     ul = document.createElement('ul'),
+//     inp = document.createElement('input');
+//
+//
+// parent.appendChild(ul);
+// parent.appendChild(inp);
+//
+// function inputLiAdd(){
+//     inp.addEventListener('blur', function () {
+//         createLi(inp.value);
+//         inp.value = '';
+//     })
+// }
+//
+// inputLiAdd();
+//
+// for (let elem of arr){
+//     createLi(elem);
+// }
+//
+// function crossOut(elem) {
+//     let link = document.createElement('a');
+//     link.href = '';
+//     link.innerHTML = 'перечеркнуть';
+//     link.style.marginLeft = '10px'
+//     elem.parentElement.appendChild(link)
+//
+//     link.addEventListener('click', function (e) {
+//         elem.style.textDecoration = 'line-through';
+//         e.preventDefault();
+//     })
+//
+// }
+//
+// function removeLi(li)  {
+//     let remove = document.createElement('a');
+//     remove.href = '';
+//     remove.innerHTML = 'удалить';
+//     remove.style.marginLeft = '10px'
+//     li.appendChild(remove);
+//
+//     remove.addEventListener('click', function (e) {
+//         li.parentElement.removeChild(li);
+//         e.preventDefault();
+//     })
+// }
+//
+// function createLi(elem) {
+//     let li = document.createElement('li');
+//     let span = document.createElement('span');
+//     li.innerHTML = elem;
+//     span.innerHTML = li.innerHTML;
+//     li.innerHTML='';
+//     li.appendChild(span);
+//     removeLi(li);
+//
+//     ul.appendChild(li)
+//
+//     span.addEventListener('click', function func() {
+//         let input = document.createElement('input');
+//
+//         input.value = span.innerHTML;
+//         span.innerHTML = '';
+//         span.appendChild(input);
+//         span.removeEventListener('click', func)
+//
+//         input.addEventListener('blur', function () {
+//             span.innerHTML = input.value;
+//             span.addEventListener('click', func);
+//         })
+//     })
+//
+//     crossOut(span);
+// }
+
+
+//Массив объектов и таблица
+
+
+//задача 6
+//Дан следующий массив с работниками:
+
+// let employees = [
+// 	{name: 'employee1', age: 30, salary: 400},
+// 	{name: 'employee2', age: 31, salary: 500},
+// 	{name: 'employee3', age: 32, salary: 600},
+// ];
+// Выведите этих работников в HTML таблице.
+
+// let employees = [
+// 	{name: 'employee1', age: 30, salary: 400},
+// 	{name: 'employee2', age: 31, salary: 500},
+// 	{name: 'employee3', age: 32, salary: 600},
+// ];
+
+// let table = document.querySelector('#table');
+//
+// for (let elem of employees){
+//     let tr = document.createElement('tr');
+//
+//     let td1 = document.createElement('td');
+//     td1.innerHTML = elem.name;
+//     tr.appendChild(td1);
+//
+//     let td2 = document.createElement('td');
+//     td2.innerHTML = elem.age;
+//     tr.appendChild(td2);
+//
+//     let td3 = document.createElement('td');
+//     td3.innerHTML = elem.salary;
+//     tr.appendChild(td3);
+//
+//     table.appendChild(tr)
+// }
+
+
+//задача 7
+//Добавьте ячейкам созданной таблицы возможность редактирования.
+
+// let employees = [
+// 	{name: 'employee1', age: 30, salary: 400},
+// 	{name: 'employee2', age: 31, salary: 500},
+// 	{name: 'employee3', age: 32, salary: 600},
+// ];
+//
+// let table = document.querySelector('#table');
+//
+// function editTd(td) {
+//     let input = document.createElement('input');
+//
+//     td.addEventListener('click', function func() {
+//         input.value = td.innerHTML;
+//         td.innerHTML = '';
+//         td.appendChild(input);
+//         td.removeEventListener('click', func);
+//
+//         input.addEventListener('blur', function () {
+//             td.innerHTML = input.value;
+//             td.addEventListener('click', func);
+//         })
+//     })
+// }
+//
+// for (let elem of employees){
+//     let tr = document.createElement('tr');
+//
+//     let td1 = document.createElement('td');
+//     td1.innerHTML = elem.name;
+//     editTd(td1);
+//     tr.appendChild(td1);
+//
+//     let td2 = document.createElement('td');
+//     td2.innerHTML = elem.age;
+//     editTd(td2);
+//     tr.appendChild(td2);
+//
+//     let td3 = document.createElement('td');
+//     td3.innerHTML = elem.salary;
+//     editTd(td3);
+//     tr.appendChild(td3);
+//
+//     table.appendChild(tr)
+// }
+
+
+//задача 8
+//Добавьте в вашу таблицу новую колонку со ссылкой на удаления ряда из таблицы.
+
+// let employees = [
+//     {name: 'employee1', age: 30, salary: 400},
+//     {name: 'employee2', age: 31, salary: 500},
+//     {name: 'employee3', age: 32, salary: 600},
+// ];
+//
+// let table = document.querySelector('#table');
+//
+// function editTd(td) {
+//     let input = document.createElement('input');
+//
+//     td.addEventListener('click', function func() {
+//         input.value = td.innerHTML;
+//         td.innerHTML = '';
+//         td.appendChild(input);
+//         td.removeEventListener('click', func);
+//
+//         input.addEventListener('blur', function () {
+//             td.innerHTML = input.value;
+//             td.addEventListener('click', func);
+//         })
+//     })
+// }
+//
+// for (let elem of employees){
+//     let tr = document.createElement('tr');
+//
+//     let td1 = document.createElement('td');
+//     td1.innerHTML = elem.name;
+//     editTd(td1);
+//     tr.appendChild(td1);
+//
+//     let td2 = document.createElement('td');
+//     td2.innerHTML = elem.age;
+//     editTd(td2);
+//     tr.appendChild(td2);
+//
+//     let td3 = document.createElement('td');
+//     td3.innerHTML = elem.salary;
+//     editTd(td3);
+//     tr.appendChild(td3);
+//
+//     table.appendChild(tr)
+// }
+//
+//
+// function addCol() {
+//     let trs = document.querySelectorAll('#table tr');
+//     for (let tr of trs){
+//         let td = document.createElement('td');
+//         linkRemove(td, tr);
+//         tr.appendChild(td)
+//
+//     }
+// }
+// addCol();
+//
+// function linkRemove(td, tr) {
+//     let link = document.createElement('a');
+//     link.href = '';
+//     link.innerHTML = 'удалить';
+//     td.appendChild(link);
+//
+//     link.addEventListener('click', function (e) {
+//         tr.parentElement.removeChild(tr);
+//         e.preventDefault();
+//     })
+// }
+
+
+//задача 9
+//Сделайте под таблицей 3 инпута и кнопку для добавление нового работника. Пусть в инпуты вводятся имя, возраст и зарплата, и по нажатию на кнопку новый работник добавляется в таблицу. Реализуйте редактирование ячеек для вновь добавленных работников.
+
+let employees = [
+    {name: 'employee1', age: 30, salary: 400},
+    {name: 'employee2', age: 31, salary: 500},
+    {name: 'employee3', age: 32, salary: 600},
+];
+
+let table = document.querySelector('#table');
+
+function editTd(td) {
+    let input = document.createElement('input');
+
+    td.addEventListener('click', function func() {
+        input.value = td.innerHTML;
+        td.innerHTML = '';
+        td.appendChild(input);
+        td.removeEventListener('click', func);
+
+        input.addEventListener('blur', function () {
+            td.innerHTML = input.value;
+            td.addEventListener('click', func);
+        })
+    })
+}
+
+for (let elem of employees){
+    let tr = document.createElement('tr');
+
+    let td1 = document.createElement('td');
+    td1.innerHTML = elem.name;
+    editTd(td1);
+    tr.appendChild(td1);
+
+    let td2 = document.createElement('td');
+    td2.innerHTML = elem.age;
+    editTd(td2);
+    tr.appendChild(td2);
+
+    let td3 = document.createElement('td');
+    td3.innerHTML = elem.salary;
+    editTd(td3);
+    tr.appendChild(td3);
+
+    table.appendChild(tr)
+}
+
+
+function addCol() {
+    let trs = document.querySelectorAll('#table tr');
+    for (let tr of trs){
+        let td = document.createElement('td');
+        linkRemove(td, tr);
+        tr.appendChild(td)
+
     }
 }
+addCol();
+
+function linkRemove(td, tr) {
+    let link = document.createElement('a');
+    link.href = '';
+    link.innerHTML = 'удалить';
+    td.appendChild(link);
+
+    link.addEventListener('click', function (e) {
+        tr.parentElement.removeChild(tr);
+        e.preventDefault();
+    })
+}
+
+let div_parent = document.querySelector('#elem'),
+    inp_name = document.createElement('input'),
+    inp_age = document.createElement('input'),
+    inp_salary = document.createElement('input'),
+    button = document.createElement('button');
+
+button.innerHTML = 'Добавить';
+
+inp_name.placeholder = 'Имя';
+inp_age.placeholder = 'Возраст';
+inp_salary.placeholder = 'Зарплата';
+
+div_parent.appendChild(inp_name);
+div_parent.appendChild(inp_age);
+div_parent.appendChild(inp_salary);
+div_parent.appendChild(button);
+
+
+button.addEventListener('click',  () => {
+    let tr = document.createElement('tr'),
+        td1 = document.createElement('td'),
+        td2 = document.createElement('td'),
+        td3 = document.createElement('td'),
+        td_remove = document.createElement('td'),
+        input = document.querySelector('#table input');
+
+    td1.innerHTML = inp_name.value;
+    editTd(td1);
+    tr.appendChild(td1);
+
+    td2.innerHTML = inp_age.value;
+    editTd(td2);
+    tr.appendChild(td2);
+
+    td3.innerHTML = inp_salary.value;
+    editTd(td3);
+    tr.appendChild(td3);
+
+    linkRemove(td_remove, tr);
+    tr.appendChild(td_remove);
+
+    table.appendChild(tr);
+})
+
 
 
 
