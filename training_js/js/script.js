@@ -5025,122 +5025,265 @@
 //задача 9
 //Сделайте под таблицей 3 инпута и кнопку для добавление нового работника. Пусть в инпуты вводятся имя, возраст и зарплата, и по нажатию на кнопку новый работник добавляется в таблицу. Реализуйте редактирование ячеек для вновь добавленных работников.
 
-let employees = [
-    {name: 'employee1', age: 30, salary: 400},
-    {name: 'employee2', age: 31, salary: 500},
-    {name: 'employee3', age: 32, salary: 600},
-];
-
-let table = document.querySelector('#table');
-
-function editTd(td) {
-    let input = document.createElement('input');
-
-    td.addEventListener('click', function func() {
-        input.value = td.innerHTML;
-        td.innerHTML = '';
-        td.appendChild(input);
-        td.removeEventListener('click', func);
-
-        input.addEventListener('blur', function () {
-            td.innerHTML = input.value;
-            td.addEventListener('click', func);
-        })
-    })
-}
-
-for (let elem of employees){
-    let tr = document.createElement('tr');
-
-    let td1 = document.createElement('td');
-    td1.innerHTML = elem.name;
-    editTd(td1);
-    tr.appendChild(td1);
-
-    let td2 = document.createElement('td');
-    td2.innerHTML = elem.age;
-    editTd(td2);
-    tr.appendChild(td2);
-
-    let td3 = document.createElement('td');
-    td3.innerHTML = elem.salary;
-    editTd(td3);
-    tr.appendChild(td3);
-
-    table.appendChild(tr)
-}
-
-
-function addCol() {
-    let trs = document.querySelectorAll('#table tr');
-    for (let tr of trs){
-        let td = document.createElement('td');
-        linkRemove(td, tr);
-        tr.appendChild(td)
-
-    }
-}
-addCol();
-
-function linkRemove(td, tr) {
-    let link = document.createElement('a');
-    link.href = '';
-    link.innerHTML = 'удалить';
-    td.appendChild(link);
-
-    link.addEventListener('click', function (e) {
-        tr.parentElement.removeChild(tr);
-        e.preventDefault();
-    })
-}
-
-let div_parent = document.querySelector('#elem'),
-    inp_name = document.createElement('input'),
-    inp_age = document.createElement('input'),
-    inp_salary = document.createElement('input'),
-    button = document.createElement('button');
-
-button.innerHTML = 'Добавить';
-
-inp_name.placeholder = 'Имя';
-inp_age.placeholder = 'Возраст';
-inp_salary.placeholder = 'Зарплата';
-
-div_parent.appendChild(inp_name);
-div_parent.appendChild(inp_age);
-div_parent.appendChild(inp_salary);
-div_parent.appendChild(button);
-
-
-button.addEventListener('click',  () => {
-    let tr = document.createElement('tr'),
-        td1 = document.createElement('td'),
-        td2 = document.createElement('td'),
-        td3 = document.createElement('td'),
-        td_remove = document.createElement('td'),
-        input = document.querySelector('#table input');
-
-    td1.innerHTML = inp_name.value;
-    editTd(td1);
-    tr.appendChild(td1);
-
-    td2.innerHTML = inp_age.value;
-    editTd(td2);
-    tr.appendChild(td2);
-
-    td3.innerHTML = inp_salary.value;
-    editTd(td3);
-    tr.appendChild(td3);
-
-    linkRemove(td_remove, tr);
-    tr.appendChild(td_remove);
-
-    table.appendChild(tr);
-})
-
+// let employees = [
+//     {name: 'employee1', age: 30, salary: 400},
+//     {name: 'employee2', age: 31, salary: 500},
+//     {name: 'employee3', age: 32, salary: 600},
+// ];
+//
+// let table = document.querySelector('#table'),
+//     div_parent = document.querySelector('#elem'),
+//     inp_name = document.createElement('input'),
+//     inp_age = document.createElement('input'),
+//     inp_salary = document.createElement('input'),
+//     button = document.createElement('button');
+//
+// function editTd(td) {
+//     let input = document.createElement('input');
+//
+//     td.addEventListener('click', function func() {
+//         input.value = td.innerHTML;
+//         td.innerHTML = '';
+//         td.appendChild(input);
+//         td.removeEventListener('click', func);
+//
+//         input.addEventListener('blur', function () {
+//             td.innerHTML = input.value;
+//             td.addEventListener('click', func);
+//         })
+//     })
+// }
+//
+// for (let elem of employees){
+//     let tr = document.createElement('tr');
+//
+//     let td1 = document.createElement('td');
+//     td1.innerHTML = elem.name;
+//     editTd(td1);
+//     tr.appendChild(td1);
+//
+//     let td2 = document.createElement('td');
+//     td2.innerHTML = elem.age;
+//     editTd(td2);
+//     tr.appendChild(td2);
+//
+//     let td3 = document.createElement('td');
+//     td3.innerHTML = elem.salary;
+//     editTd(td3);
+//     tr.appendChild(td3);
+//
+//     table.appendChild(tr)
+// }
+//
+//
+// function addCol() {
+//     let trs = document.querySelectorAll('#table tr');
+//     for (let tr of trs){
+//         let td = document.createElement('td');
+//         linkRemove(td, tr);
+//         tr.appendChild(td)
+//
+//     }
+// }
+// addCol();
+//
+// function linkRemove(td, tr) {
+//     let link = document.createElement('a');
+//     link.href = '';
+//     link.innerHTML = 'удалить';
+//     td.appendChild(link);
+//
+//     link.addEventListener('click', function (e) {
+//         tr.parentElement.removeChild(tr);
+//         e.preventDefault();
+//     })
+// }
+//
+// button.innerHTML = 'Добавить';
+//
+// inp_name.placeholder = 'Имя';
+// inp_age.placeholder = 'Возраст';
+// inp_salary.placeholder = 'Зарплата';
+//
+// div_parent.appendChild(inp_name);
+// div_parent.appendChild(inp_age);
+// div_parent.appendChild(inp_salary);
+// div_parent.appendChild(button);
+//
+//
+// button.addEventListener('click',  () => {
+//     let tr = document.createElement('tr'),
+//         td1 = document.createElement('td'),
+//         td2 = document.createElement('td'),
+//         td3 = document.createElement('td'),
+//         td_remove = document.createElement('td'),
+//         input = document.querySelector('#table input');
+//
+//     td1.innerHTML = inp_name.value;
+//     editTd(td1);
+//     tr.appendChild(td1);
+//
+//     td2.innerHTML = inp_age.value;
+//     editTd(td2);
+//     tr.appendChild(td2);
+//
+//     td3.innerHTML = inp_salary.value;
+//     editTd(td3);
+//     tr.appendChild(td3);
+//
+//     linkRemove(td_remove, tr);
+//     tr.appendChild(td_remove);
+//
+//     table.appendChild(tr);
+// })
 
 
+// Массив объектов и список
 
+
+//задача 10
+//Дан следующий массив с работниками:
+// let employees = [
+// 	{name: 'employee1', age: 30, salary: 400},
+// 	{name: 'employee2', age: 31, salary: 500},
+// 	{name: 'employee3', age: 32, salary: 600},
+// ];
+// // Выведите на экран каждого работника в своем теге li тега ul.
+//
+// let div = document.querySelector('#parent');
+//
+// for (let elem of employees){
+//     let ul = document.createElement('ul'),
+//         li_name = document.createElement('li'),
+//         li_age = document.createElement('li'),
+//         li_salary = document.createElement('li');
+//
+//     li_name.innerHTML = elem.name;
+//     li_age.innerHTML = elem.age;
+//     li_salary.innerHTML = elem.salary;
+//
+//     ul.appendChild(li_name);
+//     ul.appendChild(li_age);
+//     ul.appendChild(li_salary);
+//
+//     div.appendChild(ul);
+// }
+
+
+//задача 11
+//Сделайте так, чтобы по клику на имя, возраст или зарплату работника появлялся инпут для редактирования этого поля.
+
+// let employees = [
+// 	{name: 'employee1', age: 30, salary: 400},
+// 	{name: 'employee2', age: 31, salary: 500},
+// 	{name: 'employee3', age: 32, salary: 600},
+// ];
+//
+// let div = document.querySelector('#parent');
+//
+// for (let elem of employees){
+//     let ul = document.createElement('ul'),
+//         li_name = document.createElement('li'),
+//         li_age = document.createElement('li'),
+//         li_salary = document.createElement('li');
+//
+//
+//     li_name.innerHTML = elem.name;
+//     li_age.innerHTML = elem.age;
+//     li_salary.innerHTML = elem.salary;
+//
+//     ul.appendChild(li_name);
+//     ul.appendChild(li_age);
+//     ul.appendChild(li_salary);
+//
+//     div.appendChild(ul);
+//
+//     let lis = document.querySelectorAll('li');
+//
+//     for (let li of lis){
+//         li.addEventListener('click', createInput);
+//     }
+//
+//
+// }
+//
+// function createInput() {
+//     input = document.createElement('input');
+//     input.value = this.innerHTML;
+//     this.innerHTML = '';
+//     this.appendChild(input);
+//     this.removeEventListener('click', createInput);
+//     input.addEventListener('blur',  () => {
+//         this.innerHTML = input.value;
+//         this.addEventListener('click', createInput);
+//     })
+//
+// }
+
+
+//задача 12
+//Добавьте в конец каждого тега li ссылку на удаление этого li из списка.
+
+// let employees = [
+// 	{name: 'employee1', age: 30, salary: 400},
+// 	{name: 'employee2', age: 31, salary: 500},
+// 	{name: 'employee3', age: 32, salary: 600},
+// ];
+//
+// let div = document.querySelector('#parent');
+//
+// for (let elem of employees){
+//     let ul = document.createElement('ul'),
+//         li_name = document.createElement('li'),
+//         li_age = document.createElement('li'),
+//         li_salary = document.createElement('li');
+//
+//
+//     li_name.innerHTML = elem.name;
+//     li_age.innerHTML = elem.age;
+//     li_salary.innerHTML = elem.salary;
+//
+//     ul.appendChild(li_name);
+//     ul.appendChild(li_age);
+//     ul.appendChild(li_salary);
+//
+//     div.appendChild(ul);
+// }
+//
+// let lis = document.querySelectorAll('li');
+//
+// for (let li of lis){
+//     let span = document.createElement('span');
+//     span.innerHTML = li.innerHTML;
+//     li.innerHTML = '';
+//     li.appendChild(span);
+//     let linkRemove = document.createElement('a');
+//     linkRemove.style.paddingLeft = '10px';
+//     linkRemove.href = '';
+//     linkRemove.innerHTML = 'удалить';
+//     li.appendChild(linkRemove);
+//
+//     linkRemove.addEventListener('click', function (e) {
+//         li.parentElement.removeChild(li);
+//         e.preventDefault();
+//     })
+//     span.addEventListener('click', createInput );
+//
+// }
+//
+// function createInput() {
+//     let input = document.createElement('input');
+//     input.value = this.innerHTML;
+//     this.innerHTML = '';
+//     this.appendChild(input);
+//
+//     input.addEventListener('blur',  () => {
+//         this.innerHTML = input.value;
+//         this.addEventListener('click', createInput);
+//     })
+//
+//     this.removeEventListener('click', createInput);
+// }
 
 
 
