@@ -5148,19 +5148,19 @@
 // 	{name: 'employee2', age: 31, salary: 500},
 // 	{name: 'employee3', age: 32, salary: 600},
 // ];
-// // Выведите на экран каждого работника в своем теге li тега ul.
-//
+// Выведите на экран каждого работника в своем теге li тега ul.
+
 // let div = document.querySelector('#parent');
 //
-// for (let elem of employees){
+// function createNewWorker(worker) {
 //     let ul = document.createElement('ul'),
 //         li_name = document.createElement('li'),
 //         li_age = document.createElement('li'),
 //         li_salary = document.createElement('li');
 //
-//     li_name.innerHTML = elem.name;
-//     li_age.innerHTML = elem.age;
-//     li_salary.innerHTML = elem.salary;
+//     li_name.innerHTML = worker.name;
+//     li_age.innerHTML = worker.age;
+//     li_salary.innerHTML = worker.salary;
 //
 //     ul.appendChild(li_name);
 //     ul.appendChild(li_age);
@@ -5168,122 +5168,136 @@
 //
 //     div.appendChild(ul);
 // }
+// employees.forEach(createNewWorker)
+
+
 
 
 //задача 11
 //Сделайте так, чтобы по клику на имя, возраст или зарплату работника появлялся инпут для редактирования этого поля.
 
 // let employees = [
-// 	{name: 'employee1', age: 30, salary: 400},
-// 	{name: 'employee2', age: 31, salary: 500},
-// 	{name: 'employee3', age: 32, salary: 600},
+//     {name: 'employee1', age: 30, salary: 400},
+//     {name: 'employee2', age: 31, salary: 500},
+//     {name: 'employee3', age: 32, salary: 600},
 // ];
 //
 // let div = document.querySelector('#parent');
 //
-// for (let elem of employees){
+// function createNewWorker(worker) {
 //     let ul = document.createElement('ul'),
 //         li_name = document.createElement('li'),
 //         li_age = document.createElement('li'),
 //         li_salary = document.createElement('li');
 //
-//
-//     li_name.innerHTML = elem.name;
-//     li_age.innerHTML = elem.age;
-//     li_salary.innerHTML = elem.salary;
+//     li_name.innerHTML = worker.name;
+//     li_age.innerHTML = worker.age;
+//     li_salary.innerHTML = worker.salary;
 //
 //     ul.appendChild(li_name);
 //     ul.appendChild(li_age);
 //     ul.appendChild(li_salary);
 //
-//     div.appendChild(ul);
+//     [li_name, li_age, li_salary].forEach(i => {
+//         i.addEventListener('click', function liEdit()  {
+//             let edit = document.createElement('input');
+//             edit.value = i.innerHTML;
+//             i.innerHTML = '';
+//             i.appendChild(edit)
+//             i.removeEventListener('click', liEdit)
+//             edit.addEventListener('blur', () => {
+//                 i.innerHTML = edit.value;
+//                 i.addEventListener('click', liEdit);
+//             })
 //
-//     let lis = document.querySelectorAll('li');
-//
-//     for (let li of lis){
-//         li.addEventListener('click', createInput);
-//     }
-//
-//
-// }
-//
-// function createInput() {
-//     input = document.createElement('input');
-//     input.value = this.innerHTML;
-//     this.innerHTML = '';
-//     this.appendChild(input);
-//     this.removeEventListener('click', createInput);
-//     input.addEventListener('blur',  () => {
-//         this.innerHTML = input.value;
-//         this.addEventListener('click', createInput);
+//         })
 //     })
 //
+//     div.appendChild(ul);
 // }
+// employees.forEach(createNewWorker)
 
 
 //задача 12
 //Добавьте в конец каждого тега li ссылку на удаление этого li из списка.
 
-// let employees = [
-// 	{name: 'employee1', age: 30, salary: 400},
-// 	{name: 'employee2', age: 31, salary: 500},
-// 	{name: 'employee3', age: 32, salary: 600},
-// ];
-//
-// let div = document.querySelector('#parent');
-//
-// for (let elem of employees){
-//     let ul = document.createElement('ul'),
-//         li_name = document.createElement('li'),
-//         li_age = document.createElement('li'),
-//         li_salary = document.createElement('li');
-//
-//
-//     li_name.innerHTML = elem.name;
-//     li_age.innerHTML = elem.age;
-//     li_salary.innerHTML = elem.salary;
-//
-//     ul.appendChild(li_name);
-//     ul.appendChild(li_age);
-//     ul.appendChild(li_salary);
-//
-//     div.appendChild(ul);
-// }
-//
-// let lis = document.querySelectorAll('li');
-//
-// for (let li of lis){
-//     let span = document.createElement('span');
-//     span.innerHTML = li.innerHTML;
-//     li.innerHTML = '';
-//     li.appendChild(span);
-//     let linkRemove = document.createElement('a');
-//     linkRemove.style.paddingLeft = '10px';
-//     linkRemove.href = '';
-//     linkRemove.innerHTML = 'удалить';
-//     li.appendChild(linkRemove);
-//
-//     linkRemove.addEventListener('click', function (e) {
-//         li.parentElement.removeChild(li);
-//         e.preventDefault();
-//     })
-//     span.addEventListener('click', createInput );
-//
-// }
-//
-// function createInput() {
-//     let input = document.createElement('input');
-//     input.value = this.innerHTML;
-//     this.innerHTML = '';
-//     this.appendChild(input);
-//
-//     input.addEventListener('blur',  () => {
-//         this.innerHTML = input.value;
-//         this.addEventListener('click', createInput);
-//     })
-//
-//     this.removeEventListener('click', createInput);
-// }
+let employees = [
+    {name: 'employee1', age: 30, salary: 400},
+    {name: 'employee2', age: 31, salary: 500},
+    {name: 'employee3', age: 32, salary: 600},
+];
+
+let div = document.querySelector('#parent');
+
+function createNewWorker(worker) {
+    let ul = document.createElement('ul'),
+        li_name = document.createElement('li'),
+        li_age = document.createElement('li'),
+        li_salary = document.createElement('li');
+
+    li_name.innerHTML = worker.name;
+    li_age.innerHTML = worker.age;
+    li_salary.innerHTML = worker.salary;
+
+    ul.appendChild(li_name);
+    ul.appendChild(li_age);
+    ul.appendChild(li_salary);
+
+
+
+    [li_name, li_age, li_salary].forEach(i => {
+        i.addEventListener('click', function liEdit()  {
+            let edit = document.createElement('input');
+            edit.value = i.innerHTML;
+            i.innerHTML = '';
+            i.appendChild(edit)
+            i.removeEventListener('click', liEdit)
+            edit.addEventListener('blur', () => {
+                i.innerHTML = edit.value;
+                i.addEventListener('click', liEdit);
+            })
+
+        })
+
+    })
+
+    div.appendChild(ul);
+
+    let link = document.createElement('a');
+    link.href = '';
+    link.innerHTML = 'Удалить';
+
+    link.addEventListener('click', (e) => {
+        ul.remove();
+        e.preventDefault(); })
+    ul.appendChild(link)
+
+}
+
+employees.forEach(createNewWorker)
+
+
+
+
+
+//задача 13
+//Под списком сделайте форму для добавление нового работника.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
