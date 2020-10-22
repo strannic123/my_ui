@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fc7ce925-d399-4a7d-86dd-549165996780" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/training_js/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/training_js/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/training_js/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/training_js/js/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -13,6 +14,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="CSS File" />
       </list>
@@ -31,6 +33,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -38,6 +41,11 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\programming\React\zpractic\component UI\app_weather\img" />
+    </key>
   </component>
   <component name="RunManager" selected="Node.js.script.js">
     <configuration name="script.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/training_js/js/script.js" working-dir="$PROJECT_DIR$/training_js/js">
@@ -96,7 +104,13 @@
       <workItem from="1602835421221" duration="10796000" />
       <workItem from="1602925372513" duration="21691000" />
       <workItem from="1603095128727" duration="13851000" />
-      <workItem from="1603181415635" duration="16452000" />
+      <workItem from="1603181415635" duration="33332000" />
+      <workItem from="1603266612230" duration="9775000" />
+      <workItem from="1603280350136" duration="1865000" />
+      <workItem from="1603282224176" duration="127000" />
+      <workItem from="1603282819788" duration="45000" />
+      <workItem from="1603283087504" duration="1103000" />
+      <workItem from="1603351355604" duration="24400000" />
     </task>
     <servers />
   </component>
@@ -108,10 +122,10 @@
       <screen x="0" y="0" width="1418" height="759" />
     </state>
     <state x="93" y="93" width="1231" height="572" key="DiffContextDialog/0.0.1418.759@0.0.1418.759" timestamp="1602870895965" />
-    <state x="489" y="134" key="FileChooserDialogImpl" timestamp="1601148138889">
+    <state x="489" y="134" key="FileChooserDialogImpl" timestamp="1603299882722">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
-    <state x="489" y="134" key="FileChooserDialogImpl/0.0.1418.759@0.0.1418.759" timestamp="1601148138889" />
+    <state x="489" y="134" key="FileChooserDialogImpl/0.0.1418.759@0.0.1418.759" timestamp="1603299882722" />
     <state width="1396" height="160" key="GridCell.Tab.0.bottom" timestamp="1602184136464">
       <screen x="0" y="0" width="1418" height="759" />
     </state>

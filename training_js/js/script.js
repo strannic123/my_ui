@@ -5355,17 +5355,575 @@
 // })
 
 
+// Поиск ячеек таблицы с помощью атрибута data
 
 
+//задача 1
+//Дана следующая HTML таблица:
+// Сделайте так, чтобы по клику на любую ячейку в красный фон красились все ячейки этой колонки.
 
 
+// let tds = document.querySelectorAll('td');
+//
+// for (let td of tds){
+//     td.addEventListener('click', function () {
+//         let col = td.dataset.col;
+//         let tds_num = document.querySelectorAll('#table td[data-col="' + col + '"]');
+//         for (let colorTd of tds_num){
+//             colorTd.style.background = 'red';
+//         }
+//     })
+// }
 
 
+//задача 2
+//Дана следующая HTML таблица:
+//Даны также две переменные, в которых хранятся номер колонки и номер ряда:
+// Сделайте кнопку, по нажатию на которую в красный фон покрасится та ячейка, номер которой совпадает с номером из переменных.
+
+// let col = 2;
+// let row = 3;
+//
+// let tds = document.querySelectorAll('td');
+//
+// for (let td of tds){
+//     td.addEventListener('click', function () {
+//         if (td.dataset.col == col && td.dataset.row == row){
+//             td.style.background = 'red';
+//         }
+//     })
+// }
 
 
+// Добавление номера колонки и ряда в таблицу
 
 
+//задача 1
+// Напишите скрипт, который добавит в каждую ячейку таблицы атрибут data-col с номером колонки таблицы, в которой находится эта ячейка.
 
+// let trs = document.querySelectorAll('tr');
+//
+// for (let tr of trs){
+//     let tds = tr.querySelectorAll('td'),
+//         counter = 1;
+//
+//     for (let td of tds){
+//         td.dataset.col = counter;
+//         counter++
+//     }
+// }
+
+
+//задача 2
+//Модифицируйте предыдущую задачу так, чтобы в ячейку добавлялся еще и номер ее ряда, вот так:
+
+// let trs = document.querySelectorAll('tr'),
+//     counterRow = 1;
+// for (let tr of trs){
+//     let tds = tr.querySelectorAll('td'),
+//         counterCol = 1;
+//
+//     for (let td of tds){
+//         td.dataset.col = counterCol;
+//         td.dataset.row = counterRow;
+//         counterCol++
+//     }
+//     counterRow++;
+// }
+
+
+//задача 3
+//Дана некоторая таблица. Сделайте так, чтобы по клику на любую ячейку в ее текст выводился номер ряда и номер колонки этой ячейки.
+
+
+// let trs = document.querySelectorAll('tr'),
+//     counterRow = 1;
+// for (let tr of trs){
+//     let tds = tr.querySelectorAll('td'),
+//         counterCol = 1;
+//
+//     for (let td of tds){
+//         td.dataset.col = counterCol;
+//         td.dataset.row = counterRow;
+//         counterCol++
+//     }
+//     counterRow++;
+// }
+//
+// let tds = document.querySelectorAll('td');
+//
+// for (let td of tds){
+//     td.addEventListener('click', function () {
+//         td.innerHTML = `${td.dataset.col} : ${td.dataset.row}`
+//     })
+// }
+
+
+//задача 4
+//Пусть у нас есть некоторая квадратная HTML таблица. В такой таблице есть две диагонали. Назовем главной диагональ, идущую от верхнего левого угла к нижнему правому. Сделайте так, чтобы по клику на любую ячейку главной диагонали эта ячейка красилась в красный цвет фона, а по клику любую другую ячейку - она красилась в зеленый.
+
+// let trs = document.querySelectorAll('tr'),
+//     counterRow = 1;
+// for (let tr of trs){
+//     let tds = tr.querySelectorAll('td'),
+//         counterCol = 1;
+//
+//     for (let td of tds){
+//         td.dataset.col = counterCol;
+//         td.dataset.row = counterRow;
+//         counterCol++
+//     }
+//     counterRow++;
+// }
+//
+// let tds = document.querySelectorAll('td');
+//
+// for (let td of tds){
+//     td.addEventListener('click', function () {
+//         if (td.dataset.col == td.dataset.row){
+//             td.classList.add('color1');
+//         }else {
+//             td.classList.add('color2');
+//         }
+//     })
+// }
+
+
+// Поиск ячеек таблицы через селектор CSS на JavaScript
+
+
+// задача 1
+//Найдите все ячейки третьего столбца и покрасьте их в красный фон.
+
+// let tds = document.querySelectorAll('#table td:nth-child(3)');
+//
+// for (let td of tds){
+//     td.classList.add('color1');
+// }
+
+
+// задача 2
+//Найдите третью ячейку первого ряда и покрасьте ее в красный фон.
+
+// let td = document.querySelector('#table tr:nth-child(1) td:nth-child(3)');
+//
+// td.classList.add('color1');
+
+
+// задача 3
+//Найдите все четные ряды и покрасьте в них все нечетные ячейки.
+
+// let tds = document.querySelectorAll('#table tr:nth-child(even) td:nth-child(odd)');
+//
+// for (let td of tds){
+//     td.classList.add('color2');
+// }
+
+
+// Функции для работы с DOM элементом на JavaScript
+
+
+// задача 1
+// function setText(id, text) {
+//     let elem = document.getElementById(id);
+//     elem.innerHTML = text;
+// }
+//Модифицируйте созданную мною функцию так, чтобы параметром она принимала не id элемента, а произвольный CSS селектор.
+
+// function setText(selector, text) {
+//     let elem = document.querySelector(selector);
+//     elem.innerHTML = text;
+// }
+//
+// setText('#elem1', 'text1');
+// setText('#elem2', 'text2');
+
+
+// задача 2
+//Сделайте функцию setAttr, которая будет менять атрибут DOM элементу. Пусть первым параметром функция принимает селектор элемента, вторым - имя атрибута, а третьим - его новое значение.
+
+// function setAttr(selector, attrName, value) {
+//     let elem = document.querySelector(selector);
+//     elem.setAttribute(attrName, value);
+// }
+//
+// setAttr('#elem1', 'id', '!!!');
+
+
+// Функции для работы с группой DOM элементов
+
+
+// задача
+//Сделайте функцию appendText, которая первым параметром будет принимать селектор, а вторым - текст. Сделайте так, чтобы данная функция добавляла текст в конец переданных элементов.
+
+// function appendText(selector, text) {
+//     let elems = document.querySelectorAll(selector);
+//     for (let elem of elems){
+//         elem.innerHTML += text;
+//     }
+// }
+//
+// appendText('p', 'text');
+
+
+// Передача коллбэка для работы с DOM на JavaScript
+
+
+// задача
+//Даны абзацы. С помощью созданной нами функции forEach для каждого абзаца добавьте в конец его текста восклицательный знак.
+
+
+// function addText(elem){
+//     elem.innerHTML += '!'
+// }
+// function forEach(selector, func) {
+//     let elems = document.querySelectorAll(selector);
+//
+//     for (let elem of elems) {
+//         func(elem);
+//     }
+// }
+//
+// forEach('p', addText);
+
+
+// Передача порядкового номера в коллбэк на JavaScript
+
+
+// задача
+//добавить в начало порядк номер Даны абзацы. С помощью созданной нами функции forEach для каждого абзаца добавьте ему в начало его порядковый номер.
+
+// function forEach(selector, func) {
+//     let elems = document.querySelectorAll(selector);
+//
+//    for (let i = 0; i < elems.length; i++){
+//         func(elems[i], i)
+//    }
+// }
+//
+// forEach('p', (elem, i) => {elem.innerHTML = i + elem.innerHTML});
+
+
+// Передача DOM элемента параметром функции
+
+
+// задача 1
+//Сделайте функцию appendText, которая первым параметром будет принимать DOM элемент, а вторым - текст. Сделайте так, чтобы данная функция добавляла текст в конец этого элемента.
+
+// let elem1 = document.querySelector('#elem1'),
+//     elem2 = document.querySelector('#elem2');
+//
+// function appendText(elem, text) {
+//     elem.innerHTML += text;
+// }
+//
+// appendText(elem1, 'Hello');
+// appendText(elem2, 'Bay bay');
+
+
+// задача 2
+//Даны абзацы. Получите их, переберите циклом и каждому добавьте в конец '!' с помощью функции appendText, сделанной в предыдущей задаче.
+// let elems = document.querySelectorAll('p');
+//
+// function appendText(elem, text) {
+//     elem.innerHTML += text;
+// }
+//
+// for (let elem of elems){
+//     appendText(elem, '!');
+// }
+
+
+// задача 3
+//Сделайте функцию setValue, которая первым параметром будет принимать ссылку на инпут, а вторым - текст. Сделайте так, чтобы данная функция устанавливала переданный текст в value инпута.
+
+// let inp = document.querySelector('#input');
+//
+// function setValue(inp, text) {
+//     inp.value = text;
+// }
+//
+// setValue(inp, 'Привет');
+
+
+// Передача DOM группы элементов параметрами функций
+
+
+// задача 1
+//Сделайте функцию appendText, которая первым параметром будет принимать массив DOM элементов, а вторым - текст. Сделайте так, чтобы данная функция добавляла текст в конец переданных элементов.
+
+// let elems = document.querySelectorAll('.elem');
+//
+// function appendText(elems, text) {
+//     for (let elem of elems){
+//         elem.innerHTML += text;
+//     }
+// }
+//
+// appendText(elems, 'Привет');
+
+
+// задача 2
+//Сделайте функцию appendElem, которая первым параметром будет принимать ссылку DOM объект, в котором лежит тег ul, а вторым - текст. Сделайте так, чтобы данная функция создавала новую li с переданным текстом и добавляла ее в конец переданного тега ul.
+
+// let ul = document.querySelector('#elem');
+//
+// function appendElem(elem, text) {
+//     let li = document.createElement('li');
+//     li.innerHTML = text;
+//     elem.appendChild(li)
+// }
+//
+// appendElem(ul, 'New year');
+
+
+// задача 3
+//Дан массив и ul. С помощью функции appendElem, созданной в предыдущей задаче, запишите каждый элемент массива в отдельную li в этом ul.
+
+// let ul = document.querySelector('#elem'),
+//     arr = ['one', 'two', 'five'];
+//
+// function appendElem(elem, arr) {
+//     for (let el of arr){
+//         let li = document.createElement('li');
+//         console.log(el)
+//         li.innerHTML = el;
+//         elem.appendChild(li)
+//     }
+// }
+//
+// appendElem(ul, arr);
+
+
+// Функция для создания HTML таблиц на JavaScript
+
+
+// задача
+// Сделайте функцию createTable, которая будет будет создавать таблицу заданного размера и добавлять ее в конец заданного элемента.
+
+
+// function createTable(rows, cols, parent) {
+//     let table = document.createElement('table');
+//
+//     for (let row = 1; row <= rows; row++) {
+//         let tr = document.createElement('tr')
+//         for (let col = 1; col <= cols; col++) {
+//             let td = document.createElement('td')
+//             tr.appendChild(td)
+//         }
+//     table.appendChild(tr)
+//     }
+//
+//     parent.appendChild(table);
+// }
+//
+// let elem1 = document.querySelector('#elem1');
+// createTable(3,4, elem1);
+//
+// let elem2 = document.querySelector('#elem2');
+// createTable(5,6, elem2);
+
+
+// Возврат таблицы из функции на JavaScript
+
+
+// задача 1
+//Давайте модифицируем эту функцию так, чтобы она не добавляла таблицу в какой-то элемент, а просто возвращала ее через return.
+
+// function createTable(rows, cols) {
+//     let table = document.createElement('table');
+//
+//     for (let row = 1; row <= rows; row++) {
+//         let tr = document.createElement('tr')
+//         for (let col = 1; col <= cols; col++) {
+//             let td = document.createElement('td')
+//             tr.appendChild(td)
+//         }
+//     table.appendChild(tr)
+//     }
+//
+//     return table;
+// }
+//
+// let elem1 = document.querySelector('#elem1');
+// elem1.appendChild(createTable(3,4));
+//
+// let elem2 = document.querySelector('#elem2');
+// elem2.appendChild(createTable(5,6));
+
+
+// задача 2
+//С помощью функции createTable создайте новую таблицу, а затем вставьте ее в конец дива в абзацами.
+
+// function createTable( rows, cols) {
+//     let table = document.createElement('table');
+//
+//     for (let i = 1; i <= rows; i++){
+//         let tr = document.createElement('tr');
+//         for (let j = 1; j <= cols; j++){
+//             let td = document.createElement('td');
+//             tr.appendChild(td)
+//         }
+//         table.appendChild(tr)
+//     }
+//     return table;
+// }
+//
+// let div = document.querySelector('#elem');
+// div.appendChild(createTable(3, 5));
+
+
+// Функция для создания таблицы из двухмерного массива
+
+
+// задача
+//Сделайте функцию createTableByArr, которая параметром будет принимать двухмерный массив и строить на его основе таблицу.
+
+// let div = document.querySelector('#elem');
+// let arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+//
+// function createTableByArr(arr){
+//     let table = document.createElement('table');
+//     for (let elems of arr){
+//         let tr = document.createElement('tr');
+//         for (let i = 0; i < elems.length; i++){
+//             let td = document.createElement('td');
+//             td.innerHTML = elems[i];
+//             tr.appendChild(td)
+//         }
+//         table.appendChild(tr)
+//     }
+//     return table;
+// }
+//
+// let table = createTableByArr(arr);
+// div.appendChild(table);
+
+
+// Создание HTML таблицы из одномерного массива на JavaScript
+
+
+// задача
+// Сделайте функцию convertArr, которая будет брать одномерный массив и преобразовывать его в двухмерный. Построить таблицу c 4 колонками
+
+// let div = document.querySelector('#elem');
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+//
+//
+// function convertArr(arr, cols) {
+//     let newArr = [];
+//     let rows = arr.length/cols;
+//
+//     for (let k = 0; k < rows; k++){
+//         let resArr = [];
+//         for (let j = 0; j < cols; j++){
+//             resArr.push(arr.shift());
+//         }
+//         newArr.push(resArr);
+//     }
+//     return newArr;
+// }
+//
+//
+// function createTableByArr(arr){
+//     let table = document.createElement('table');
+//     for (let elems of arr){
+//         let tr = document.createElement('tr');
+//         for (let i = 0; i < elems.length; i++){
+//             let td = document.createElement('td');
+//             td.innerHTML = elems[i];
+//             tr.appendChild(td)
+//         }
+//         table.appendChild(tr)
+//     }
+//     return table;
+// }
+//
+// let table = createTableByArr(convertArr(arr, 3));
+// div.appendChild(table);
+
+
+// Нехватка элементов в массиве при создании таблицы
+
+
+// задача 1
+//Реализуйте функцию normalizeArr на случай если в массиве не будет одинаковое количество элементов для составления "правильной таблицы"
+
+// function normalizeArr(arr, cols, agregate) {
+//     let lastSubArr = arr.pop();
+//     console.log(lastSubArr)
+//     for (let i = 0; i < cols; i++){
+//         if (lastSubArr[i] === undefined){
+//             lastSubArr.push(agregate)
+//         }
+//     }
+//     arr.push(lastSubArr);
+//     return arr;
+// }
+//
+// let arr = [[1, 2, 3, 4], [5, 6, 7, 8], [9]];
+// let res = normalizeArr(arr, 4, '-');
+// console.log(res)
+
+
+// задача 2
+//С помощью комбинаций функций createTableByArr, normalizeArr и convertArr создайте из приведенного массива таблицу размером 5 колонок. Добавьте созданную таблицу в какой-нибудь див.
+
+// let div = document.querySelector('#elem');
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+// let cols = 5;
+//
+// function normalizeArr(arr, cols, agregate) {
+//     let lastSubArr = arr.pop();
+//     for (let i = 0; i < cols; i++){
+//         if (lastSubArr[i] === undefined){
+//             lastSubArr.push(agregate)
+//         }
+//     }
+//     arr.push(lastSubArr);
+//     console.log(arr);
+//     console.log(lastSubArr);
+//     return arr;
+// }
+//
+// function convertArr(arr, cols) {
+//     let newArr = [];
+//     let rows = arr.length/cols;
+//
+//     for (let k = 0; k < rows; k++){
+//         let resArr = [];
+//         for (let j = 0; j < cols; j++){
+//             let x = arr.shift();
+//             if (x != undefined){
+//                 resArr.push(x)
+//             }
+//         }
+//         newArr.push(resArr);
+//     }
+//     console.log(newArr);
+//     return newArr;
+// }
+//
+// function createTableByArr(arr){
+//     let table = document.createElement('table');
+//     for (let elems of arr){
+//         let tr = document.createElement('tr');
+//         for (let i = 0; i < elems.length; i++){
+//             let td = document.createElement('td');
+//             td.innerHTML = elems[i];
+//             tr.appendChild(td)
+//         }
+//         table.appendChild(tr)
+//     }
+//     return table;
+// }
+//
+// let twoDimArr = convertArr(arr, cols);
+// let normalTwoDimArr = normalizeArr(twoDimArr, cols, '-');
+// console.log(normalTwoDimArr)
+//
+// let table = createTableByArr(normalTwoDimArr);
+// div.appendChild(table);
 
 
 
