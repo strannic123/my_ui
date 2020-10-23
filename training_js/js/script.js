@@ -5881,8 +5881,6 @@
 //         }
 //     }
 //     arr.push(lastSubArr);
-//     console.log(arr);
-//     console.log(lastSubArr);
 //     return arr;
 // }
 //
@@ -5900,7 +5898,6 @@
 //         }
 //         newArr.push(resArr);
 //     }
-//     console.log(newArr);
 //     return newArr;
 // }
 //
@@ -5920,7 +5917,6 @@
 //
 // let twoDimArr = convertArr(arr, cols);
 // let normalTwoDimArr = normalizeArr(twoDimArr, cols, '-');
-// console.log(normalTwoDimArr)
 //
 // let table = createTableByArr(normalTwoDimArr);
 // div.appendChild(table);
