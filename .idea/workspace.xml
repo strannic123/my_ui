@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="fc7ce925-d399-4a7d-86dd-549165996780" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/training_js/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/training_js/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/training_js/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/training_js/js/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +36,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../training_html" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
@@ -111,7 +113,8 @@
       <workItem from="1603351355604" duration="24812000" />
       <workItem from="1603441256937" duration="13035000" />
       <workItem from="1603477010110" duration="7000" />
-      <workItem from="1603522176497" duration="29988000" />
+      <workItem from="1603522176497" duration="30745000" />
+      <workItem from="1603784624287" duration="17305000" />
     </task>
     <servers />
   </component>
@@ -127,22 +130,22 @@
       <screen x="0" y="0" width="1418" height="759" />
     </state>
     <state x="489" y="134" key="FileChooserDialogImpl/0.0.1418.759@0.0.1418.759" timestamp="1603558845366" />
-    <state width="1396" height="160" key="GridCell.Tab.0.bottom" timestamp="1603474777118">
+    <state width="1396" height="61" key="GridCell.Tab.0.bottom" timestamp="1603822712514">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
-    <state width="1396" height="160" key="GridCell.Tab.0.bottom/0.0.1418.759@0.0.1418.759" timestamp="1603474777118" />
-    <state width="1396" height="160" key="GridCell.Tab.0.center" timestamp="1603474777118">
+    <state width="1396" height="61" key="GridCell.Tab.0.bottom/0.0.1418.759@0.0.1418.759" timestamp="1603822712514" />
+    <state width="1396" height="61" key="GridCell.Tab.0.center" timestamp="1603822712513">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
-    <state width="1396" height="160" key="GridCell.Tab.0.center/0.0.1418.759@0.0.1418.759" timestamp="1603474777118" />
-    <state width="1396" height="160" key="GridCell.Tab.0.left" timestamp="1603474777118">
+    <state width="1396" height="61" key="GridCell.Tab.0.center/0.0.1418.759@0.0.1418.759" timestamp="1603822712513" />
+    <state width="1396" height="61" key="GridCell.Tab.0.left" timestamp="1603822712513">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
-    <state width="1396" height="160" key="GridCell.Tab.0.left/0.0.1418.759@0.0.1418.759" timestamp="1603474777118" />
-    <state width="1396" height="160" key="GridCell.Tab.0.right" timestamp="1603474777118">
+    <state width="1396" height="61" key="GridCell.Tab.0.left/0.0.1418.759@0.0.1418.759" timestamp="1603822712513" />
+    <state width="1396" height="61" key="GridCell.Tab.0.right" timestamp="1603822712514">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
-    <state width="1396" height="160" key="GridCell.Tab.0.right/0.0.1418.759@0.0.1418.759" timestamp="1603474777118" />
+    <state width="1396" height="61" key="GridCell.Tab.0.right/0.0.1418.759@0.0.1418.759" timestamp="1603822712514" />
     <state x="218" y="24" key="SettingsEditor" timestamp="1600193185701">
       <screen x="0" y="0" width="1418" height="759" />
     </state>

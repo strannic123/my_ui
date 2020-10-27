@@ -5922,5 +5922,366 @@
 // div.appendChild(table);
 
 
+// ООП на JavaScript в стиле ES6
+
+
+// Задачи для решения
+
+
+//Задача 1
+// Реализуйте класс Worker (Работник), который будет иметь следующие свойства: name (имя), surname (фамилия), rate (ставка за день работы), days (количество отработанных дней). Также класс должен иметь метод getSalary(), который будет выводить зарплату работника. Зарплата - это произведение (умножение) ставки rate на количество отработанных дней days.
+
+// class Worker {
+//     constructor(name, surname, rate, days) {
+//         this.name = name;
+//         this.surname = surname;
+//         this.rate = rate;
+//         this.days = days;
+//     }
+//
+//     getSalary() {
+//         return this.rate * this.days;
+//     }
+// }
+//
+// let worker1 = new Worker('Иван', 'Петров', 500, 20),
+//     worker2 = new Worker('Денис', 'Васильев', 700, 12);
+//
+// console.log(worker1.getSalary())
+// console.log(worker2.getSalary())
+
+
+//Задача 2
+// Модифицируйте класс Worker из предыдущей задачи следующим образом: сделайте все его свойства приватными, а для их чтения сделайте методы-геттеры. Наш класс теперь будет работать так:
+// class Worker {
+//     constructor(name, surname, rate, days) {
+//         this._name = name;
+//         this._surname = surname;
+//         this._rate = rate;
+//         this._days = days;
+//     }
+//
+//     getName() {
+//         return this._name
+//     }
+//
+//     getSurname() {
+//         return this._surname;
+//     }
+//
+//     getDays() {
+//         return this._days;
+//     }
+//
+//     getRate() {
+//         return this._rate;
+//     }
+//
+//     getSalary() {
+//         return this._rate * this._days;
+//     }
+// }
+//
+// let worker1 = new Worker('Иван', 'Петров', 500, 20),
+//     worker2 = new Worker('Денис', 'Васильев', 700, 12);
+//
+// console.log(worker1.getName());
+// console.log(worker1.getSurname());
+// console.log(worker1.getRate());
+// console.log(worker1.getSalary());
+
+
+//Задача 3
+//Модифицируйте класс Worker из предыдущей задачи следующим образом: для свойства rate и для свойства days сделайте еще и методы-сеттеры. Наш класс теперь будет работать так:
+// class Worker {
+//     constructor(name, surname, rate, days) {
+//         this._name = name;
+//         this._surname = surname;
+//         this._rate = rate;
+//         this._days = days;
+//     }
+//
+//     setRate(rate) {
+//         return this._rate = rate
+//     }
+//
+//     setDays(days) {
+//         return this._days = days
+//     }
+//
+//     getName() {
+//         return this._name
+//     }
+//
+//     getSurname() {
+//         return this._surname;
+//     }
+//
+//     getDays() {
+//         return this._days;
+//     }
+//
+//     getRate() {
+//         return this._rate;
+//     }
+//
+//     getSalary() {
+//         return this._rate * this._days;
+//     }
+// }
+//
+// let worker1 = new Worker('Иван', 'Петров', 500, 20),
+//     worker2 = new Worker('Денис', 'Васильев', 700, 12);
+//
+// worker1.setRate(55);
+// worker1.setDays(100);
+// worker2.setRate(35);
+// worker2.setDays(25);
+// console.log(worker1.getSalary())
+// console.log(worker2.getSalary())
+
+// console.log(worker1.getName());
+// console.log(worker1.getSurname());
+// console.log(worker1.getRate());
+// console.log(worker1.getSalary());
+
+
+//Задача 4
+//Реализуйте класс MyString, который будет иметь следующие методы: метод reverse(), который параметром принимает строку, а возвращает ее в перевернутом виде, метод ucFirst(), который параметром принимает строку, а возвращает эту же строку, сделав ее первую букву заглавной и метод ucWords, который принимает строку и делает заглавной первую букву каждого слова этой строки.
+// Наш класс должен работать так:
+
+// class MyString {
+//     constructor(str) {
+//         this._str = str;
+//     }
+//
+//     reverse(str){
+//         return this._str.split('').reverse().join('')
+//     }
+//
+//     ucFirst(str) {
+//         return this._str[0].slice(0,1).toUpperCase() + this._str.slice(1)
+//     }
+//
+//     ucWords(str) {
+//         let res = this._str.split(' '),
+//             fullRes = [];
+//         for (let i = 0; i < res.length; i++){
+//             if (res[i].charAt(0) != res[i].charAt(0).toUpperCase()){
+//                 fullRes.push(res[i].charAt(0).toUpperCase() + res[i].slice(1))
+//             }
+//         }
+//         return fullRes.join(' ');
+//     }
+// }
+//
+//
+// let str = new MyString('abcde abcde abcde');
+//
+// console.log(str.reverse()); //выведет 'edcba'
+// console.log(str.ucFirst()); //выведет 'Abcde'
+// console.log(str.ucWords()); //выведет 'Abcde Abcde Abcde'
+
+
+//Задача 5
+// Реализуйте класс Validator, который будет проверять строки. К примеру, у него будет метод isEmail параметром принимает строку и проверяет, является ли она корректным емейлом или нет. Если является - возвращает true, если не является - то false. Кроме того, класс будет иметь следующие методы: метод isDomain для проверки домена, метод isDate для проверки даты и метод isPhone для проверки телефона:
+
+// class Validator{
+//     constructor(email, domain, date, phone) {
+//         this._email = email;
+//         this._domain = domain;
+//         this._date = date;
+//         this._phone = phone;
+//
+//     }
+//
+//     isEmail() {
+//         let mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+//         if(this._email.match(mailformat)){
+//             return true
+//         }else {
+//             return false
+//         }
+//     }
+//
+//     isDomain() {
+//         let re = new RegExp(/^((?:(?:(?:\w[\.\-\+]?)*)\w)+)((?:(?:(?:\w[\.\-\+]?){0,62})\w)+)\.(\w{2,6})$/);
+//         if (this._domain.match(re)){
+//             return true
+//         }else {
+//             return false
+//         }
+//     }
+//
+//     isDate() {
+//         let re = new RegExp(/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/);
+//         let fixDate = this._date.replace(/\./g, '/')
+//         if (fixDate.match(re)){
+//             return true
+//         }else {
+//             return false
+//         }
+//     }
+//
+//     isPhone() {
+//         let re = new RegExp(/(\+7|8)[- _]*\(?[- _]*(\d{3}[- _]*\)?([- _]*\d){7}|\d\d[- _]*\d\d[- _]*\)?([- _]*\d){6})/g)
+//         if (this._phone.match(re)){
+//             return true
+//         }else {
+//             return false
+//         }
+//     }
+// }
+
+
+// let validator = new Validator('phphtml@mail.ru', 'phphtml.net', '12.05.2020', '+7(999)817-68-92');
+
+
+// console.log(validator.isEmail());
+// console.log(validator.isDomain());
+// console.log(validator.isDate());
+// console.log(validator.isPhone()); //тут можете формат своей страны
+
+
+// Задачи на наследование классов в JavaScript
+
+
+// Задача 1
+//Реализуйте класс Student (Студент), который будет наследовать от класса User. Этот класс должен иметь следующие свойства: name (имя, наследуется от User), surname (фамилия, наследуется от User), year (год поступления в вуз). Класс должен иметь метод getFullName() (наследуется от User), с помощью которого можно вывести одновременно имя и фамилию студента. Также класс должен иметь метод getCourse(), который будет выводить текущий курс студента (от 1 до 5). Курс вычисляется так: нужно от текущего года отнять год поступления в вуз. Текущий год получите самостоятельно.
+
+// class User {
+//     constructor(name, surname) {
+//         this.name = name;
+//         this.surname = surname;
+//     }
+//
+//     getFullName() {
+//         return this.name + ' ' + this.surname;
+//     }
+// }
+//
+// class Student extends User{
+//     constructor(name, surname, year) {
+//         super(name, surname);
+//         this.year = year;
+//     }
+//     getFullName(){
+//         return super.getFullName();
+//     }
+//
+//     getCourse() {
+//         let date = new Date();
+//         let thisYear = date.getFullYear() - this.year;
+//         return thisYear;
+//     }
+// }
+
+
+// let student = new Student('Иван', 'Иванов', 2017);
+
+// console.log(student.name); //выведет 'Иван'
+// console.log(student.surname); //выведет 'Иванов'
+// console.log(student.getFullName()); //выведет 'Иван Иванов'
+// console.log(student.year); //выведет 2017console.log(worker.getCourse()); //выведет 3 - третий курс, так как текущий год 2020
+
+
+// Работа с элементами
+
+
+//задача 1
+//Реализуйте класс Elem, который параметром принимает селектор одного HTML элемента и затем может выполнять с ним различные операции.
+
+// class Elem {
+//     constructor(selector) {
+//         this.selector = document.querySelector(selector);
+//
+//     }
+//
+//     html(text) {
+//         this.selector.innerHTML = text;
+//         return this;
+//     }
+//
+//     prepend(text) {
+//         this.selector.prepend(text);
+//         return this;
+//     }
+//
+//     append(text) {
+//         this.selector.append(text);
+//         return this;
+//     }
+//
+//     attr(name, value) {
+//         this.selector.setAttribute(name, value);
+//         return this;
+//     }
+// }
+
+
+// let elem = new Elem('#elem');
+
+// elem.html('!'); //запишет в текст элемента '!'
+// elem.prepend('?'); //запишет в начало элемента '!'
+// elem.append('au!'); //запишет в начало элемента '!'
+
+// elem.attr('class', 'www'); //запишет в атрибут class значение www
+
+//Должны работать цепочки методов:
+// elem.html('hello').append('!').prepend('!');
+// elem.attr('class', 'www').attr('title', 'hello');
+
+
+//задача 3
+//Реализуйте класс Rectangle. У него должны быть следующие свойства: ширина width, высота height. Также у него должны быть следующие методы: получить ширину getWidth, установить ширину setWidth, получить высоту getHeight, установить высоту setHeight.
+
+// class Rectangle{
+//     constructor(width, height) {
+//         this.width = width;
+//         this.height = height;
+//
+//         this.elem = document.createElement('div');
+//         this.setWidth(width);
+//         this.setHeight(height);
+//         this.elem.style.border = '1px solid blue';
+//         document.body.appendChild(this.elem);
+//
+//     }
+//
+//     setWidth(width){
+//         this.elem.style.width = width + 'px';
+//     }
+//
+//     setHeight(height){
+//         this.elem.style.height = height + 'px';
+//     }
+//
+//     getWidth(width){
+//         return this.elem.style.width;
+//     }
+//
+//     getHeight(height){
+//         return this.elem.style.height;
+//     }
+//
+// }
+//
+// let elem1 = new Rectangle(100, 200);
+// let elem2 = new Rectangle(200, 300);
+
+// elem1.setWidth(50);
+// elem1.setHeight(50);
+// console.log(elem1.getWidth());
+// console.log(elem1.getHeight());
+
+
+
+
+
+
+
+
+
+
 
 
