@@ -6275,13 +6275,134 @@
 // console.log(elem1.getHeight());
 
 
+//задача
+//Создайте класс Button. Клас должен содержать свойства width, height (числовые значения дробь), background - строка, и value - строка. Класс используется для создания кнопки. Все свойства задавайте через конструктор.
+
+// class Button {
+//     constructor(width, height, background, value) {
+//         this.width = width,
+//         this.height = height,
+//         this.background = background,
+//         this.value = value
+//
+//     }
+//
+//     render() {
+//         this.elem = document.createElement('button');
+//         this.elem.style.width = this.width + 'px';
+//         this.elem.style.height = this.height + 'px';
+//         this.elem.style.background = this.background;
+//         this.elem.setAttribute('value',this.value);
+//         document.body.appendChild(this.elem)
+//     }
+// }
+
+// let btn = new Button(300, 200, 'green', 'Click');
+// btn.render();
+// console.log(btn)
 
 
+//задача 3
+//Создайте класс ModernButton который наследуется от класса Button. Добавьте через конструктор свойство borderRadius, которое по умолчанию равно нулю. Свойство принимает целое число.
+
+// class Button {
+//     constructor(width, height, background, value) {
+//         this.width = width,
+//             this.height = height,
+//             this.background = background,
+//             this.value = value
+//
+//     }
+//
+//     render() {
+//         this.elem = document.createElement('button');
+//         this.elem.style.width = this.width + 'px';
+//         this.elem.style.height = this.height + 'px';
+//         this.elem.style.background = this.background;
+//         this.elem.setAttribute('value',this.value);
+//         document.body.appendChild(this.elem)
+//     }
+// }
+//
+// class ModernButton extends Button{
+//     constructor(width, height, background, value, borderRadius = 0) {
+//         super(width, height, background, value);
+//         this.borderRadius = borderRadius;
+//     }
+//
+//    render(){
+//        super.render();
+//        this.elem.style.borderRadius = this.borderRadius + 'px';
+//
+//    }
+// }
+//
+//
+// let btn2 = new ModernButton(100, 100, 'red', 'Bttttt', 15);
+// btn2.render();
 
 
+//НАСЛЕДОВАНИЕ С ИСПОЛЬЗОВАНИЕМ КЛАССОВ. SUPER, КОНСТРУКТОР.
 
 
+//задача1
+//Создайте класс List. Добавьте в него конструктор, который принимает в качестве параметра массив строк. Данный массив присваивается свойству класса item.
+
+// let a = ['one', 'two', 'three', 'four'];
+//
+// class List {
+//     constructor(item) {
+//         this.item = item;
+//     }
+// }
+
+//задача2
+//Добавьте в класс List метод render() который создает с помощью createElement элемент ul, и циклом перебирая this.item добавляет в ul элементы li, которые содержат текст из this.item.
+// Метод должен возвращать созданный элемент ul.
+
+// let a = ['one', 'two', 'three', 'four'];
+//
+// class List {
+//     constructor(item) {
+//         this.item = item;
+//     }
+//     render(){
+//         let elem = document.querySelector('#elem');
+//         let ul = document.createElement('ul');
+//         this.item.forEach((item) => {
+//             let li = document.createElement('li');
+//             li.innerHTML = item;
+//             ul.appendChild(li);
+//         })
+//         elem.appendChild(ul)
+//     }
+// }
+//
+// let elem = new List(a);
+// elem.render();
 
 
+// МЕТОДЫ GET, SET (ГЕТТЕРЫ И СЕТТЕРЫ)
+
+
+// задача 1
+//Создайте экземпляр класса Test. Присвойте через сеттер значение свойству testProp. Выведите в консоль созданный экземпляр. С помощью геттера получите значение свойства testProp. Выведите в консоль. Обратите внимание, что свойства testProp у нас нет. Есть приватное свойство _testProp, но используя геттер и сеттер мы для пользователя создаем видимость наличия свойства testProp.
+
+// class Test {
+//     constructor() {
+//
+//     }
+//     setTestProp(elem){
+//         this._testProp = elem;
+//     }
+//
+//     getTestProp(){
+//          return this._testProp
+//     }
+// }
+//
+// let tst = new Test();
+// tst.testProp = 10;
+// console.log(tst.testProp);
 
 
